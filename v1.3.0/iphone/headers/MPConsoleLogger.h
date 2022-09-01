@@ -1,0 +1,32 @@
+// Headers generated with ktool v1.3.0
+// https://github.com/cxnder/ktool | pip3 install k2l
+// Platform: IOS | Minimum OS: 8.0.0 | SDK: 0.0.0
+
+
+#ifndef MPCONSOLELOGGER_H
+#define MPCONSOLELOGGER_H
+
+
+#import <Foundation/Foundation.h>
+
+@protocol MPBLogger;
+
+@interface MPConsoleLogger : NSObject <MPBLogger>
+
+
+
+@property (nonatomic) NSUInteger logLevel; // ivar: _logLevel
+@property (readonly) NSUInteger hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+
+-(id)init;
+-(void)logMessage:(id)arg0 ;
+
+
+@end
+
+
+#endif

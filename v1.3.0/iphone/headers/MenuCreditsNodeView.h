@@ -1,0 +1,32 @@
+// Headers generated with ktool v1.3.0
+// https://github.com/cxnder/ktool | pip3 install k2l
+// Platform: IOS | Minimum OS: 8.0.0 | SDK: 0.0.0
+
+
+#ifndef MENUCREDITSNODEVIEW_H
+#define MENUCREDITSNODEVIEW_H
+
+
+
+@class MenuView;
+@class CCNode;
+@class MCAdjustableLabelTTF;
+
+@interface MenuCreditsNodeView : MenuView {
+    CCNode *_background;
+    MCAdjustableLabelTTF *_nameLabel;
+    MCAdjustableLabelTTF *_titleLabel;
+    BOOL _isTitle;
+}
+
+
+
+
+-(void)setupWithText:(id)arg0 isTitle:(BOOL)arg1 ;
+-(void)renderSkin;
+
+
+@end
+
+
+#endif

@@ -1,0 +1,39 @@
+// Headers generated with ktool v1.3.0
+// https://github.com/cxnder/ktool | pip3 install k2l
+// Platform: IOS | Minimum OS: 8.0.0 | SDK: 0.0.0
+
+
+#ifndef ADCGCDWEBSERVERBODYENCODER_H
+#define ADCGCDWEBSERVERBODYENCODER_H
+
+
+#import <Foundation/Foundation.h>
+
+@class ADCGCDWebServerResponse;
+@protocol ADCGCDWebServerBodyReader;
+@protocol ADCGCDWebServerBodyReader;
+
+@interface ADCGCDWebServerBodyEncoder : NSObject <ADCGCDWebServerBodyReader>
+
+ {
+    ADCGCDWebServerResponse *_response;
+    id<ADCGCDWebServerBodyReader> *_reader;
+}
+
+
+@property (readonly) NSUInteger hash;
+@property (readonly) Class superclass;
+@property (readonly, copy) NSString *description;
+@property (readonly, copy) NSString *debugDescription;
+
+
+-(id)initWithResponse:(id)arg0 reader:(id)arg1 ;
+-(BOOL)open:(*id)arg0 ;
+-(id)readData:(*id)arg0 ;
+-(void)close;
+
+
+@end
+
+
+#endif

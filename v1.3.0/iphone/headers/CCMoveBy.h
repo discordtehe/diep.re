@@ -1,0 +1,36 @@
+// Headers generated with ktool v1.3.0
+// https://github.com/cxnder/ktool | pip3 install k2l
+// Platform: IOS | Minimum OS: 8.0.0 | SDK: 0.0.0
+
+
+#ifndef CCMOVEBY_H
+#define CCMOVEBY_H
+
+
+
+@class CCActionInterval;
+@protocol NSCopying;
+
+@interface CCMoveBy : CCActionInterval <NSCopying>
+
+ {
+    CGPoint _positionDelta;
+    CGPoint _startPos;
+    CGPoint _previousPos;
+}
+
+
+
+
+-(id)initWithDuration:(CGFloat)arg0 position:(struct CGPoint )arg1 ;
+-(id)copyWithZone:(struct _NSZone *)arg0 ;
+-(void)startWithTarget:(id)arg0 ;
+-(id)reverse;
+-(void)update:(CGFloat)arg0 ;
++(id)actionWithDuration:(CGFloat)arg0 position:(struct CGPoint )arg1 ;
+
+
+@end
+
+
+#endif

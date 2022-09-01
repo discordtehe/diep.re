@@ -1,0 +1,22 @@
+// Headers generated with ktool v1.3.0
+// https://github.com/cxnder/ktool | pip3 install k2l
+// Platform: IOS | Minimum OS: 8.0.0 | SDK: 0.0.0
+
+
+#ifndef ADCOLONY_AVIDVIDEOADSESSION_H
+#define ADCOLONY_AVIDVIDEOADSESSION_H
+
+@class AbstractAvidAdSession;
+
+
+
+@interface AdColony_AvidVideoAdSession : AbstractAvidAdSession
+
+
+
+
+
+@end
+
+
+#endif

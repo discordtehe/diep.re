@@ -1,0 +1,23 @@
+// Headers generated with ktool v1.3.0
+// https://github.com/cxnder/ktool | pip3 install k2l
+// Platform: IOS | Minimum OS: 8.0.0 | SDK: 0.0.0
+
+
+#ifndef GADMADAPTERVUNGLEREWARDBASEDVIDEOAD_H
+#define GADMADAPTERVUNGLEREWARDBASEDVIDEOAD_H
+
+
+#import <Foundation/Foundation.h>
+
+
+@interface GADMAdapterVungleRewardBasedVideoAd : NSObject
+
+
+
++(Class)mainAdapterClass;
+
+
+@end
+
+
+#endif
