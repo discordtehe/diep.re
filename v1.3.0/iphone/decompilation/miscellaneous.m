@@ -1,1830 +1,5 @@
 
-long sub_1000a2264(void * _block, void * arg1, void * arg2) {
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    r22 = [[r20 architectureName] retain];
-    [r20 release];
-    r20 = [[r19 architectureName] retain];
-    [r19 release];
-    r19 = [r22 compare:r20];
-    [r20 release];
-    [r22 release];
-    r0 = r19;
-    return r0;
-}
-
-NSObject * sub_10010d86c(void * _block, void * arg1) {
-    r0 = [arg1 objectForKey:@"threads"];
-    return r0;
-}
-
-long sub_1001111e4(void * _block, void * arg1, void * arg2) {
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    r23 = [[r20 objectForKey:@"base"] retain];
-    [r20 release];
-    r20 = [[r19 objectForKey:@"base"] retain];
-    [r19 release];
-    r19 = [r23 compare:r20];
-    [r20 release];
-    [r23 release];
-    r0 = r19;
-    return r0;
-}
-
-NSObject * sub_100122f20(void * _block, void * arg1) {
-    r0 = [arg1 objectForKey:@"kv"];
-    return r0;
-}
-
-long sub_10012911c(void * _block, struct NSURL * arg1, struct NSURL * arg2) {
-    r20 = [arg1 retain];
-    r21 = @class(ANSFileUtils);
-    r22 = @class(NSDate);
-    r19 = [arg2 retain];
-    r22 = [[r22 distantPast] retain];
-    r21 = [[r21 fileCreatedDateAtURL:r20 withDefault:r22] retain];
-    [r20 release];
-    [r22 release];
-    r20 = @class(ANSFileUtils);
-    r22 = [[NSDate distantPast] retain];
-    r20 = [[r20 fileCreatedDateAtURL:r19 withDefault:r22] retain];
-    [r19 release];
-    [r22 release];
-    r19 = [r20 compare:r21];
-    [r20 release];
-    [r21 release];
-    r0 = r19;
-    return r0;
-}
-
-NSDictionary * sub_100145e7c(void * _block, void * arg1) {
-    r0 = sub_100145e84();
-    return r0;
-}
-
-* sub_1001460f4(void * _block, struct NSDictionary * arg1) {
-    var_50 = d9;
-    stack[-88] = d8;
-    r31 = r31 + 0xffffffffffffffa0;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    if (r19 != 0x0) {
-            r0 = [r19 objectForKeyedSubscript:@"last_bundle_index"];
-            r0 = [r0 retain];
-            r20 = [r0 intValue];
-            [r0 release];
-            r22 = [[r19 objectForKeyedSubscript:@"last_bundle_start_timestamp"] retain];
-            r0 = [NSNull null];
-            r29 = r29;
-            r23 = [r0 retain];
-            if (r22 != r23) {
-                    r0 = [r19 objectForKeyedSubscript:@"last_bundle_start_timestamp"];
-                    r29 = r29;
-                    r0 = [r0 retain];
-                    [r0 doubleValue];
-                    v8 = v0;
-                    [r25 release];
-            }
-            [r23 release];
-            [r22 release];
-            r0 = [r19 objectForKeyedSubscript:@"last_bundle_end_timestamp"];
-            r0 = [r0 retain];
-            [r0 doubleValue];
-            [r21 release];
-            r20 = [[APMAppMetadata alloc] initWithLastBundleIndex:r20 lastBundleStartTimestamp:r3 lastBundleEndTimestamp:r4];
-    }
-    else {
-            r0 = [APMMeasurement monitor];
-            r0 = [r0 retain];
-            [r0 logWithLevel:0x4 messageCode:0x2ee7 message:@"Received empty dictionary for getting app metadata"];
-            [r0 release];
-            r20 = 0x0;
-    }
-    [r19 release];
-    r0 = [r20 autorelease];
-    return r0;
-}
-
-NSDictionary * sub_100146310(void * _block, void * arg1) {
-    r0 = sub_100145e84();
-    return r0;
-}
-
-NSDictionary * sub_1001468d4(void * _block, void * arg1) {
-    r31 = r31 - 0xc0;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    if (r19 != 0x0) {
-            r20 = @class(NSNumber);
-            r20 = [[r20 numberWithInt:[r19 day]] retain];
-            r21 = @class(NSNumber);
-            r21 = [[r21 numberWithInt:[r19 conversionsCount]] retain];
-            r23 = @class(NSNumber);
-            r23 = [[r23 numberWithInt:[r19 allEventsCount]] retain];
-            r24 = @class(NSNumber);
-            r24 = [[r24 numberWithInt:[r19 publicEventsCount]] retain];
-            r25 = @class(NSNumber);
-            r25 = [[r25 numberWithInt:[r19 errorEventsCount]] retain];
-            r26 = @class(NSNumber);
-            r26 = [[r26 numberWithInt:[r19 realtimeCount]] retain];
-            r22 = [[NSDictionary dictionaryWithObjects:r2 forKeys:r3 count:r4] retain];
-            [r26 release];
-            [r25 release];
-            [r24 release];
-            [r23 release];
-            [r21 release];
-            [r20 release];
-    }
-    else {
-            r0 = [APMMeasurement monitor];
-            r0 = [r0 retain];
-            [r0 logWithLevel:0x4 messageCode:0x2eea message:@"Received empty daily counts for getting dictionary representation"];
-            [r0 release];
-            r22 = 0x0;
-    }
-    var_48 = **___stack_chk_guard;
-    r20 = objc_retainAutoreleaseReturnValue([r22 autorelease]);
-    [r19 release];
-    if (**___stack_chk_guard == var_48) {
-            r0 = r20;
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-}
-
-NSDictionary * sub_100146cc4(void * _block, void * arg1) {
-    r31 = r31 - 0x60;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r0 = [arg1 protoBuffer];
-    r29 = &saved_fp;
-    r19 = [r0 retain];
-    if (r19 != 0x0) {
-            r21 = [[NSNumber numberWithLongLong:[r19 apm_64LSBMD5]] retain];
-            r20 = [[NSDictionary dictionaryWithObjects:r2 forKeys:r3 count:r4] retain];
-            [r21 release];
-    }
-    else {
-            r0 = [APMMeasurement monitor];
-            r0 = [r0 retain];
-            [r0 logWithLevel:0x4 messageCode:0x2eeb message:@"Received empty measurement bundle metadata for getting dictionary representation"];
-            [r0 release];
-            r20 = 0x0;
-    }
-    var_28 = **___stack_chk_guard;
-    [r19 release];
-    r0 = [r20 autorelease];
-    if (**___stack_chk_guard == var_28) {
-            r0 = objc_retainAutoreleaseReturnValue(r0);
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-}
-
-* sub_100146ed0(void * _block, struct NSDictionary * arg1) {
-    r1 = arg1;
-    var_10 = r20;
-    stack[-24] = r19;
-    r31 = r31 + 0xffffffffffffffe0;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    if (r1 != 0x0) {
-            r0 = [r1 objectForKeyedSubscript:@"metadata"];
-            r29 = r29;
-            r0 = [r0 retain];
-            r19 = r0;
-            if ([r0 length] != 0x0) {
-                    r20 = [[APMPBMeasurementBundle alloc] initWithBuffer:r19];
-            }
-            else {
-                    r0 = [APMMeasurement monitor];
-                    r0 = [r0 retain];
-                    [r0 logWithLevel:0x4 messageCode:0x2eed message:@"Event metadata should not be empty for getting measurement bundle"];
-                    [r0 release];
-                    r20 = 0x0;
-            }
-            [r19 release];
-    }
-    else {
-            r0 = [APMMeasurement monitor];
-            r0 = [r0 retain];
-            [r0 logWithLevel:0x4 messageCode:0x2eec message:@"Received empty dictionary for getting measurement bundle"];
-            [r0 release];
-            r20 = 0x0;
-    }
-    r0 = [r20 autorelease];
-    return r0;
-}
-
-* sub_100149f3c(void * _block, struct NSDictionary * arg1) {
-    r0 = sub_100149f44();
-    return r0;
-}
-
-* sub_10014a48c(void * _block, struct NSDictionary * arg1) {
-    r0 = sub_100149f44();
-    return r0;
-}
-
-NSDictionary * sub_10014a558(void * _block, void * arg1) {
-    r31 = r31 - 0x100;
-    var_50 = r28;
-    stack[-88] = r27;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [[arg1 retain] retain];
-    if (r19 == 0x0) goto loc_10014a8dc;
-
-loc_10014a59c:
-    r0 = [r19 name];
-    r29 = r29;
-    r0 = [r0 retain];
-    r22 = [r0 length];
-    [r0 release];
-    if (r22 == 0x0) goto loc_10014a918;
-
-loc_10014a5d8:
-    var_E8 = [NSMutableDictionary alloc];
-    var_E0 = [[r19 name] retain];
-    r22 = @class(NSNumber);
-    r22 = [[r22 numberWithInt:[r19 lifetimeCount]] retain];
-    r23 = @class(NSNumber);
-    r2 = [r19 currentBundleCount];
-    r23 = [[r23 numberWithInt:r2] retain];
-    r25 = @class(NSNumber);
-    [r19 lastFireTimestamp];
-    r25 = [[r25 numberWithDouble:r2] retain];
-    r27 = @class(NSNumber);
-    [r19 lastBundledTimestamp];
-    r26 = [[r27 numberWithDouble:r2] retain];
-    r27 = @class(NSNumber);
-    r27 = [[r27 numberWithInt:[r19 lastSamplingRate]] retain];
-    r28 = @class(NSNumber);
-    r28 = [[r28 numberWithBool:[r19 lastExemptFromSampling]] retain];
-    r24 = [[NSNumber numberWithInt:[r19 lastBundledDay]] retain];
-    r20 = [[NSDictionary dictionaryWithObjects:&var_98 forKeys:&var_D8 count:0x8] retain];
-    r21 = [var_E8 initWithDictionary:r20];
-    [r20 release];
-    [r24 release];
-    [r28 release];
-    [r27 release];
-    [r26 release];
-    [r25 release];
-    [r23 release];
-    [r22 release];
-    [var_E0 release];
-    r0 = [r19 lastSampledComplexEventID];
-    r29 = r29;
-    r0 = [r0 retain];
-    [r0 release];
-    if (r0 != 0x0) {
-            r20 = [[r19 lastSampledComplexEventID] retain];
-            [r21 setObject:r20 forKeyedSubscript:@"last_sampled_complex_event_id"];
-            [r20 release];
-    }
-    goto loc_10014a964;
-
-loc_10014a964:
-    var_58 = **___stack_chk_guard;
-    [r19 release];
-    r20 = objc_retainAutoreleaseReturnValue([r21 autorelease]);
-    [r19 release];
-    if (**___stack_chk_guard == var_58) {
-            r0 = r20;
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-
-loc_10014a918:
-    r20 = [[APMMeasurement monitor] retain];
-    goto loc_10014a950;
-
-loc_10014a950:
-    [r20 logWithLevel:r2 messageCode:r3 message:r4];
-    [r20 release];
-    r21 = 0x0;
-    goto loc_10014a964;
-
-loc_10014a8dc:
-    r20 = [[APMMeasurement monitor] retain];
-    goto loc_10014a950;
-}
-
-* sub_10014ac84(void * _block, struct NSDictionary * arg1) {
-    r0 = sub_10014ac8c();
-    return r0;
-}
-
-* sub_10014b2a8(void * _block, struct NSDictionary * arg1) {
-    r0 = sub_10014ac8c();
-    return r0;
-}
-
-NSDictionary * sub_10014b374(void * _block, void * arg1) {
-    r31 = r31 - 0xa0;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [[arg1 retain] retain];
-    if (r19 == 0x0) goto loc_10014b590;
-
-loc_10014b3b4:
-    r0 = [r19 origin];
-    r29 = r29;
-    r0 = [r0 retain];
-    r22 = [r0 length];
-    [r0 release];
-    if (r22 == 0x0) goto loc_10014b5cc;
-
-loc_10014b3f4:
-    r23 = @selector(length);
-    r0 = [r19 name];
-    r29 = r29;
-    r0 = [r0 retain];
-    r24 = objc_msgSend(r0, r23);
-    [r0 release];
-    if (r24 == 0x0) goto loc_10014b614;
-
-loc_10014b42c:
-    r0 = [r19 value];
-    r29 = r29;
-    r0 = [r0 retain];
-    r20 = r0;
-    if ([r0 isString] != 0x0) {
-            r23 = @selector(length);
-            r0 = [r20 stringValue];
-            r29 = r29;
-            r0 = [r0 retain];
-            r23 = objc_msgSend(r0, r23);
-            [r0 release];
-            if (r23 != 0x0) {
-                    r23 = [sub_100152908() retain];
-                    r21 = [[r19 origin] retain];
-                    r24 = [[r19 name] retain];
-                    [r19 lastSetTimestamp];
-                    r25 = [[NSNumber numberWithDouble:r2] retain];
-                    r22 = [[NSDictionary dictionaryWithObjects:r2 forKeys:r3 count:r4] retain];
-                    [r25 release];
-                    [r24 release];
-                    [r21 release];
-                    [r23 release];
-            }
-            else {
-                    r0 = [APMMeasurement monitor];
-                    r0 = [r0 retain];
-                    [r0 logWithLevel:0x1 messageCode:0x2ef8 message:@"Received empty string value for user property"];
-                    [r0 release];
-                    r22 = 0x0;
-            }
-    }
-    else {
-            r23 = [sub_100152908() retain];
-            r21 = [[r19 origin] retain];
-            r24 = [[r19 name] retain];
-            [r19 lastSetTimestamp];
-            r25 = [[NSNumber numberWithDouble:r2] retain];
-            r22 = [[NSDictionary dictionaryWithObjects:r2 forKeys:r3 count:r4] retain];
-            [r25 release];
-            [r24 release];
-            [r21 release];
-            [r23 release];
-    }
-    goto loc_10014b608;
-
-loc_10014b608:
-    [r20 release];
-    goto loc_10014b660;
-
-loc_10014b660:
-    var_48 = **___stack_chk_guard;
-    [r19 release];
-    r20 = objc_retainAutoreleaseReturnValue([r22 autorelease]);
-    [r19 release];
-    if (**___stack_chk_guard == var_48) {
-            r0 = r20;
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-
-loc_10014b614:
-    r20 = [[APMMeasurement monitor] retain];
-    goto loc_10014b64c;
-
-loc_10014b64c:
-    [r20 logWithLevel:r2 messageCode:r3 message:r4];
-    [r20 release];
-    r22 = 0x0;
-    goto loc_10014b660;
-
-loc_10014b5cc:
-    r0 = [APMMeasurement monitor];
-    r0 = [r0 retain];
-    r20 = r0;
-    [r0 logWithLevel:0x1 messageCode:0x2ef6 message:@"Received user property with empty origin for getting dictionary representation"];
-    goto loc_10014b608;
-
-loc_10014b590:
-    r20 = [[APMMeasurement monitor] retain];
-    goto loc_10014b64c;
-}
-
-* sub_10014b834(void * _block, struct NSDictionary * arg1) {
-    r0 = sub_10014b83c();
-    return r0;
-}
-
-* sub_10014bdcc(void * _block, struct NSDictionary * arg1) {
-    var_40 = r26;
-    stack[-72] = r25;
-    r31 = r31 + 0xffffffffffffffb0;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    if (r19 != 0x0) {
-            r21 = [APMEventFilter alloc];
-            r0 = [r19 objectForKeyedSubscript:@"audience_id"];
-            r0 = [r0 retain];
-            r20 = r0;
-            r24 = [r0 intValue];
-            r0 = [r19 objectForKeyedSubscript:@"filter_id"];
-            r0 = [r0 retain];
-            r23 = [r0 intValue];
-            r26 = [[r19 objectForKeyedSubscript:@"event_name"] retain];
-            r22 = [[r19 objectForKeyedSubscript:@"data"] retain];
-            r21 = [r21 initWithAudienceID:r24 filterID:r23 eventName:r26 data:r22];
-            [r22 release];
-            [r26 release];
-            [r0 release];
-            [r20 release];
-    }
-    else {
-            r0 = [APMMeasurement monitor];
-            r0 = [r0 retain];
-            [r0 logWithLevel:0x4 messageCode:0x2ef9 message:@"Received empty dictionary for getting event filter"];
-            [r0 release];
-            r21 = 0x0;
-    }
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-* sub_10014c010(void * _block, struct NSDictionary * arg1) {
-    var_40 = r26;
-    stack[-72] = r25;
-    r31 = r31 + 0xffffffffffffffb0;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    if (r19 != 0x0) {
-            r21 = [APMPropertyFilter alloc];
-            r0 = [r19 objectForKeyedSubscript:@"audience_id"];
-            r0 = [r0 retain];
-            r20 = r0;
-            r24 = [r0 intValue];
-            r0 = [r19 objectForKeyedSubscript:@"filter_id"];
-            r0 = [r0 retain];
-            r23 = [r0 intValue];
-            r26 = [[r19 objectForKeyedSubscript:@"property_name"] retain];
-            r22 = [[r19 objectForKeyedSubscript:@"data"] retain];
-            r21 = [r21 initWithAudienceID:r24 filterID:r23 propertyName:r26 data:r22];
-            [r22 release];
-            [r26 release];
-            [r0 release];
-            [r20 release];
-    }
-    else {
-            r0 = [APMMeasurement monitor];
-            r0 = [r0 retain];
-            [r0 logWithLevel:0x4 messageCode:0x2efd message:@"Received empty dictionary for getting property filter"];
-            [r0 release];
-            r21 = 0x0;
-    }
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-* sub_10014c25c(void * _block, struct NSDictionary * arg1) {
-    r0 = sub_10014b83c();
-    return r0;
-}
-
-NSDictionary * sub_10014dd20(void * _block, void * arg1) {
-    r0 = objc_retainAutoreleaseReturnValue(arg1);
-    return r0;
-}
-
-NSDictionary * sub_10014de30(void * _block, void * arg1) {
-    r0 = objc_retainAutoreleaseReturnValue(arg1);
-    return r0;
-}
-
-* sub_10014e308(void * _block, struct NSDictionary * arg1) {
-    r0 = sub_10014e310();
-    return r0;
-}
-
-NSDictionary * sub_10014eb54(void * _block, void * arg1) {
-    r31 = r31 - 0x110;
-    var_50 = r28;
-    stack[-88] = r27;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [[arg1 retain] retain];
-    if (r19 == 0x0) goto loc_10014f090;
-
-loc_10014eb98:
-    r0 = [r19 name];
-    r29 = r29;
-    r0 = [r0 retain];
-    r23 = [r0 length];
-    [r0 release];
-    if (r23 == 0x0) goto loc_10014f0cc;
-
-loc_10014ebd8:
-    r20 = @selector(length);
-    r0 = [r19 origin];
-    r29 = r29;
-    r0 = [r0 retain];
-    r24 = objc_msgSend(r0, r20);
-    [r0 release];
-    if (r24 == 0x0) goto loc_10014f108;
-
-loc_10014ec10:
-    r0 = [r19 value];
-    r29 = r29;
-    r0 = [r0 retain];
-    r21 = r0;
-    [r0 release];
-    if (r21 == 0x0) goto loc_10014f1b0;
-
-loc_10014ec38:
-    r24 = @selector(value);
-    r20 = @selector(length);
-    var_F0 = [NSMutableDictionary alloc];
-    var_E0 = [[r19 name] retain];
-    var_E8 = [[r19 origin] retain];
-    var_F8 = [objc_msgSend(r19, r24) retain];
-    r25 = [sub_100152908() retain];
-    r22 = @class(NSNumber);
-    [r19 creationTimestamp];
-    r26 = [[r22 numberWithDouble:r2] retain];
-    r22 = @class(NSNumber);
-    r2 = [r19 isActive];
-    r27 = [[r22 numberWithBool:r2] retain];
-    r22 = @class(NSNumber);
-    [r19 triggerTimeout];
-    r22 = [[r22 numberWithDouble:r2] retain];
-    r23 = @class(NSNumber);
-    [r19 triggeredTimestamp];
-    r23 = [[r23 numberWithDouble:r2] retain];
-    r21 = @class(NSNumber);
-    [r19 timeToLive];
-    r28 = [[r21 numberWithDouble:r2] retain];
-    r24 = [[NSDictionary dictionaryWithObjects:&var_98 forKeys:&var_D8 count:0x8] retain];
-    r21 = [var_F0 initWithDictionary:r24];
-    [r24 release];
-    [r28 release];
-    [r23 release];
-    [r22 release];
-    [r27 release];
-    [r26 release];
-    [r25 release];
-    [var_F8 release];
-    [var_E8 release];
-    [var_E0 release];
-    r0 = [r19 triggerEventName];
-    r29 = r29;
-    r0 = [r0 retain];
-    r20 = objc_msgSend(r0, r20);
-    [r0 release];
-    if (r20 != 0x0) {
-            r0 = [r19 triggerEventName];
-            r29 = r29;
-            r20 = [r0 retain];
-            [r21 setObject:r20 forKeyedSubscript:@"trigger_event_name"];
-            [r20 release];
-    }
-    r0 = [r19 triggeredEvent];
-    r29 = r29;
-    r0 = [r0 retain];
-    [r0 release];
-    if (r0 != 0x0) {
-            r20 = [[r19 triggeredEvent] retain];
-            r0 = sub_100150058();
-            r29 = r29;
-            r22 = [r0 retain];
-            [r21 setObject:r22 forKeyedSubscript:@"triggered_event"];
-            [r22 release];
-            [r20 release];
-    }
-    r0 = [r19 timedOutEvent];
-    r29 = r29;
-    r0 = [r0 retain];
-    [r0 release];
-    if (r0 != 0x0) {
-            r20 = [[r19 timedOutEvent] retain];
-            r0 = sub_100150058();
-            r29 = r29;
-            r22 = [r0 retain];
-            [r21 setObject:r22 forKeyedSubscript:@"timed_out_event"];
-            [r22 release];
-            [r20 release];
-    }
-    r0 = [r19 expiredEvent];
-    r29 = r29;
-    r0 = [r0 retain];
-    [r0 release];
-    if (r0 == 0x0) goto loc_10014f154;
-
-loc_10014f040:
-    r20 = [[r19 expiredEvent] retain];
-    r22 = [sub_100150058() retain];
-    [r21 setObject:r22 forKeyedSubscript:@"expired_event"];
-    [r22 release];
-    goto loc_10014f1ec;
-
-loc_10014f1ec:
-    [r20 release];
-    goto loc_10014f154;
-
-loc_10014f154:
-    var_58 = **___stack_chk_guard;
-    [r19 release];
-    r20 = objc_retainAutoreleaseReturnValue([r21 autorelease]);
-    [r19 release];
-    if (**___stack_chk_guard == var_58) {
-            r0 = r20;
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-
-loc_10014f1b0:
-    r0 = [APMMeasurement monitor];
-    r0 = [r0 retain];
-    r20 = r0;
-    [r0 logWithLevel:0x1 messageCode:0x2f0a message:@"Received conditional user property with nil value for getting dictionary representation"];
-    goto loc_10014f1ec;
-
-loc_10014f108:
-    r20 = [[APMMeasurement monitor] retain];
-    goto loc_10014f140;
-
-loc_10014f140:
-    [r20 logWithLevel:r2 messageCode:r3 message:r4];
-    [r20 release];
-    r21 = 0x0;
-    goto loc_10014f154;
-
-loc_10014f0cc:
-    r20 = [[APMMeasurement monitor] retain];
-    goto loc_10014f140;
-
-loc_10014f090:
-    r20 = [[APMMeasurement monitor] retain];
-    goto loc_10014f140;
-}
-
-NSNumber * sub_10016e904(void * _block, struct NSNumber * arg1) {
-    r1 = arg1;
-    if (r1 != 0x0) {
-            r19 = @class(NSNumber);
-            [r1 longLongValue];
-            asm { scvtf      d0, x0 };
-            asm { fdiv       d0, d0, d1 };
-            r0 = [r19 numberWithDouble:r2];
-            r0 = [r0 retain];
-            r0 = [r0 autorelease];
-    }
-    else {
-            r0 = [0x0 autorelease];
-    }
-    return r0;
-}
-
-long sub_100195e64(void * _block, struct NSString * arg1, struct NSString * arg2) {
-    var_20 = r22;
-    stack[-40] = r21;
-    r31 = r31 + 0xffffffffffffffd0;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = [arg1 retain];
-    r20 = [arg2 retain];
-    if (r19 != 0x0) {
-            if (r20 != 0x0) {
-                    r22 = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-                    r21 = [r19 compare:r20 options:0x0 range:0x0 locale:[r19 length]];
-                    [r22 release];
-            }
-            else {
-                    r21 = 0x1;
-            }
-    }
-    else {
-            r21 = 0xffffffffffffffff;
-    }
-    [r20 release];
-    [r19 release];
-    r0 = r21;
-    return r0;
-}
-
-long sub_100198570(void * _block, struct NSString * arg1, struct NSString * arg2) {
-    r21 = [arg1 retain];
-    r19 = [arg1 compare:arg2 options:0x1];
-    [r21 release];
-    r0 = r19;
-    return r0;
-}
-
-NSDictionary * sub_10020c654(void * _block) {
-    r0 = [ADCAdColonyAPI getAppInfo];
-    return r0;
-}
-
-NSDictionary * sub_10020c848(void * _block, struct NSString * arg1) {
-    r0 = [ADCAdColonyAPI getAppInfo];
-    return r0;
-}
-
-NSDictionary * sub_10020c6c8(void * _block, struct NSString * arg1, struct NSDictionary * arg2, unsigned long long arg3, unsigned long long arg4, struct NSString * arg5, bool arg6, unsigned long long arg7) {
-    r31 = r31 - 0x70;
-    var_50 = r28;
-    stack[-88] = r27;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r26 = arg7;
-    var_54 = arg6;
-    r24 = arg4;
-    r25 = arg3;
-    r19 = [arg1 retain];
-    r21 = [arg2 retain];
-    r23 = [arg5 retain];
-    r0 = [AdColony sharedInstance];
-    r0 = [r0 retain];
-    r20 = r0;
-    r0 = [r0 zoneFromID];
-    r0 = [r0 retain];
-    r22 = r0;
-    r0 = [r0 objectForKeyedSubscript:arg1];
-    r29 = &saved_fp;
-    r27 = [r0 retain];
-    [r22 release];
-    if (r27 != 0x0) {
-            r0 = [ADCAdColonyAPI updateZoneInfoForZoneID:r19 rewardInfo:r21 zoneType:r25 status:r24 appSessionID:r23 rewarded:var_54 playInterval:r26];
-    }
-    else {
-            r0 = [ADCAdColonyAPI zoneInfoForZoneID:r19 rewardInfo:r21 zoneType:r25 status:r24 appSessionID:r23 rewarded:var_54 playInterval:r26];
-    }
-    r22 = [r0 retain];
-    [r23 release];
-    [r21 release];
-    [r19 release];
-    [r27 release];
-    [r20 release];
-    r0 = [r22 autorelease];
-    return r0;
-}
-
-NSArray * sub_10020d464(void * _block, int arg1) {
-    r0 = [ADCCryptoAPI uuid:arg1];
-    return r0;
-}
-
-NSString * sub_10020d480(void * _block, struct JSValue * arg1) {
-    var_20 = r22;
-    stack[-40] = r21;
-    r31 = r31 + 0xffffffffffffffd0;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    if (r19 != 0x0 && ([r19 isUndefined] & 0x1) == 0x0) {
-            if ([r19 isString] != 0x0) {
-                    r21 = [[r19 toString] retain];
-                    r20 = [[ADCCryptoAPI sha1ForInput:r21] retain];
-                    [r21 release];
-            }
-            else {
-                    r20 = @"";
-                    [r20 retain];
-            }
-    }
-    else {
-            r20 = @"";
-            [r20 retain];
-    }
-    [r19 release];
-    r0 = [r20 autorelease];
-    return r0;
-}
-
-long sub_10020d544(void * _block, struct JSValue * arg1) {
-    var_20 = r22;
-    stack[-40] = r21;
-    r31 = r31 + 0xffffffffffffffd0;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    if (r19 != 0x0 && ([r19 isUndefined] & 0x1) == 0x0) {
-            if ([r19 isString] != 0x0) {
-                    r21 = [[r19 toString] retain];
-                    r20 = [ADCCryptoAPI crc32ForInput:r21];
-                    [r21 release];
-            }
-            else {
-                    r20 = 0xffffffffffffffff;
-            }
-    }
-    else {
-            r20 = 0xffffffffffffffff;
-    }
-    [r19 release];
-    r0 = r20;
-    return r0;
-}
-
-NSDictionary * sub_10020d5f4(void * _block, struct NSString * arg1) {
-    r0 = [ADCDeviceAPI getInfoWithoutAsyncData];
-    return r0;
-}
-
-NSDictionary * sub_10020e994(void * _block, struct JSValue * arg1) {
-    r31 = r31 - 0x40;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    if (r19 != 0x0 && ([r19 isUndefined] & 0x1) == 0x0) {
-            if ([r19 isObject] != 0x0) {
-                    r21 = [[r19 toDictionary] retain];
-                    r20 = [[ADCModuleAPI loadWithDict:r21] retain];
-                    [r21 release];
-            }
-            else {
-                    r20 = [[NSDictionary dictionaryWithObjects:r2 forKeys:r3 count:r4] retain];
-            }
-    }
-    else {
-            r20 = [[NSDictionary dictionaryWithObjects:r2 forKeys:r3 count:r4] retain];
-    }
-    [r19 release];
-    r0 = [r20 autorelease];
-    return r0;
-}
-
-long sub_10025aef0(void * _block, struct NSNumber * arg1, struct NSNumber * arg2) {
-    r21 = [arg1 retain];
-    r19 = [arg1 compare:arg2];
-    [r21 release];
-    r0 = r19;
-    return r0;
-}
-
-long sub_10025de70(void * _block, struct NSString * arg1, struct NSString * arg2) {
-    r21 = [arg1 retain];
-    r19 = [arg1 compare:arg2];
-    [r21 release];
-    r0 = r19;
-    return r0;
-}
-
-* sub_1004731f4(void * _block, struct NSDictionary * arg1) {
-    r20 = [[arg1 objectForKeyedSubscript:@"text"] retain];
-    r21 = [[NSCharacterSet whitespaceAndNewlineCharacterSet] retain];
-    r22 = [[r20 stringByTrimmingCharactersInSet:r21] retain];
-    r19 = [[NSURL URLWithString:r2] retain];
-    [r22 release];
-    [r21 release];
-    [r20 release];
-    r0 = [r19 autorelease];
-    return r0;
-}
-
-* sub_1004732bc(void * _block, struct NSDictionary * arg1) {
-    r20 = [arg1 retain];
-    r19 = [objc_alloc() initWithDictionary:r20];
-    [r20 release];
-    r0 = [r19 autorelease];
-    return r0;
-}
-
-* sub_10048f008(void * _block, struct NSDictionary * arg1) {
-    r0 = [arg1 retain];
-    r0 = [r0 autorelease];
-    return r0;
-}
-
-* sub_1004a45a4(void * _block, struct NSDictionary * arg1) {
-    r0 = [arg1 retain];
-    r0 = [r0 autorelease];
-    return r0;
-}
-
-* sub_1004ce568(void * _block, struct NSDictionary * arg1) {
-    r20 = [arg1 retain];
-    r19 = [objc_alloc() initWithDictionary:r20];
-    [r20 release];
-    r0 = [r19 autorelease];
-    return r0;
-}
-
-long sub_1004ebddc(void * _block, struct NSIndexPath * arg1, struct NSIndexPath * arg2) {
-    r0 = [arg1 retain];
-    r19 = [r0 compare:arg2];
-    [r0 release];
-    r0 = r19;
-    return r0;
-}
-
-* sub_1004f6b38(void * _block) {
-    r0 = [MPGeolocationProvider sharedProvider];
-    return r0;
-}
-
-* sub_1004ff5d8(void * _block, struct NSDictionary * arg1) {
-    r20 = [arg1 retain];
-    r19 = [objc_alloc() initWithDictionary:r20];
-    [r20 release];
-    r0 = [r19 autorelease];
-    return r0;
-}
-
-long sub_1004ffd70(void * _block, struct MPVASTMediaFile * arg1, struct MPVASTMediaFile * arg2) {
-    var_30 = d9;
-    stack[-56] = d8;
-    r31 = r31 + 0xffffffffffffffc0;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    [r20 bitrate];
-    [r20 release];
-    [r19 bitrate];
-    r0 = [r19 release];
-    if (d8 < d9) {
-            if (CPU_FLAGS & S) {
-                    r0 = 0x1;
-            }
-    }
-    return r0;
-}
-
-long sub_100624d10(void * _block, void * arg1, void * arg2) {
-    r31 = r31 - 0x60;
-    var_40 = d9;
-    stack[-72] = d8;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    r23 = [r20 getResourceValue:r2 forKey:r3 error:r4];
-    [r20 release];
-    r20 = [0x0 retain];
-    if (r23 != 0x0) {
-            r22 = [r19 getResourceValue:r2 forKey:r3 error:r4];
-            r21 = [0x0 retain];
-            if (r22 != 0x0) {
-                    [r20 timeIntervalSince1970];
-                    [r21 timeIntervalSince1970];
-                    if (d8 >= d0) {
-                            asm { csinc      x22, x8, xzr, pl };
-                    }
-                    r22 = @selector(timeIntervalSince1970);
-            }
-            else {
-                    r22 = 0x0;
-            }
-    }
-    else {
-            r22 = 0x0;
-            r21 = 0x0;
-    }
-    [r21 release];
-    [r20 release];
-    [r19 release];
-    r0 = r22;
-    return r0;
-}
-
-NSString * sub_10064563c(void * _block) {
-    r0 = [VungleLogger sharedLogger];
-    r0 = [r0 retain];
-    [r0 logMessage:@"IDFV string operation starting." level:0xf4240 context:@"SDK Initialization"];
-    [r0 release];
-    r0 = [UIDevice currentDevice];
-    r0 = [r0 retain];
-    r19 = r0;
-    r0 = [r0 identifierForVendor];
-    r0 = [r0 retain];
-    r21 = [[r0 UUIDString] retain];
-    [r0 release];
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-NSString * sub_100645898(void * _block) {
-    var_40 = r26;
-    stack[-72] = r25;
-    r31 = r31 + 0xffffffffffffffb0;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r0 = [ASIdentifierManager sharedManager];
-    r29 = &saved_fp;
-    r0 = [r0 retain];
-    r22 = [r0 isAdvertisingTrackingEnabled];
-    [r0 release];
-    if (r22 == 0x0) {
-            r0 = [VungleLogger sharedLogger];
-            r29 = r29;
-            r0 = [r0 retain];
-            [r0 clearLogWithCompletionBlock:0x100e89888];
-            [r0 release];
-    }
-    r23 = [[NSUserDefaults standardUserDefaults] retain];
-    r0 = @class(ASIdentifierManager);
-    r0 = [r0 sharedManager];
-    r0 = [r0 retain];
-    [r23 setBool:[r0 isAdvertisingTrackingEnabled] forKey:@"vungleAdTrackingEnabled"];
-    [r0 release];
-    [r23 release];
-    r0 = @class(NSUserDefaults);
-    r0 = [r0 standardUserDefaults];
-    r0 = [r0 retain];
-    [r0 synchronize];
-    [r0 release];
-    r0 = [VungleLogger sharedLogger];
-    r0 = [r0 retain];
-    [r0 logMessage:@"IFA string operation starting." level:0xf4240 context:@"SDK Initialization"];
-    [r0 release];
-    r0 = @class(ASIdentifierManager);
-    r0 = [r0 sharedManager];
-    r0 = [r0 retain];
-    r19 = r0;
-    r0 = [r0 advertisingIdentifier];
-    r0 = [r0 retain];
-    r21 = [[r0 UUIDString] retain];
-    [r0 release];
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-NSString * sub_100646fac(void * _block) {
-    var_40 = r26;
-    stack[-72] = r25;
-    r31 = r31 + 0xffffffffffffffb0;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r0 = [ASIdentifierManager sharedManager];
-    r29 = &saved_fp;
-    r0 = [r0 retain];
-    r22 = [r0 isAdvertisingTrackingEnabled];
-    [r0 release];
-    if (r22 == 0x0) {
-            r0 = [VungleLogger sharedLogger];
-            r29 = r29;
-            r0 = [r0 retain];
-            [r0 clearLogWithCompletionBlock:0x100e89908];
-            [r0 release];
-    }
-    r23 = [[NSUserDefaults standardUserDefaults] retain];
-    r0 = @class(ASIdentifierManager);
-    r0 = [r0 sharedManager];
-    r0 = [r0 retain];
-    [r23 setBool:[r0 isAdvertisingTrackingEnabled] forKey:@"vungleAdTrackingEnabled"];
-    [r0 release];
-    [r23 release];
-    r0 = @class(NSUserDefaults);
-    r0 = [r0 standardUserDefaults];
-    r0 = [r0 retain];
-    [r0 synchronize];
-    [r0 release];
-    r0 = [VungleLogger sharedLogger];
-    r0 = [r0 retain];
-    [r0 logMessage:@"Request IFA operation request sent." level:0xf4240 context:@"SDK Initialization"];
-    [r0 release];
-    r0 = @class(ASIdentifierManager);
-    r0 = [r0 sharedManager];
-    r0 = [r0 retain];
-    r19 = r0;
-    r0 = [r0 advertisingIdentifier];
-    r0 = [r0 retain];
-    r21 = [[r0 UUIDString] retain];
-    [r0 release];
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-long sub_100676094(void * _block, void * arg1, void * arg2) {
-    var_30 = d9;
-    stack[-56] = d8;
-    r31 = r31 + 0xffffffffffffffc0;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    [r20 CGRectValue];
-    [r20 release];
-    [r19 CGRectValue];
-    r0 = [r19 release];
-    if (d8 < d9) {
-            asm { csetm      x8, mi };
-    }
-    if (CPU_FLAGS & LE) {
-            asm { csinc      x0, x8, xzr, le };
-    }
-    return r0;
-}
-
-UIViewController * sub_100677360(void * _block, struct UIViewController * arg1) {
-    var_20 = r22;
-    stack[-40] = r21;
-    r31 = r31 + 0xffffffffffffffd0;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    [UISplitViewController class];
-    if ([r19 isKindOfClass:r2] != 0x0) {
-            r0 = [r19 retain];
-            r20 = r0;
-            if ([r0 displayMode] == 0x3) {
-                    r0 = [r20 viewControllers];
-                    r0 = [r0 retain];
-                    r21 = [[r0 firstObject] retain];
-                    [r0 release];
-            }
-            else {
-                    r21 = [[r20 presentedViewController] retain];
-            }
-            [r20 release];
-    }
-    else {
-            r21 = [[r19 presentedViewController] retain];
-    }
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-long sub_1006f08b8(void * _block, struct NSDictionary * arg1, struct NSDictionary * arg2) {
-    var_30 = r24;
-    stack[-56] = r23;
-    r31 = r31 + 0xffffffffffffffc0;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = [arg1 retain];
-    r20 = [arg2 retain];
-    r23 = [[r19 objectForKeyedSubscript:r2] retain];
-    r0 = [r20 objectForKeyedSubscript:r2];
-    r29 = &saved_fp;
-    r0 = [r0 retain];
-    [r0 release];
-    [r23 release];
-    if (r23 < r0) {
-            r21 = 0xffffffffffffffff;
-    }
-    else {
-            r21 = @selector(objectForKeyedSubscript:);
-            r23 = [objc_msgSend(r19, r21) retain];
-            r0 = objc_msgSend(r20, r21);
-            r0 = [r0 retain];
-            if (r23 > r0) {
-                    if (CPU_FLAGS & A) {
-                            r21 = 0x1;
-                    }
-            }
-            [r0 release];
-            [r23 release];
-    }
-    [r20 release];
-    [r19 release];
-    r0 = r21;
-    return r0;
-}
-
-long sub_10074ef90(void * _block, void * arg1, void * arg2) {
-    var_30 = d9;
-    stack[-56] = d8;
-    r31 = r31 + 0xffffffffffffffc0;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    [r20 CGRectValue];
-    [r20 release];
-    [r19 CGRectValue];
-    r0 = [r19 release];
-    r8 = 0xffffffffffffffff;
-    if (d8 < d9) {
-            if (!CPU_FLAGS & S) {
-                    r8 = 0x0;
-            }
-            else {
-                    r8 = 0xffffffffffffffff;
-            }
-    }
-    if (CPU_FLAGS & G) {
-            if (!CPU_FLAGS & G) {
-                    r0 = r8;
-            }
-            else {
-                    r0 = 0x1;
-            }
-    }
-    return r0;
-}
-
-UIViewController * sub_1007502b0(void * _block, struct UIViewController * arg1) {
-    var_20 = r22;
-    stack[-40] = r21;
-    r31 = r31 + 0xffffffffffffffd0;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r29 = &saved_fp;
-    r19 = [arg1 retain];
-    [UISplitViewController class];
-    if ([r19 isKindOfClass:r2] != 0x0) {
-            r0 = [r19 retain];
-            r20 = r0;
-            if ([r0 displayMode] == 0x3) {
-                    r0 = [r20 viewControllers];
-                    r0 = [r0 retain];
-                    r21 = [[r0 firstObject] retain];
-                    [r0 release];
-            }
-            else {
-                    r21 = [[r20 presentedViewController] retain];
-            }
-            [r20 release];
-    }
-    else {
-            r21 = [[r19 presentedViewController] retain];
-    }
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-<GADSignal> * sub_1007e9874(void * _block) {
-    r0 = [GADRequestStatisticsSignals sharedInstance];
-    return r0;
-}
-
-<GADSignal> * sub_1007e99b4(void * _block) {
-    r31 = r31 - 0x90;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r0 = [NSBundle mainBundle];
-    r0 = [r0 retain];
-    r19 = r0;
-    r0 = [r0 objectForInfoDictionaryKey:@"NSCameraUsageDescription"];
-    r29 = &saved_fp;
-    r0 = [r0 retain];
-    r20 = r0;
-    [r0 release];
-    [r19 release];
-    r2 = **_AVMediaTypeVideo;
-    r8 = &@selector(addObserver:userInfoKeys:targetObject:);
-    r0 = objc_msgSend(@class(AVCaptureDevice), *(r8 + 0x38));
-    if (r0 < 0x4) {
-            r8 = &@selector(addObserver:userInfoKeys:targetObject:);
-            if (CPU_FLAGS & B) {
-                    r8 = 0x1;
-            }
-    }
-    r9 = r0 & 0xf;
-    if (r9 == 0x3) {
-            if (CPU_FLAGS & E) {
-                    r9 = 0x1;
-            }
-    }
-    r19 = r8 & r9;
-    if (sub_1009f77b0(0xb, 0x0, 0x0) != 0x0) {
-            r0 = NSClassFromString(@"ARWorldTrackingConfiguration");
-            r21 = r0;
-            r22 = @selector(isSupported);
-            r2 = r22;
-            if ([r0 respondsToSelector:r2] != 0x0) {
-                    r22 = @selector(isSupported);
-                    r21 = objc_msgSend(r21, r22);
-            }
-            else {
-                    r21 = 0x0;
-            }
-    }
-    else {
-            r21 = 0x0;
-    }
-    if (r20 != 0x0) {
-            if (CPU_FLAGS & NE) {
-                    r22 = 0x1;
-            }
-    }
-    if (NSClassFromString(@"GARArWebView") != 0x0) {
-            if (CPU_FLAGS & NE) {
-                    r2 = 0x1;
-            }
-    }
-    var_38 = **___stack_chk_guard;
-    r20 = [[NSNumber numberWithBool:r2] retain];
-    r21 = [[NSNumber numberWithBool:r21] retain];
-    r22 = [[NSNumber numberWithBool:r22] retain];
-    r19 = [[NSNumber numberWithBool:r19] retain];
-    r0 = [NSDictionary dictionaryWithObjects:&var_58 forKeys:&var_78 count:0x4];
-    r23 = [r0 retain];
-    [r19 release];
-    [r22 release];
-    [r21 release];
-    [r20 release];
-    r19 = [[GADStaticSignal alloc] initWithDictionary:r23];
-    [r23 release];
-    if (**___stack_chk_guard == var_38) {
-            r0 = [r19 autorelease];
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-}
-
-<GADSignal> * sub_100803444(void * _block) {
-    r0 = [GADDeviceOrientationSignals alloc];
-    r0 = [r0 init];
-    r0 = [r0 autorelease];
-    return r0;
-}
-
-<GADSignal> * sub_100808420(void * _block) {
-    r0 = [GADDeviceAudioSignals alloc];
-    r0 = [r0 init];
-    r0 = [r0 autorelease];
-    return r0;
-}
-
-<GADSignal> * sub_10081996c(void * _block) {
-    r0 = [GADDevice sharedInstance];
-    return r0;
-}
-
-<GADSignal> * sub_100862f7c(void * _block) {
-    r31 = r31 - 0x70;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = [[GADDevice sharedInstance] retain];
-    r20 = [[NSArray arrayWithObjects:&var_48 count:0x2] retain];
-    r0 = [r19 canOpenURLStrings:r20];
-    r0 = [r0 retain];
-    r21 = r0;
-    r0 = [r0 objectForKeyedSubscript:@"kindle://home"];
-    r29 = &saved_fp;
-    r0 = [r0 retain];
-    r23 = [r0 boolValue];
-    [r0 release];
-    if (r23 != 0x0) {
-            asm { csinc      x2, x8, xzr, ne };
-    }
-    var_38 = **___stack_chk_guard;
-    r22 = [[NSNumber numberWithUnsignedInteger:r2] retain];
-    r0 = [NSDictionary dictionaryWithObjects:&var_50 forKeys:&var_58 count:0x1];
-    r23 = [r0 retain];
-    [r22 release];
-    r22 = [[GADStaticSignal alloc] initWithDictionary:r23];
-    [r23 release];
-    [r21 release];
-    [r20 release];
-    [r19 release];
-    if (**___stack_chk_guard == var_38) {
-            r0 = [r22 autorelease];
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-}
-
-<GADSignal> * sub_100868158(void * _block) {
-    r31 = r31 - 0x40;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = [[NSDictionary dictionaryWithObjects:&stack[-56] forKeys:&stack[-56] count:0x0] retain];
-    r0 = [GADAnalytics sharedInstance];
-    r29 = &saved_fp;
-    r20 = [r0 retain];
-    if (r20 != 0x0) {
-            r21 = [sub_1008acf40() retain];
-            [r19 release];
-            r19 = r21;
-    }
-    r21 = [[GADStaticSignal alloc] initWithDictionary:r19];
-    [r20 release];
-    [r19 release];
-    r0 = [r21 autorelease];
-    return r0;
-}
-
-<GADSignal> * sub_100868268(void * _block) {
-    r31 = r31 - 0x150;
-    var_50 = r28;
-    stack[-88] = r27;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = [[NSUserDefaults standardUserDefaults] retain];
-    r20 = [[NSMutableDictionary alloc] init];
-    r0 = [GADSettings sharedInstance];
-    r0 = [r0 retain];
-    r22 = r0;
-    r0 = [r0 arrayForKey:*0x100e9b9e8];
-    r29 = &saved_fp;
-    r23 = [r0 retain];
-    [r22 release];
-    r0 = [r23 retain];
-    r22 = r0;
-    r24 = [r0 countByEnumeratingWithState:r2 objects:r3 count:r4];
-    if (r24 != 0x0) {
-            do {
-                    r21 = 0x0;
-                    do {
-                            if (*0x0 != *0x0) {
-                                    objc_enumerationMutation(r22);
-                            }
-                            r25 = @selector(objectForKey:);
-                            r26 = *(0x0 + r21 * 0x8);
-                            r0 = objc_msgSend(r19, r25);
-                            r29 = r29;
-                            r27 = [r0 retain];
-                            if (r27 != 0x0) {
-                                    sub_100822058(r20, r26, r27);
-                            }
-                            [r27 release];
-                            r21 = r21 + 0x1;
-                    } while (r21 < r24);
-                    r24 = [r22 countByEnumeratingWithState:r2 objects:r3 count:r4];
-            } while (r24 != 0x0);
-    }
-    var_58 = **___stack_chk_guard;
-    [r22 release];
-    r0 = [NSDictionary dictionaryWithObjects:&stack[-240] forKeys:&var_E8 count:0x1];
-    r23 = [r0 retain];
-    r21 = [[GADStaticSignal alloc] initWithDictionary:r23];
-    [r23 release];
-    [r22 release];
-    [r20 release];
-    [r19 release];
-    if (**___stack_chk_guard == var_58) {
-            r0 = [r21 autorelease];
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-}
-
-<GADSignal> * sub_100893ac0(void * _block) {
-    r31 = r31 - 0x70;
-    var_40 = r26;
-    stack[-72] = r25;
-    var_30 = r24;
-    stack[-56] = r23;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r0 = [GADSettings sharedInstance];
-    r29 = &saved_fp;
-    r0 = [r0 retain];
-    r20 = [r0 boolForKey:*0x100e9b440];
-    [r0 release];
-    if (r20 != 0x0) {
-            r0 = [NSBundle mainBundle];
-            r0 = [r0 retain];
-            r19 = [[r0 bundlePath] retain];
-            [r0 release];
-            r0 = [NSFileManager defaultManager];
-            r0 = [r0 retain];
-            var_60 = 0x0;
-            [[r0 attributesOfFileSystemForPath:r19 error:&var_60] retain];
-            r21 = [var_60 retain];
-            [r0 release];
-            sub_100822058([[NSMutableDictionary alloc] init], *0x100e95ed8, [[r21 localizedDescription] retain]);
-            [r25 release];
-            sub_100822058(r22, *0x100e95ee0, [[r20 objectForKeyedSubscript:**_NSFileSystemSize] retain]);
-            [r26 release];
-            sub_100822058(r22, *0x100e95ee8, [[r20 objectForKeyedSubscript:**_NSFileSystemFreeSize] retain]);
-            [r25 release];
-            r23 = [GADStaticSignal alloc];
-            r0 = [NSDictionary dictionaryWithObjects:&stack[-96] forKeys:&var_58 count:0x1];
-            r24 = [r0 retain];
-            r23 = [r23 initWithDictionary:r24];
-            [r24 release];
-            [r22 release];
-            [r21 release];
-            [r20 release];
-            [r19 release];
-    }
-    else {
-            r23 = 0x0;
-    }
-    if (**___stack_chk_guard == **___stack_chk_guard) {
-            r0 = [r23 autorelease];
-    }
-    else {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-}
-
-<GADSignal> * sub_10089bd08(void * _block) {
-    return 0x0;
-}
-
-<GADSignal> * sub_1008a3894(void * _block) {
-    r0 = [GADContentHashingController sharedInstance];
-    return r0;
-}
-
-<GADSignal> * sub_1008b3c9c(void * _block) {
-    r19 = [sub_1008b3600() retain];
-    r20 = [[GADStaticSignal alloc] initWithDictionary:r19];
-    [r19 release];
-    r0 = [r20 autorelease];
-    return r0;
-}
-
-long sub_1008d22a0(void * _block, struct NSString * arg1, struct NSString * arg2) {
-    objc_storeStrong(&saved_fp - 0x10, arg1);
-    objc_storeStrong(&saved_fp - 0x18, arg2);
-    var_38 = [0x0 compare:0x0];
-    objc_storeStrong(&saved_fp - 0x18, 0x0);
-    objc_storeStrong(&saved_fp - 0x10, 0x0);
-    r0 = var_38;
-    return r0;
-}
-
-* sub_1008d95c8(void * _block, struct NSData * arg1) {
-    objc_storeStrong(&saved_fp - 0x10, arg1);
-    var_38 = [[NSString alloc] initWithData:0x0 encoding:0x4];
-    objc_storeStrong(&saved_fp - 0x10, 0x0);
-    r0 = [var_38 autorelease];
-    return r0;
-}
-
-long sub_1008e3f50(void * _block, struct NSNumber * arg1, struct NSNumber * arg2) {
-    objc_storeStrong(&saved_fp - 0x10, arg1);
-    objc_storeStrong(&saved_fp - 0x18, arg2);
-    var_38 = [0x0 compare:0x0];
-    objc_storeStrong(&saved_fp - 0x18, 0x0);
-    objc_storeStrong(&saved_fp - 0x10, 0x0);
-    r0 = var_38;
-    return r0;
-}
-
-NSString * sub_100915288(void * _block) {
-    r0 = [NSString stringWithFormat:r2];
-    return r0;
-}
-
-NSString * sub_10091600c(void * _block) {
-    r0 = [NSString stringWithFormat:r2];
-    return r0;
-}
-
-NSString * sub_1009169cc(void * _block) {
-    r0 = [NSString stringWithFormat:r2];
-    return r0;
-}
-
-NSString * sub_1009171f0(void * _block) {
-    r0 = [NSString stringWithFormat:r2];
-    return r0;
-}
-
-long sub_10091c59c(void * _block, void * arg1, void * arg2) {
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    r0 = [r20 retain];
-    r21 = [r0 compare:r19];
-    [r0 release];
-    [r19 release];
-    [r0 release];
-    r0 = r21;
-    return r0;
-}
-
-long sub_10092bfc8(void * _block, void * arg1, void * arg2) {
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    r20 = [r20 retain];
-    r21 = [r19 compare:r20];
-    [r20 release];
-    [r19 release];
-    [r20 release];
-    r0 = r21;
-    return r0;
-}
-
-long sub_10095c430(void * _block, void * arg1, void * arg2) {
-    r20 = [arg1 retain];
-    r19 = [arg2 retain];
-    r23 = [[r20 valueForKey:@"timestamp"] retain];
-    [r20 release];
-    r20 = [[r19 valueForKey:@"timestamp"] retain];
-    [r19 release];
-    r19 = [r23 compare:r20];
-    [r20 release];
-    [r23 release];
-    r0 = r19;
-    return r0;
-}
-
-long sub_100963740(void * _block, struct NSNumber * arg1, struct NSNumber * arg2) {
-    r21 = [arg1 retain];
-    r19 = [arg1 compare:arg2];
-    [r21 release];
-    r0 = r19;
-    return r0;
-}
-
-long sub_1009689c0(void * _block, struct NSString * arg1, struct NSString * arg2) {
-    r21 = [arg1 retain];
-    r19 = [arg1 compare:arg2];
-    [r21 release];
-    r0 = r19;
-    return r0;
-}
-
-* sub_100969a38(void * _block, struct NSData * arg1) {
-    r21 = [arg1 retain];
-    r19 = [[NSString alloc] initWithData:r21 encoding:0x4];
-    [r21 release];
-    r0 = [r19 autorelease];
-    return r0;
-}
-
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE18handle_write_frameERKNSt3__110error_codeE(void * arg0) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE18handle_write_frameERKNSt3__110error_codeE(void * arg0) {
     r31 = r31 - 0x70;
     var_20 = r22;
     stack[-40] = r21;
@@ -1927,7 +102,7 @@ loc_1009ab09c:
     goto loc_1009ab0a4;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE30handle_close_handshake_timeoutERKNSt3__110error_codeE(void * arg0) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE30handle_close_handshake_timeoutERKNSt3__110error_codeE(void * arg0) {
     r31 = r31 - 0x70;
     var_20 = r22;
     stack[-40] = r21;
@@ -1980,7 +155,7 @@ __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE30handle_close_handshak
     return r0;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE29handle_open_handshake_timeoutERKNSt3__110error_codeE(void * arg0) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE29handle_open_handshake_timeoutERKNSt3__110error_codeE(void * arg0) {
     r31 = r31 - 0x70;
     var_20 = r22;
     stack[-40] = r21;
@@ -2033,7 +208,7 @@ __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE29handle_open_handshake
     return r0;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE21handle_read_handshakeERKNSt3__110error_codeEm(void * arg0, long arg1) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE21handle_read_handshakeERKNSt3__110error_codeEm(void * arg0, long arg1) {
     var_50 = r28;
     stack[-88] = r27;
     var_40 = r26;
@@ -2328,7 +503,7 @@ loc_1009b1df0:
     goto loc_1009b1db8;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE24handle_send_http_requestERKNSt3__110error_codeE(void * arg0) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE24handle_send_http_requestERKNSt3__110error_codeE(void * arg0) {
     r31 = r31 - 0x80;
     var_20 = r22;
     stack[-40] = r21;
@@ -2436,5887 +611,5747 @@ loc_1009c0fec:
     goto loc_1009c0fc0;
 }
 
-long long sub_100a045c0(void * _block, struct <NSObject> * arg1) {
-    var_10 = r20;
-    stack[-24] = r19;
-    r31 = r31 + 0xffffffffffffffe0;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = arg1;
-    if (*qword_1011dcb80 != -0x1) {
-            dispatch_once(0x1011dcb80, 0x100ea7a60);
-    }
-    r0 = sign_extend_64(*(int32_t *)(r19 + ivar_getOffset(class_getInstanceVariable([r19 class], "_fb_refCount")))) + 0x2 >> 0x1;
-    return r0;
-}
-
-* sub_100a046f0(void * _block, struct <NSObject> * arg1) {
-    var_10 = r20;
-    stack[-24] = r19;
-    r31 = r31 + 0xffffffffffffffe0;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = arg1;
-    if (*qword_1011dcb80 != -0x1) {
-            dispatch_once(0x1011dcb80, 0x100ea7a60);
-    }
-    r0 = [r19 class];
-    r0 = class_getInstanceVariable(r0, "_fb_refCount");
-    r0 = ivar_getOffset(r0);
-    do {
-            asm { ldaxr      w9, [x8] };
-            asm { stlxr      w11, w10, [x8] };
-    } while (r11 != 0x0);
-    if ((r9 & 0xffffffff80000000) == 0x0) {
-            r0 = r19;
-    }
-    else {
-            asm { brk        #0x1 };
-            r0 = sub_100a04774(r0);
-    }
-    return r0;
-}
-
-* sub_100a3e10c(void * _block) {
-    r31 = r31 - 0x40;
-    saved_fp = r29;
-    stack[-8] = r30;
-    if (*qword_1011dd0c8 != -0x1) {
-            dispatch_once_f(0x1011dd0c8, 0x1011c6190, 0x100a3d91c);
-    }
-    var_8 = **___stack_chk_guard;
-    r0 = sub_100aab634("FBAdStoreProductViewController", *0x1011dd0d0, 0x0, &var_28);
-    if (**___stack_chk_guard != var_8) {
-            r0 = __stack_chk_fail();
-    }
-    return r0;
-}
-
-long long sub_100a3e1b4(void * _block) {
-    return 0x1a;
-}
-
-* sub_100a4ff1c(void * _block, struct sqlite3_stmt * arg1) {
-    r0 = [FBAdEventToken deserializeFromSqlite:arg1];
-    return r0;
-}
-
-* sub_100a4ff94(void * _block, struct sqlite3_stmt * arg1) {
-    r0 = [FBAdEvent deserializeFromSqlite:arg1];
-    return r0;
-}
-
-long sub_100a77cd0(void * _block, struct NSString * arg1, struct NSString * arg2) {
-    r0 = [arg1 retain];
-    r19 = [r0 localizedCompare:arg2];
-    [r0 release];
-    r0 = r19;
-    return r0;
-}
-
-<FBAdMovingAverage> * sub_100aa050c(void * _block) {
-    r0 = [FBAdExponentialGeometricMovingAverage alloc];
-    r0 = [r0 initWithDecayConstant:r2];
-    r0 = [r0 autorelease];
-    return r0;
-}
-
-<FBAdBackgroundStateManaging> * sub_100aa1ec4(void * _block) {
-    var_10 = r20;
-    stack[-24] = r19;
-    r31 = r31 + 0xffffffffffffffe0;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r19 = objc_retainBlock(0x100eabb10);
-    if (*qword_1011ddbe0 != -0x1) {
-            dispatch_once(0x1011ddbe0, r19);
-    }
-    r20 = objc_retainAutoreleaseReturnValue(*0x1011ddbe8);
-    [r19 release];
-    r0 = r20;
-    return r0;
-}
-
-long sub_100abd30c(void * _block, struct UIViewController * arg1) {
-    if (arg1 != 0x0) {
-            r0 = 0x3;
-    }
-    else {
-            [FBAdLogger logAtLevel:0x6 file:"ios-sdk/ads/src/FBAudienceNetwork/FBAudienceNetwork/util/FBAdViewControllerProxy.m" lineNumber:0x6c format:@"Current view controller is nil."];
-            r0 = 0x1;
-    }
-    return r0;
-}
-
-long sub_100abd248(void * _block, struct UIViewController * arg1) {
-    r31 = r31 - 0x40;
-    var_20 = r22;
-    stack[-40] = r21;
-    var_10 = r20;
-    stack[-24] = r19;
-    saved_fp = r29;
-    stack[-8] = r30;
-    r0 = [arg1 retain];
-    r19 = r0;
-    r0 = [r0 presentedViewController];
-    r29 = &saved_fp;
-    r0 = [r0 retain];
-    [r0 release];
-    if (r0 != 0x0) {
-            r20 = [[r19 presentedViewController] retain];
-            [FBAdLogger logAtLevel:0x6 file:"ios-sdk/ads/src/FBAudienceNetwork/FBAudienceNetwork/util/FBAdViewControllerProxy.m" lineNumber:0x75 format:@"Current view controller %@ detected to have present view controller %@"];
-            [r20 release];
-            r20 = 0x2;
-    }
-    else {
-            r20 = 0x3;
-    }
-    [r19 release];
-    r0 = r20;
-    return r0;
-}
-
-AVMakeRectWithAspectRatioInsideRect(int aspectRatio, int boundingRect) {
+int AVMakeRectWithAspectRatioInsideRect(int aspectRatio, int boundingRect) {
     r0 = _AVMakeRectWithAspectRatioInsideRect_ptr(aspectRatio, boundingRect);
     return r0;
 }
 
-AudioFileGetProperty(int inAudioFile, int inPropertyID, void * ioDataSize, void * outPropertyData) {
+int AudioFileGetProperty(int inAudioFile, int inPropertyID, void * ioDataSize, void * outPropertyData) {
     r0 = _AudioFileGetProperty_ptr(inAudioFile, inPropertyID, ioDataSize, outPropertyData);
     return r0;
 }
 
-AudioFileClose(int inAudioFile) {
+int AudioFileClose(int inAudioFile) {
     r0 = _AudioFileClose_ptr(inAudioFile);
     return r0;
 }
 
-AudioFileOpenURL(int inFileRef, int inPermissions, int inFileTypeHint, void * outAudioFile) {
+int AudioFileOpenURL(int inFileRef, int inPermissions, int inFileTypeHint, void * outAudioFile) {
     r0 = _AudioFileOpenURL_ptr(inFileRef, inPermissions, inFileTypeHint, outAudioFile);
     return r0;
 }
 
-AudioFileReadBytes(int inAudioFile, int inUseCache, int inStartingByte, void * ioNumBytes, void * outBuffer) {
+int AudioFileReadBytes(int inAudioFile, int inUseCache, int inStartingByte, void * ioNumBytes, void * outBuffer) {
     r0 = _AudioFileReadBytes_ptr(inAudioFile, inUseCache, inStartingByte, ioNumBytes, outBuffer);
     return r0;
 }
 
-AudioQueuePrime(int inAQ, int inNumberOfFramesToPrepare, void * outNumberOfFramesPrepared) {
+int AudioQueuePrime(int inAQ, int inNumberOfFramesToPrepare, void * outNumberOfFramesPrepared) {
     r0 = _AudioQueuePrime_ptr(inAQ, inNumberOfFramesToPrepare, outNumberOfFramesPrepared);
     return r0;
 }
 
-AudioServicesCreateSystemSoundID(int inFileURL, void * outSystemSoundID) {
+int AudioServicesCreateSystemSoundID(int inFileURL, void * outSystemSoundID) {
     r0 = _AudioServicesCreateSystemSoundID_ptr(inFileURL, outSystemSoundID);
     return r0;
 }
 
-AudioServicesAddSystemSoundCompletion(int inSystemSoundID, int inRunLoop, int inRunLoopMode, int inCompletionRoutine, void * inClientData) {
+int AudioServicesAddSystemSoundCompletion(int inSystemSoundID, int inRunLoop, int inRunLoopMode, int inCompletionRoutine, void * inClientData) {
     r0 = _AudioServicesAddSystemSoundCompletion_ptr(inSystemSoundID, inRunLoop, inRunLoopMode, inCompletionRoutine, inClientData);
     return r0;
 }
 
-AudioServicesPlaySystemSoundWithCompletion(int inSystemSoundID, void * inCompletionBlock) {
+void AudioServicesPlaySystemSoundWithCompletion(int inSystemSoundID, void * inCompletionBlock) {
     _AudioServicesPlaySystemSoundWithCompletion_ptr(inSystemSoundID, inCompletionBlock);
     return;
 }
 
-AudioServicesDisposeSystemSoundID(int inSystemSoundID) {
+int AudioServicesDisposeSystemSoundID(int inSystemSoundID) {
     r0 = _AudioServicesDisposeSystemSoundID_ptr(inSystemSoundID);
     return r0;
 }
 
-AudioServicesPlaySystemSound(int inSystemSoundID) {
+void AudioServicesPlaySystemSound(int inSystemSoundID) {
     _AudioServicesPlaySystemSound_ptr(inSystemSoundID);
     return;
 }
 
-AudioServicesSetProperty(int inPropertyID, int inSpecifierSize, void * inSpecifier, int inPropertyDataSize, void * inPropertyData) {
+int AudioServicesSetProperty(int inPropertyID, int inSpecifierSize, void * inSpecifier, int inPropertyDataSize, void * inPropertyData) {
     r0 = _AudioServicesSetProperty_ptr(inPropertyID, inSpecifierSize, inSpecifier, inPropertyDataSize, inPropertyData);
     return r0;
 }
 
-AudioServicesRemoveSystemSoundCompletion(int inSystemSoundID) {
+void AudioServicesRemoveSystemSoundCompletion(int inSystemSoundID) {
     _AudioServicesRemoveSystemSoundCompletion_ptr(inSystemSoundID);
     return;
 }
 
-AudioSessionGetProperty() {
+void AudioSessionGetProperty() {
     _AudioSessionGetProperty_ptr();
     return;
 }
 
-CACurrentMediaTime() {
+int CACurrentMediaTime() {
     r0 = _CACurrentMediaTime_ptr();
     return r0;
 }
 
-CATransform3DConcat(int a, int b) {
+int CATransform3DConcat(int a, int b) {
     r0 = _CATransform3DConcat_ptr(a, b);
     return r0;
 }
 
-CATransform3DMakeAffineTransform(int m) {
+int CATransform3DMakeAffineTransform(int m) {
     r0 = _CATransform3DMakeAffineTransform_ptr(m);
     return r0;
 }
 
-CATransform3DMakeRotation(int angle, int x, int y, int z) {
+int CATransform3DMakeRotation(int angle, int x, int y, int z) {
     r0 = _CATransform3DMakeRotation_ptr(angle, x, y, z);
     return r0;
 }
 
-CATransform3DMakeScale(int sx, int sy, int sz) {
+int CATransform3DMakeScale(int sx, int sy, int sz) {
     r0 = _CATransform3DMakeScale_ptr(sx, sy, sz);
     return r0;
 }
 
-CCCrypt(int op, int alg, int options, void * key, int keyLength, void * iv, void * dataIn, int dataInLength, void * dataOut, int dataOutAvailable, void * dataOutMoved) {
+int CCCrypt(int op, int alg, int options, void * key, int keyLength, void * iv, void * dataIn, int dataInLength, void * dataOut, int dataOutAvailable, void * dataOutMoved) {
     r0 = _CCCrypt_ptr(op, alg, options, key, keyLength, iv, dataIn, dataInLength, dataOut, dataOutAvailable, dataOutMoved);
     return r0;
 }
 
-CCCryptorCreate(int op, int alg, int options, void * key, int keyLength, void * iv, void * cryptorRef) {
+int CCCryptorCreate(int op, int alg, int options, void * key, int keyLength, void * iv, void * cryptorRef) {
     r0 = _CCCryptorCreate_ptr(op, alg, options, key, keyLength, iv, cryptorRef);
     return r0;
 }
 
-CCCryptorFinal(int cryptorRef, void * dataOut, int dataOutAvailable, void * dataOutMoved) {
+int CCCryptorFinal(int cryptorRef, void * dataOut, int dataOutAvailable, void * dataOutMoved) {
     r0 = _CCCryptorFinal_ptr(cryptorRef, dataOut, dataOutAvailable, dataOutMoved);
     return r0;
 }
 
-CCCryptorGetOutputLength(int cryptorRef, int inputLength, int final) {
+int CCCryptorGetOutputLength(int cryptorRef, int inputLength, int final) {
     r0 = _CCCryptorGetOutputLength_ptr(cryptorRef, inputLength, final);
     return r0;
 }
 
-CCCryptorRelease(int cryptorRef) {
+int CCCryptorRelease(int cryptorRef) {
     r0 = _CCCryptorRelease_ptr(cryptorRef);
     return r0;
 }
 
-CCCryptorUpdate(int cryptorRef, void * dataIn, int dataInLength, void * dataOut, int dataOutAvailable, void * dataOutMoved) {
+int CCCryptorUpdate(int cryptorRef, void * dataIn, int dataInLength, void * dataOut, int dataOutAvailable, void * dataOutMoved) {
     r0 = _CCCryptorUpdate_ptr(cryptorRef, dataIn, dataInLength, dataOut, dataOutAvailable, dataOutMoved);
     return r0;
 }
 
-CCHmac(int algorithm, void * key, int keyLength, void * data, int dataLength, void * macOut) {
+void CCHmac(int algorithm, void * key, int keyLength, void * data, int dataLength, void * macOut) {
     _CCHmac_ptr(algorithm, key, keyLength, data, dataLength, macOut);
     return;
 }
 
-CCHmacInit(void * ctx, int algorithm, void * key, int keyLength) {
+void CCHmacInit(void * ctx, int algorithm, void * key, int keyLength) {
     _CCHmacInit_ptr(ctx, algorithm, key, keyLength);
     return;
 }
 
-CCHmacFinal(void * ctx, void * macOut) {
+void CCHmacFinal(void * ctx, void * macOut) {
     _CCHmacFinal_ptr(ctx, macOut);
     return;
 }
 
-CCHmacUpdate(void * ctx, void * data, int dataLength) {
+void CCHmacUpdate(void * ctx, void * data, int dataLength) {
     _CCHmacUpdate_ptr(ctx, data, dataLength);
     return;
 }
 
-* CC_MD5(void * data, int len, void * md) {
+void * CC_MD5(void * data, int len, void * md) {
     r0 = _CC_MD5_ptr(data, len, md);
     return r0;
 }
 
-CCKeyDerivationPBKDF(int algorithm, void * password, int passwordLen, void * salt, int saltLen, int prf, int rounds, void * derivedKey, int derivedKeyLen) {
+int CCKeyDerivationPBKDF(int algorithm, void * password, int passwordLen, void * salt, int saltLen, int prf, int rounds, void * derivedKey, int derivedKeyLen) {
     r0 = _CCKeyDerivationPBKDF_ptr(algorithm, password, passwordLen, salt, saltLen, prf, rounds, derivedKey, derivedKeyLen);
     return r0;
 }
 
-CC_MD5_Final(void * md, void * c) {
+int CC_MD5_Final(void * md, void * c) {
     r0 = _CC_MD5_Final_ptr(md, c);
     return r0;
 }
 
-CC_MD5_Init(void * c) {
+int CC_MD5_Init(void * c) {
     r0 = _CC_MD5_Init_ptr(c);
     return r0;
 }
 
-* CC_SHA1(void * data, int len, void * md) {
+void * CC_SHA1(void * data, int len, void * md) {
     r0 = _CC_SHA1_ptr(data, len, md);
     return r0;
 }
 
-CC_MD5_Update(void * c, void * data, int len) {
+int CC_MD5_Update(void * c, void * data, int len) {
     r0 = _CC_MD5_Update_ptr(c, data, len);
     return r0;
 }
 
-CC_SHA1_Update(void * c, void * data, int len) {
+int CC_SHA1_Update(void * c, void * data, int len) {
     r0 = _CC_SHA1_Update_ptr(c, data, len);
     return r0;
 }
 
-CC_SHA1_Final(void * md, void * c) {
+int CC_SHA1_Final(void * md, void * c) {
     r0 = _CC_SHA1_Final_ptr(md, c);
     return r0;
 }
 
-CC_SHA1_Init(void * c) {
+int CC_SHA1_Init(void * c) {
     r0 = _CC_SHA1_Init_ptr(c);
     return r0;
 }
 
-* CC_SHA256(void * data, int len, void * md) {
+void * CC_SHA256(void * data, int len, void * md) {
     r0 = _CC_SHA256_ptr(data, len, md);
     return r0;
 }
 
-* CC_SHA512(void * data, int len, void * md) {
+void * CC_SHA512(void * data, int len, void * md) {
     r0 = _CC_SHA512_ptr(data, len, md);
     return r0;
 }
 
-CFAbsoluteTimeGetCurrent() {
+int CFAbsoluteTimeGetCurrent() {
     r0 = (*0x100e61000)();
     return r0;
 }
 
-CFAllocatorGetDefault() {
+int CFAllocatorGetDefault() {
     r0 = _CFAllocatorGetDefault_ptr();
     return r0;
 }
 
-CFArrayAppendValue(int theArray, void * value) {
+void CFArrayAppendValue(int theArray, void * value) {
     _CFArrayAppendValue_ptr(theArray, value);
     return;
 }
 
-CFArrayCreate(int allocator, void * values, int numValues, void * callBacks) {
+int CFArrayCreate(int allocator, void * values, int numValues, void * callBacks) {
     r0 = _CFArrayCreate_ptr(allocator, values, numValues, callBacks);
     return r0;
 }
 
-CFArrayGetCount(int theArray) {
+int CFArrayGetCount(int theArray) {
     r0 = _CFArrayGetCount_ptr(theArray);
     return r0;
 }
 
-CFArrayCreateMutable(int allocator, int capacity, void * callBacks) {
+int CFArrayCreateMutable(int allocator, int capacity, void * callBacks) {
     r0 = _CFArrayCreateMutable_ptr(allocator, capacity, callBacks);
     return r0;
 }
 
-CFAttributedStringRemoveAttribute(int aStr, int range, int attrName) {
+void CFAttributedStringRemoveAttribute(int aStr, int range, int attrName) {
     _CFAttributedStringRemoveAttribute_ptr(aStr, range, attrName);
     return;
 }
 
-* CFArrayGetValueAtIndex(int theArray, int idx) {
+void * CFArrayGetValueAtIndex(int theArray, int idx) {
     r0 = _CFArrayGetValueAtIndex_ptr(theArray, idx);
     return r0;
 }
 
-CFAttributedStringCreateMutable(int alloc, int maxLength) {
+int CFAttributedStringCreateMutable(int alloc, int maxLength) {
     r0 = _CFAttributedStringCreateMutable_ptr(alloc, maxLength);
     return r0;
 }
 
-CFAttributedStringReplaceString(int aStr, int range, int replacement) {
+void CFAttributedStringReplaceString(int aStr, int range, int replacement) {
     _CFAttributedStringReplaceString_ptr(aStr, range, replacement);
     return;
 }
 
-CFAttributedStringSetAttribute(int aStr, int range, int attrName, int value) {
+void CFAttributedStringSetAttribute(int aStr, int range, int attrName, int value) {
     _CFAttributedStringSetAttribute_ptr(aStr, range, attrName, value);
     return;
 }
 
-CFBinaryHeapAddValue(int heap, void * value) {
+void CFBinaryHeapAddValue(int heap, void * value) {
     _CFBinaryHeapAddValue_ptr(heap, value);
     return;
 }
 
-CFBinaryHeapContainsValue(int heap, void * value) {
+int CFBinaryHeapContainsValue(int heap, void * value) {
     r0 = _CFBinaryHeapContainsValue_ptr(heap, value);
     return r0;
 }
 
-CFBinaryHeapCreate(int allocator, int capacity, void * callBacks, void * compareContext) {
+int CFBinaryHeapCreate(int allocator, int capacity, void * callBacks, void * compareContext) {
     r0 = _CFBinaryHeapCreate_ptr(allocator, capacity, callBacks, compareContext);
     return r0;
 }
 
-CFBinaryHeapGetCount(int heap) {
+int CFBinaryHeapGetCount(int heap) {
     r0 = _CFBinaryHeapGetCount_ptr(heap);
     return r0;
 }
 
-CFBinaryHeapGetValues(int heap, void * values) {
+void CFBinaryHeapGetValues(int heap, void * values) {
     _CFBinaryHeapGetValues_ptr(heap, values);
     return;
 }
 
-* CFBinaryHeapGetMinimum(int heap) {
+void * CFBinaryHeapGetMinimum(int heap) {
     r0 = _CFBinaryHeapGetMinimum_ptr(heap);
     return r0;
 }
 
-CFBinaryHeapRemoveMinimumValue(int heap) {
+void CFBinaryHeapRemoveMinimumValue(int heap) {
     _CFBinaryHeapRemoveMinimumValue_ptr(heap);
     return;
 }
 
-CFBundleGetInfoDictionary(int bundle) {
+int CFBundleGetInfoDictionary(int bundle) {
     r0 = _CFBundleGetInfoDictionary_ptr(bundle);
     return r0;
 }
 
-CFBundleGetMainBundle() {
+int CFBundleGetMainBundle() {
     r0 = _CFBundleGetMainBundle_ptr();
     return r0;
 }
 
-CFCopyHomeDirectoryURL() {
+int CFCopyHomeDirectoryURL() {
     r0 = _CFCopyHomeDirectoryURL_ptr();
     return r0;
 }
 
-CFDataCreate(int allocator, void * bytes, int length) {
+int CFDataCreate(int allocator, void * bytes, int length) {
     r0 = _CFDataCreate_ptr(allocator, bytes, length);
     return r0;
 }
 
-* CFDataGetBytePtr(int theData) {
+void * CFDataGetBytePtr(int theData) {
     r0 = _CFDataGetBytePtr_ptr(theData);
     return r0;
 }
 
-* CFDictionaryGetValue(int theDict, void * key) {
+void * CFDictionaryGetValue(int theDict, void * key) {
     r0 = _CFDictionaryGetValue_ptr(theDict, key);
     return r0;
 }
 
-CFDataGetLength(int theData) {
+int CFDataGetLength(int theData) {
     r0 = _CFDataGetLength_ptr(theData);
     return r0;
 }
 
-CFDictionaryCreate(int allocator, void * keys, void * values, int numValues, void * keyCallBacks, void * valueCallBacks) {
+int CFDictionaryCreate(int allocator, void * keys, void * values, int numValues, void * keyCallBacks, void * valueCallBacks) {
     r0 = _CFDictionaryCreate_ptr(allocator, keys, values, numValues, keyCallBacks, valueCallBacks);
     return r0;
 }
 
-CFEqual(int cf1, int cf2) {
+int CFEqual(int cf1, int cf2) {
     r0 = _CFEqual_ptr(cf1, cf2);
     return r0;
 }
 
-CFDictionaryGetValueIfPresent(int theDict, void * key, void * value) {
+int CFDictionaryGetValueIfPresent(int theDict, void * key, void * value) {
     r0 = _CFDictionaryGetValueIfPresent_ptr(theDict, key, value);
     return r0;
 }
 
-CFDictionarySetValue(int theDict, void * key, void * value) {
+void CFDictionarySetValue(int theDict, void * key, void * value) {
     _CFDictionarySetValue_ptr(theDict, key, value);
     return;
 }
 
-CFHTTPMessageCopyAllHeaderFields(int message) {
+int CFHTTPMessageCopyAllHeaderFields(int message) {
     r0 = _CFHTTPMessageCopyAllHeaderFields_ptr(message);
     return r0;
 }
 
-CFHTTPMessageAppendBytes(int message, void * newBytes, int numBytes) {
+int CFHTTPMessageAppendBytes(int message, void * newBytes, int numBytes) {
     r0 = _CFHTTPMessageAppendBytes_ptr(message, newBytes, numBytes);
     return r0;
 }
 
-CFErrorCopyDescription(int err) {
+int CFErrorCopyDescription(int err) {
     r0 = _CFErrorCopyDescription_ptr(err);
     return r0;
 }
 
-CFHTTPMessageCopyRequestMethod(int request) {
+int CFHTTPMessageCopyRequestMethod(int request) {
     r0 = _CFHTTPMessageCopyRequestMethod_ptr(request);
     return r0;
 }
 
-CFHTTPMessageCopySerializedMessage(int message) {
+int CFHTTPMessageCopySerializedMessage(int message) {
     r0 = _CFHTTPMessageCopySerializedMessage_ptr(message);
     return r0;
 }
 
-CFHTTPMessageCopyRequestURL(int request) {
+int CFHTTPMessageCopyRequestURL(int request) {
     r0 = _CFHTTPMessageCopyRequestURL_ptr(request);
     return r0;
 }
 
-CFHTTPMessageCreateEmpty(int alloc, int isRequest) {
+int CFHTTPMessageCreateEmpty(int alloc, int isRequest) {
     r0 = _CFHTTPMessageCreateEmpty_ptr(alloc, isRequest);
     return r0;
 }
 
-CFHTTPMessageCreateResponse(int alloc, int statusCode, int statusDescription, int httpVersion) {
+int CFHTTPMessageCreateResponse(int alloc, int statusCode, int statusDescription, int httpVersion) {
     r0 = _CFHTTPMessageCreateResponse_ptr(alloc, statusCode, statusDescription, httpVersion);
     return r0;
 }
 
-CFHTTPMessageIsHeaderComplete(int message) {
+int CFHTTPMessageIsHeaderComplete(int message) {
     r0 = _CFHTTPMessageIsHeaderComplete_ptr(message);
     return r0;
 }
 
-CFHostCancelInfoResolution(int theHost, int info) {
+void CFHostCancelInfoResolution(int theHost, int info) {
     _CFHostCancelInfoResolution_ptr(theHost, info);
     return;
 }
 
-CFHTTPMessageSetHeaderFieldValue(int message, int headerField, int value) {
+void CFHTTPMessageSetHeaderFieldValue(int message, int headerField, int value) {
     _CFHTTPMessageSetHeaderFieldValue_ptr(message, headerField, value);
     return;
 }
 
-CFHostCreateWithName(int allocator, int hostname) {
+int CFHostCreateWithName(int allocator, int hostname) {
     r0 = _CFHostCreateWithName_ptr(allocator, hostname);
     return r0;
 }
 
-CFHostGetAddressing(int theHost, void * hasBeenResolved) {
+int CFHostGetAddressing(int theHost, void * hasBeenResolved) {
     r0 = _CFHostGetAddressing_ptr(theHost, hasBeenResolved);
     return r0;
 }
 
-CFHostSetClient(int theHost, int clientCB, void * clientContext) {
+int CFHostSetClient(int theHost, int clientCB, void * clientContext) {
     r0 = _CFHostSetClient_ptr(theHost, clientCB, clientContext);
     return r0;
 }
 
-CFHostScheduleWithRunLoop(int theHost, int runLoop, int runLoopMode) {
+void CFHostScheduleWithRunLoop(int theHost, int runLoop, int runLoopMode) {
     _CFHostScheduleWithRunLoop_ptr(theHost, runLoop, runLoopMode);
     return;
 }
 
-CFHostStartInfoResolution(int theHost, int info, void * error) {
+int CFHostStartInfoResolution(int theHost, int info, void * error) {
     r0 = _CFHostStartInfoResolution_ptr(theHost, info, error);
     return r0;
 }
 
-CFHostUnscheduleFromRunLoop(int theHost, int runLoop, int runLoopMode) {
+void CFHostUnscheduleFromRunLoop(int theHost, int runLoop, int runLoopMode) {
     _CFHostUnscheduleFromRunLoop_ptr(theHost, runLoop, runLoopMode);
     return;
 }
 
-CFNetServiceCancel(int theService) {
+void CFNetServiceCancel(int theService) {
     _CFNetServiceCancel_ptr(theService);
     return;
 }
 
-CFNetServiceCreate(int alloc, int domain, int serviceType, int name, int port) {
+int CFNetServiceCreate(int alloc, int domain, int serviceType, int name, int port) {
     r0 = _CFNetServiceCreate_ptr(alloc, domain, serviceType, name, port);
     return r0;
 }
 
-CFNetServiceGetName(int theService) {
+int CFNetServiceGetName(int theService) {
     r0 = _CFNetServiceGetName_ptr(theService);
     return r0;
 }
 
-CFNetServiceCreateCopy(int alloc, int service) {
+int CFNetServiceCreateCopy(int alloc, int service) {
     r0 = _CFNetServiceCreateCopy_ptr(alloc, service);
     return r0;
 }
 
-CFNetServiceGetTargetHost(int theService) {
+int CFNetServiceGetTargetHost(int theService) {
     r0 = _CFNetServiceGetTargetHost_ptr(theService);
     return r0;
 }
 
-CFNetServiceGetType(int theService) {
+int CFNetServiceGetType(int theService) {
     r0 = _CFNetServiceGetType_ptr(theService);
     return r0;
 }
 
-CFNetServiceRegisterWithOptions(int theService, int options, void * error) {
+int CFNetServiceRegisterWithOptions(int theService, int options, void * error) {
     r0 = _CFNetServiceRegisterWithOptions_ptr(theService, options, error);
     return r0;
 }
 
-CFNetServiceResolveWithTimeout(int theService, int timeout, void * error) {
+int CFNetServiceResolveWithTimeout(int theService, int timeout, void * error) {
     r0 = _CFNetServiceResolveWithTimeout_ptr(theService, timeout, error);
     return r0;
 }
 
-CFNetServiceScheduleWithRunLoop(int theService, int runLoop, int runLoopMode) {
+void CFNetServiceScheduleWithRunLoop(int theService, int runLoop, int runLoopMode) {
     _CFNetServiceScheduleWithRunLoop_ptr(theService, runLoop, runLoopMode);
     return;
 }
 
-CFNetServiceSetClient(int theService, int clientCB, void * clientContext) {
+int CFNetServiceSetClient(int theService, int clientCB, void * clientContext) {
     r0 = _CFNetServiceSetClient_ptr(theService, clientCB, clientContext);
     return r0;
 }
 
-CFNetServiceUnscheduleFromRunLoop(int theService, int runLoop, int runLoopMode) {
+void CFNetServiceUnscheduleFromRunLoop(int theService, int runLoop, int runLoopMode) {
     _CFNetServiceUnscheduleFromRunLoop_ptr(theService, runLoop, runLoopMode);
     return;
 }
 
-CFNetworkCopySystemProxySettings() {
+int CFNetworkCopySystemProxySettings() {
     r0 = _CFNetworkCopySystemProxySettings_ptr();
     return r0;
 }
 
-CFNotificationCenterAddObserver(int center, void * observer, int callBack, int name, void * object, int suspensionBehavior) {
+void CFNotificationCenterAddObserver(int center, void * observer, int callBack, int name, void * object, int suspensionBehavior) {
     _CFNotificationCenterAddObserver_ptr(center, observer, callBack, name, object, suspensionBehavior);
     return;
 }
 
-CFNotificationCenterGetLocalCenter() {
+int CFNotificationCenterGetLocalCenter() {
     r0 = _CFNotificationCenterGetLocalCenter_ptr();
     return r0;
 }
 
-CFNumberCreate(int allocator, int theType, void * valuePtr) {
+int CFNumberCreate(int allocator, int theType, void * valuePtr) {
     r0 = _CFNumberCreate_ptr(allocator, theType, valuePtr);
     return r0;
 }
 
-CFNumberIsFloatType(int number) {
+int CFNumberIsFloatType(int number) {
     r0 = _CFNumberIsFloatType_ptr(number);
     return r0;
 }
 
-CFPreferencesAppSynchronize(int applicationID) {
+int CFPreferencesAppSynchronize(int applicationID) {
     r0 = _CFPreferencesAppSynchronize_ptr(applicationID);
     return r0;
 }
 
-CFPreferencesCopyAppValue(int key, int applicationID) {
+int CFPreferencesCopyAppValue(int key, int applicationID) {
     r0 = _CFPreferencesCopyAppValue_ptr(key, applicationID);
     return r0;
 }
 
-CFPreferencesCopyKeyList(int applicationID, int userName, int hostName) {
+int CFPreferencesCopyKeyList(int applicationID, int userName, int hostName) {
     r0 = _CFPreferencesCopyKeyList_ptr(applicationID, userName, hostName);
     return r0;
 }
 
-CFPreferencesSetAppValue(int key, int value, int applicationID) {
+void CFPreferencesSetAppValue(int key, int value, int applicationID) {
     _CFPreferencesSetAppValue_ptr(key, value, applicationID);
     return;
 }
 
-CFPreferencesSetMultiple(int keysToSet, int keysToRemove, int applicationID, int userName, int hostName) {
+void CFPreferencesSetMultiple(int keysToSet, int keysToRemove, int applicationID, int userName, int hostName) {
     _CFPreferencesSetMultiple_ptr(keysToSet, keysToRemove, applicationID, userName, hostName);
     return;
 }
 
-CFReadStreamClose(int stream) {
+void CFReadStreamClose(int stream) {
     _CFReadStreamClose_ptr(stream);
     return;
 }
 
-CFReadStreamCopyError(int stream) {
+int CFReadStreamCopyError(int stream) {
     r0 = _CFReadStreamCopyError_ptr(stream);
     return r0;
 }
 
-CFReadStreamCreateWithFile(int alloc, int fileURL) {
+int CFReadStreamCreateWithFile(int alloc, int fileURL) {
     r0 = _CFReadStreamCreateWithFile_ptr(alloc, fileURL);
     return r0;
 }
 
-CFReadStreamGetStatus(int stream) {
+int CFReadStreamGetStatus(int stream) {
     r0 = _CFReadStreamGetStatus_ptr(stream);
     return r0;
 }
 
-CFReadStreamHasBytesAvailable(int stream) {
+int CFReadStreamHasBytesAvailable(int stream) {
     r0 = _CFReadStreamHasBytesAvailable_ptr(stream);
     return r0;
 }
 
-CFReadStreamOpen(int stream) {
+int CFReadStreamOpen(int stream) {
     r0 = _CFReadStreamOpen_ptr(stream);
     return r0;
 }
 
-CFReadStreamRead(int stream, void * buffer, int bufferLength) {
+int CFReadStreamRead(int stream, void * buffer, int bufferLength) {
     r0 = _CFReadStreamRead_ptr(stream, buffer, bufferLength);
     return r0;
 }
 
-CFReadStreamScheduleWithRunLoop(int stream, int runLoop, int runLoopMode) {
+void CFReadStreamScheduleWithRunLoop(int stream, int runLoop, int runLoopMode) {
     _CFReadStreamScheduleWithRunLoop_ptr(stream, runLoop, runLoopMode);
     return;
 }
 
-CFReadStreamSetClient(int stream, int streamEvents, int clientCB, void * clientContext) {
+int CFReadStreamSetClient(int stream, int streamEvents, int clientCB, void * clientContext) {
     r0 = _CFReadStreamSetClient_ptr(stream, streamEvents, clientCB, clientContext);
     return r0;
 }
 
-CFReadStreamSetProperty(int stream, int propertyName, int propertyValue) {
+int CFReadStreamSetProperty(int stream, int propertyName, int propertyValue) {
     r0 = _CFReadStreamSetProperty_ptr(stream, propertyName, propertyValue);
     return r0;
 }
 
-CFReadStreamUnscheduleFromRunLoop(int stream, int runLoop, int runLoopMode) {
+void CFReadStreamUnscheduleFromRunLoop(int stream, int runLoop, int runLoopMode) {
     _CFReadStreamUnscheduleFromRunLoop_ptr(stream, runLoop, runLoopMode);
     return;
 }
 
-CFRelease(int cf) {
+void CFRelease(int cf) {
     _CFRelease_ptr(cf);
     return;
 }
 
-CFRetain(int cf) {
+int CFRetain(int cf) {
     r0 = _CFRetain_ptr(cf);
     return r0;
 }
 
-CFRunLoopAddSource(int rl, int source, int mode) {
+void CFRunLoopAddSource(int rl, int source, int mode) {
     _CFRunLoopAddSource_ptr(rl, source, mode);
     return;
 }
 
-CFRunLoopAddTimer(int rl, int timer, int mode) {
+void CFRunLoopAddTimer(int rl, int timer, int mode) {
     _CFRunLoopAddTimer_ptr(rl, timer, mode);
     return;
 }
 
-CFRunLoopGetMain() {
+int CFRunLoopGetMain() {
     r0 = _CFRunLoopGetMain_ptr();
     return r0;
 }
 
-CFRunLoopGetCurrent() {
+int CFRunLoopGetCurrent() {
     r0 = _CFRunLoopGetCurrent_ptr();
     return r0;
 }
 
-CFRunLoopPerformBlock(int rl, int mode, void * block) {
+void CFRunLoopPerformBlock(int rl, int mode, void * block) {
     _CFRunLoopPerformBlock_ptr(rl, mode, block);
     return;
 }
 
-CFRunLoopRun() {
+void CFRunLoopRun() {
     _CFRunLoopRun_ptr();
     return;
 }
 
-CFRunLoopSourceInvalidate(int source) {
+void CFRunLoopSourceInvalidate(int source) {
     _CFRunLoopSourceInvalidate_ptr(source);
     return;
 }
 
-CFRunLoopStop(int rl) {
+void CFRunLoopStop(int rl) {
     _CFRunLoopStop_ptr(rl);
     return;
 }
 
-CFRunLoopTimerCreate(int allocator, int fireDate, int interval, int flags, int order, int callout, void * context) {
+int CFRunLoopTimerCreate(int allocator, int fireDate, int interval, int flags, int order, int callout, void * context) {
     r0 = _CFRunLoopTimerCreate_ptr(allocator, fireDate, interval, flags, order, callout, context);
     return r0;
 }
 
-CFRunLoopTimerCreateWithHandler(int allocator, int fireDate, int interval, int flags, int order, void * block) {
+int CFRunLoopTimerCreateWithHandler(int allocator, int fireDate, int interval, int flags, int order, void * block) {
     r0 = _CFRunLoopTimerCreateWithHandler_ptr(allocator, fireDate, interval, flags, order, block);
     return r0;
 }
 
-CFSocketCreateRunLoopSource(int allocator, int s, int order) {
+int CFSocketCreateRunLoopSource(int allocator, int s, int order) {
     r0 = _CFSocketCreateRunLoopSource_ptr(allocator, s, order);
     return r0;
 }
 
-CFRunLoopTimerInvalidate(int timer) {
+void CFRunLoopTimerInvalidate(int timer) {
     _CFRunLoopTimerInvalidate_ptr(timer);
     return;
 }
 
-CFRunLoopWakeUp(int rl) {
+void CFRunLoopWakeUp(int rl) {
     _CFRunLoopWakeUp_ptr(rl);
     return;
 }
 
-CFSocketCreateWithNative(int allocator, int sock, int callBackTypes, int callout, void * context) {
+int CFSocketCreateWithNative(int allocator, int sock, int callBackTypes, int callout, void * context) {
     r0 = _CFSocketCreateWithNative_ptr(allocator, sock, callBackTypes, callout, context);
     return r0;
 }
 
-CFSocketGetNative(int s) {
+int CFSocketGetNative(int s) {
     r0 = _CFSocketGetNative_ptr(s);
     return r0;
 }
 
-CFSocketGetSocketFlags(int s) {
+int CFSocketGetSocketFlags(int s) {
     r0 = _CFSocketGetSocketFlags_ptr(s);
     return r0;
 }
 
-CFSocketSetSocketFlags(int s, int flags) {
+void CFSocketSetSocketFlags(int s, int flags) {
     _CFSocketSetSocketFlags_ptr(s, flags);
     return;
 }
 
-CFSocketInvalidate(int s) {
+void CFSocketInvalidate(int s) {
     _CFSocketInvalidate_ptr(s);
     return;
 }
 
-CFStreamCreatePairWithSocketToHost(int alloc, int host, int port, void * readStream, void * writeStream) {
+void CFStreamCreatePairWithSocketToHost(int alloc, int host, int port, void * readStream, void * writeStream) {
     _CFStreamCreatePairWithSocketToHost_ptr(alloc, host, port, readStream, writeStream);
     return;
 }
 
-CFStringAppend(int theString, int appendedString) {
+void CFStringAppend(int theString, int appendedString) {
     _CFStringAppend_ptr(theString, appendedString);
     return;
 }
 
-CFStringAppendCharacters(int theString, void * chars, int numChars) {
+void CFStringAppendCharacters(int theString, void * chars, int numChars) {
     _CFStringAppendCharacters_ptr(theString, chars, numChars);
     return;
 }
 
-CFStringAppendFormat(int theString, int formatOptions, int format) {
+void CFStringAppendFormat(int theString, int formatOptions, int format) {
     _CFStringAppendFormat_ptr(theString, formatOptions, format);
     return;
 }
 
-CFStringCompare(int theString1, int theString2, int compareOptions) {
+int CFStringCompare(int theString1, int theString2, int compareOptions) {
     r0 = _CFStringCompare_ptr(theString1, theString2, compareOptions);
     return r0;
 }
 
-CFStringConvertIANACharSetNameToEncoding(int theString) {
+int CFStringConvertIANACharSetNameToEncoding(int theString) {
     r0 = _CFStringConvertIANACharSetNameToEncoding_ptr(theString);
     return r0;
 }
 
-long CFStringConvertEncodingToNSStringEncoding(int encoding) {
+unsigned long CFStringConvertEncodingToNSStringEncoding(int encoding) {
     r0 = _CFStringConvertEncodingToNSStringEncoding_ptr(encoding);
     return r0;
 }
 
-CFStringConvertNSStringEncodingToEncoding(unsigned long encoding) {
+int CFStringConvertNSStringEncodingToEncoding(unsigned long encoding) {
     r0 = _CFStringConvertNSStringEncodingToEncoding_ptr(encoding);
     return r0;
 }
 
-CFStringCreateMutable(int alloc, int maxLength) {
+int CFStringCreateMutable(int alloc, int maxLength) {
     r0 = _CFStringCreateMutable_ptr(alloc, maxLength);
     return r0;
 }
 
-CFStringCreateCopy(int alloc, int theString) {
+int CFStringCreateCopy(int alloc, int theString) {
     r0 = _CFStringCreateCopy_ptr(alloc, theString);
     return r0;
 }
 
-CFStringCreateWithBytes(int alloc, void * bytes, int numBytes, int encoding, int isExternalRepresentation) {
+int CFStringCreateWithBytes(int alloc, void * bytes, int numBytes, int encoding, int isExternalRepresentation) {
     r0 = _CFStringCreateWithBytes_ptr(alloc, bytes, numBytes, encoding, isExternalRepresentation);
     return r0;
 }
 
-CFStringCreateWithCharactersNoCopy(int alloc, void * chars, int numChars, int contentsDeallocator) {
+int CFStringCreateWithCharactersNoCopy(int alloc, void * chars, int numChars, int contentsDeallocator) {
     r0 = _CFStringCreateWithCharactersNoCopy_ptr(alloc, chars, numChars, contentsDeallocator);
     return r0;
 }
 
-CFStringCreateWithCString(int alloc, void * cStr, int encoding) {
+int CFStringCreateWithCString(int alloc, void * cStr, int encoding) {
     r0 = _CFStringCreateWithCString_ptr(alloc, cStr, encoding);
     return r0;
 }
 
-CFStringCreateWithCStringNoCopy(int alloc, void * cStr, int encoding, int contentsDeallocator) {
+int CFStringCreateWithCStringNoCopy(int alloc, void * cStr, int encoding, int contentsDeallocator) {
     r0 = _CFStringCreateWithCStringNoCopy_ptr(alloc, cStr, encoding, contentsDeallocator);
     return r0;
 }
 
-CFStringCreateWithSubstring(int alloc, int str, int range) {
+int CFStringCreateWithSubstring(int alloc, int str, int range) {
     r0 = _CFStringCreateWithSubstring_ptr(alloc, str, range);
     return r0;
 }
 
-CFStringCreateWithFormat(int alloc, int formatOptions, int format) {
+int CFStringCreateWithFormat(int alloc, int formatOptions, int format) {
     r0 = _CFStringCreateWithFormat_ptr(alloc, formatOptions, format);
     return r0;
 }
 
-CFStringFind(int theString, int stringToFind, int compareOptions) {
+int CFStringFind(int theString, int stringToFind, int compareOptions) {
     r0 = _CFStringFind_ptr(theString, stringToFind, compareOptions);
     return r0;
 }
 
-CFStringGetCString(int theString, void * buffer, int bufferSize, int encoding) {
+int CFStringGetCString(int theString, void * buffer, int bufferSize, int encoding) {
     r0 = _CFStringGetCString_ptr(theString, buffer, bufferSize, encoding);
     return r0;
 }
 
-* CFStringGetCStringPtr(int theString, int encoding) {
+void * CFStringGetCStringPtr(int theString, int encoding) {
     r0 = _CFStringGetCStringPtr_ptr(theString, encoding);
     return r0;
 }
 
-CFStringGetCharacterAtIndex(int theString, int idx) {
+int CFStringGetCharacterAtIndex(int theString, int idx) {
     r0 = _CFStringGetCharacterAtIndex_ptr(theString, idx);
     return r0;
 }
 
-CFStringGetFastestEncoding(int theString) {
+int CFStringGetFastestEncoding(int theString) {
     r0 = _CFStringGetFastestEncoding_ptr(theString);
     return r0;
 }
 
-CFStringGetMaximumSizeForEncoding(int length, int encoding) {
+int CFStringGetMaximumSizeForEncoding(int length, int encoding) {
     r0 = _CFStringGetMaximumSizeForEncoding_ptr(length, encoding);
     return r0;
 }
 
-CFStringGetLength(int theString) {
+int CFStringGetLength(int theString) {
     r0 = _CFStringGetLength_ptr(theString);
     return r0;
 }
 
-CFStringHasPrefix(int theString, int prefix) {
+int CFStringHasPrefix(int theString, int prefix) {
     r0 = _CFStringHasPrefix_ptr(theString, prefix);
     return r0;
 }
 
-CFStringTransform(int string, void * range, int transform, int reverse) {
+int CFStringTransform(int string, void * range, int transform, int reverse) {
     r0 = _CFStringTransform_ptr(string, range, transform, reverse);
     return r0;
 }
 
-CFURLCopyFileSystemPath(int anURL, int pathStyle) {
+int CFURLCopyFileSystemPath(int anURL, int pathStyle) {
     r0 = _CFURLCopyFileSystemPath_ptr(anURL, pathStyle);
     return r0;
 }
 
-CFURLCopyPathExtension(int url) {
+int CFURLCopyPathExtension(int url) {
     r0 = _CFURLCopyPathExtension_ptr(url);
     return r0;
 }
 
-CFURLCopyPath(int anURL) {
+int CFURLCopyPath(int anURL) {
     r0 = _CFURLCopyPath_ptr(anURL);
     return r0;
 }
 
-CFURLCopyQueryString(int anURL, int charactersToLeaveEscaped) {
+int CFURLCopyQueryString(int anURL, int charactersToLeaveEscaped) {
     r0 = _CFURLCopyQueryString_ptr(anURL, charactersToLeaveEscaped);
     return r0;
 }
 
-CFURLCreateStringByAddingPercentEscapes(int allocator, int originalString, int charactersToLeaveUnescaped, int legalURLCharactersToBeEscaped, int encoding) {
+int CFURLCreateStringByAddingPercentEscapes(int allocator, int originalString, int charactersToLeaveUnescaped, int legalURLCharactersToBeEscaped, int encoding) {
     r0 = _CFURLCreateStringByAddingPercentEscapes_ptr(allocator, originalString, charactersToLeaveUnescaped, legalURLCharactersToBeEscaped, encoding);
     return r0;
 }
 
-CFURLCreateCopyAppendingPathComponent(int allocator, int url, int pathComponent, int isDirectory) {
+int CFURLCreateCopyAppendingPathComponent(int allocator, int url, int pathComponent, int isDirectory) {
     r0 = _CFURLCreateCopyAppendingPathComponent_ptr(allocator, url, pathComponent, isDirectory);
     return r0;
 }
 
-CFURLCreateStringByReplacingPercentEscapes(int allocator, int originalString, int charactersToLeaveEscaped) {
+int CFURLCreateStringByReplacingPercentEscapes(int allocator, int originalString, int charactersToLeaveEscaped) {
     r0 = _CFURLCreateStringByReplacingPercentEscapes_ptr(allocator, originalString, charactersToLeaveEscaped);
     return r0;
 }
 
-CFURLCreateWithFileSystemPath(int allocator, int filePath, int pathStyle, int isDirectory) {
+int CFURLCreateWithFileSystemPath(int allocator, int filePath, int pathStyle, int isDirectory) {
     r0 = _CFURLCreateWithFileSystemPath_ptr(allocator, filePath, pathStyle, isDirectory);
     return r0;
 }
 
-CFURLCreateStringByReplacingPercentEscapesUsingEncoding(int allocator, int origString, int charsToLeaveEscaped, int encoding) {
+int CFURLCreateStringByReplacingPercentEscapesUsingEncoding(int allocator, int origString, int charsToLeaveEscaped, int encoding) {
     r0 = _CFURLCreateStringByReplacingPercentEscapesUsingEncoding_ptr(allocator, origString, charsToLeaveEscaped, encoding);
     return r0;
 }
 
-CFUUIDCreate(int alloc) {
+int CFUUIDCreate(int alloc) {
     r0 = _CFUUIDCreate_ptr(alloc);
     return r0;
 }
 
-CFUUIDCreateString(int alloc, int uuid) {
+int CFUUIDCreateString(int alloc, int uuid) {
     r0 = _CFUUIDCreateString_ptr(alloc, uuid);
     return r0;
 }
 
-CFWriteStreamCanAcceptBytes(int stream) {
+int CFWriteStreamCanAcceptBytes(int stream) {
     r0 = _CFWriteStreamCanAcceptBytes_ptr(stream);
     return r0;
 }
 
-CFUUIDCreateFromUUIDBytes(int alloc, int bytes) {
+int CFUUIDCreateFromUUIDBytes(int alloc, int bytes) {
     r0 = _CFUUIDCreateFromUUIDBytes_ptr(alloc, bytes);
     return r0;
 }
 
-CFWriteStreamClose(int stream) {
+void CFWriteStreamClose(int stream) {
     _CFWriteStreamClose_ptr(stream);
     return;
 }
 
-CFWriteStreamGetStatus(int stream) {
+int CFWriteStreamGetStatus(int stream) {
     r0 = _CFWriteStreamGetStatus_ptr(stream);
     return r0;
 }
 
-CFWriteStreamCopyError(int stream) {
+int CFWriteStreamCopyError(int stream) {
     r0 = _CFWriteStreamCopyError_ptr(stream);
     return r0;
 }
 
-CFWriteStreamOpen(int stream) {
+int CFWriteStreamOpen(int stream) {
     r0 = _CFWriteStreamOpen_ptr(stream);
     return r0;
 }
 
-CFWriteStreamScheduleWithRunLoop(int stream, int runLoop, int runLoopMode) {
+void CFWriteStreamScheduleWithRunLoop(int stream, int runLoop, int runLoopMode) {
     _CFWriteStreamScheduleWithRunLoop_ptr(stream, runLoop, runLoopMode);
     return;
 }
 
-CFWriteStreamSetClient(int stream, int streamEvents, int clientCB, void * clientContext) {
+int CFWriteStreamSetClient(int stream, int streamEvents, int clientCB, void * clientContext) {
     r0 = _CFWriteStreamSetClient_ptr(stream, streamEvents, clientCB, clientContext);
     return r0;
 }
 
-CFWriteStreamSetProperty(int stream, int propertyName, int propertyValue) {
+int CFWriteStreamSetProperty(int stream, int propertyName, int propertyValue) {
     r0 = _CFWriteStreamSetProperty_ptr(stream, propertyName, propertyValue);
     return r0;
 }
 
-CFWriteStreamWrite(int stream, void * buffer, int bufferLength) {
+int CFWriteStreamWrite(int stream, void * buffer, int bufferLength) {
     r0 = _CFWriteStreamWrite_ptr(stream, buffer, bufferLength);
     return r0;
 }
 
-CFWriteStreamUnscheduleFromRunLoop(int stream, int runLoop, int runLoopMode) {
+void CFWriteStreamUnscheduleFromRunLoop(int stream, int runLoop, int runLoopMode) {
     _CFWriteStreamUnscheduleFromRunLoop_ptr(stream, runLoop, runLoopMode);
     return;
 }
 
-CGAffineTransformConcat(int t1, int t2) {
+int CGAffineTransformConcat(int t1, int t2) {
     r0 = _CGAffineTransformConcat_ptr(t1, t2);
     return r0;
 }
 
-CGAffineTransformMakeRotation(int angle) {
+int CGAffineTransformMakeRotation(int angle) {
     r0 = _CGAffineTransformMakeRotation_ptr(angle);
     return r0;
 }
 
-CGAffineTransformInvert(int t) {
+int CGAffineTransformInvert(int t) {
     r0 = _CGAffineTransformInvert_ptr(t);
     return r0;
 }
 
-CGAffineTransformMakeScale(int sx, int sy) {
+int CGAffineTransformMakeScale(int sx, int sy) {
     r0 = _CGAffineTransformMakeScale_ptr(sx, sy);
     return r0;
 }
 
-CGAffineTransformRotate(int t, int angle) {
+int CGAffineTransformRotate(int t, int angle) {
     r0 = _CGAffineTransformRotate_ptr(t, angle);
     return r0;
 }
 
-CGAffineTransformMakeTranslation(int tx, int ty) {
+int CGAffineTransformMakeTranslation(int tx, int ty) {
     r0 = _CGAffineTransformMakeTranslation_ptr(tx, ty);
     return r0;
 }
 
-CGAffineTransformScale(int t, int sx, int sy) {
+int CGAffineTransformScale(int t, int sx, int sy) {
     r0 = _CGAffineTransformScale_ptr(t, sx, sy);
     return r0;
 }
 
-CGAffineTransformTranslate(int t, int tx, int ty) {
+int CGAffineTransformTranslate(int t, int tx, int ty) {
     r0 = _CGAffineTransformTranslate_ptr(t, tx, ty);
     return r0;
 }
 
-CGBitmapContextCreate(void * data, int width, int height, int bitsPerComponent, int bytesPerRow, int space, int bitmapInfo) {
+int CGBitmapContextCreate(void * data, int width, int height, int bitsPerComponent, int bytesPerRow, int space, int bitmapInfo) {
     r0 = _CGBitmapContextCreate_ptr(data, width, height, bitsPerComponent, bytesPerRow, space, bitmapInfo);
     return r0;
 }
 
-CGBitmapContextCreateImage(int context) {
+int CGBitmapContextCreateImage(int context) {
     r0 = _CGBitmapContextCreateImage_ptr(context);
     return r0;
 }
 
-CGColorCreate(int space, int components) {
+int CGColorCreate(int space, int components) {
     r0 = _CGColorCreate_ptr(space, components);
     return r0;
 }
 
-CGBitmapContextGetHeight(int context) {
+int CGBitmapContextGetHeight(int context) {
     r0 = _CGBitmapContextGetHeight_ptr(context);
     return r0;
 }
 
-CGColorGetAlpha(int color) {
+int CGColorGetAlpha(int color) {
     r0 = _CGColorGetAlpha_ptr(color);
     return r0;
 }
 
-CGColorGetColorSpace(int color) {
+int CGColorGetColorSpace(int color) {
     r0 = _CGColorGetColorSpace_ptr(color);
     return r0;
 }
 
-* CGColorGetComponents(int color) {
+void * CGColorGetComponents(int color) {
     r0 = _CGColorGetComponents_ptr(color);
     return r0;
 }
 
-CGColorGetNumberOfComponents(int color) {
+int CGColorGetNumberOfComponents(int color) {
     r0 = _CGColorGetNumberOfComponents_ptr(color);
     return r0;
 }
 
-CGColorRelease(int color) {
+void CGColorRelease(int color) {
     _CGColorRelease_ptr(color);
     return;
 }
 
-CGColorRetain(int color) {
+int CGColorRetain(int color) {
     r0 = _CGColorRetain_ptr(color);
     return r0;
 }
 
-CGColorSpaceCreateDeviceGray() {
+int CGColorSpaceCreateDeviceGray() {
     r0 = _CGColorSpaceCreateDeviceGray_ptr();
     return r0;
 }
 
-CGColorSpaceCreateDeviceRGB() {
+int CGColorSpaceCreateDeviceRGB() {
     r0 = _CGColorSpaceCreateDeviceRGB_ptr();
     return r0;
 }
 
-CGColorSpaceGetModel(int space) {
+int CGColorSpaceGetModel(int space) {
     r0 = _CGColorSpaceGetModel_ptr(space);
     return r0;
 }
 
-CGColorSpaceGetNumberOfComponents(int space) {
+int CGColorSpaceGetNumberOfComponents(int space) {
     r0 = _CGColorSpaceGetNumberOfComponents_ptr(space);
     return r0;
 }
 
-CGContextAddArc(int c, int x, int y, int radius, int startAngle, int endAngle, int clockwise) {
+void CGContextAddArc(int c, int x, int y, int radius, int startAngle, int endAngle, int clockwise) {
     _CGContextAddArc_ptr(c, x, y, radius, startAngle, endAngle, clockwise);
     return;
 }
 
-CGColorSpaceRelease(int space) {
+void CGColorSpaceRelease(int space) {
     _CGColorSpaceRelease_ptr(space);
     return;
 }
 
-CGContextAddPath(int context, int path) {
+void CGContextAddPath(int context, int path) {
     _CGContextAddPath_ptr(context, path);
     return;
 }
 
-CGContextAddRect(int c, int rect) {
+void CGContextAddRect(int c, int rect) {
     _CGContextAddRect_ptr(c, rect);
     return;
 }
 
-CGContextBeginPath(int c) {
+void CGContextBeginPath(int c) {
     _CGContextBeginPath_ptr(c);
     return;
 }
 
-CGContextBeginTransparencyLayer(int context, int auxiliaryInfo) {
+void CGContextBeginTransparencyLayer(int context, int auxiliaryInfo) {
     _CGContextBeginTransparencyLayer_ptr(context, auxiliaryInfo);
     return;
 }
 
-CGContextClearRect(int c, int rect) {
+void CGContextClearRect(int c, int rect) {
     _CGContextClearRect_ptr(c, rect);
     return;
 }
 
-CGContextDrawImage(int c, int rect, int image) {
+void CGContextDrawImage(int c, int rect, int image) {
     _CGContextDrawImage_ptr(c, rect, image);
     return;
 }
 
-CGContextDrawLinearGradient(int context, int gradient, int startPoint, int endPoint, int options) {
+void CGContextDrawLinearGradient(int context, int gradient, int startPoint, int endPoint, int options) {
     _CGContextDrawLinearGradient_ptr(context, gradient, startPoint, endPoint, options);
     return;
 }
 
-CGContextConcatCTM(int c, int transform) {
+void CGContextConcatCTM(int c, int transform) {
     _CGContextConcatCTM_ptr(c, transform);
     return;
 }
 
-CGContextEOClip(int c) {
+void CGContextEOClip(int c) {
     _CGContextEOClip_ptr(c);
     return;
 }
 
-CGContextDrawRadialGradient(int context, int gradient, int startCenter, int startRadius, int endCenter, int endRadius, int options) {
+void CGContextDrawRadialGradient(int context, int gradient, int startCenter, int startRadius, int endCenter, int endRadius, int options) {
     _CGContextDrawRadialGradient_ptr(context, gradient, startCenter, startRadius, endCenter, endRadius, options);
     return;
 }
 
-CGContextEndTransparencyLayer(int context) {
+void CGContextEndTransparencyLayer(int context) {
     _CGContextEndTransparencyLayer_ptr(context);
     return;
 }
 
-CGContextFillRect(int c, int rect) {
+void CGContextFillRect(int c, int rect) {
     _CGContextFillRect_ptr(c, rect);
     return;
 }
 
-CGContextFillPath(int c) {
+void CGContextFillPath(int c) {
     _CGContextFillPath_ptr(c);
     return;
 }
 
-CGContextRelease(int c) {
+void CGContextRelease(int c) {
     _CGContextRelease_ptr(c);
     return;
 }
 
-CGContextRestoreGState(int c) {
+void CGContextRestoreGState(int c) {
     _CGContextRestoreGState_ptr(c);
     return;
 }
 
-CGContextRotateCTM(int c, int angle) {
+void CGContextRotateCTM(int c, int angle) {
     _CGContextRotateCTM_ptr(c, angle);
     return;
 }
 
-CGContextSaveGState(int c) {
+void CGContextSaveGState(int c) {
     _CGContextSaveGState_ptr(c);
     return;
 }
 
-CGContextScaleCTM(int c, int sx, int sy) {
+void CGContextScaleCTM(int c, int sx, int sy) {
     _CGContextScaleCTM_ptr(c, sx, sy);
     return;
 }
 
-CGContextSetAlpha(int c, int alpha) {
+void CGContextSetAlpha(int c, int alpha) {
     _CGContextSetAlpha_ptr(c, alpha);
     return;
 }
 
-CGContextSetFillColorWithColor(int c, int color) {
+void CGContextSetFillColorWithColor(int c, int color) {
     _CGContextSetFillColorWithColor_ptr(c, color);
     return;
 }
 
-CGContextSetGrayFillColor(int context, int gray, int alpha) {
+void CGContextSetGrayFillColor(int context, int gray, int alpha) {
     _CGContextSetGrayFillColor_ptr(context, gray, alpha);
     return;
 }
 
-CGContextSetFontSize(int c, int size) {
+void CGContextSetFontSize(int c, int size) {
     _CGContextSetFontSize_ptr(c, size);
     return;
 }
 
-CGContextSetGrayStrokeColor(int context, int gray, int alpha) {
+void CGContextSetGrayStrokeColor(int context, int gray, int alpha) {
     _CGContextSetGrayStrokeColor_ptr(context, gray, alpha);
     return;
 }
 
-CGContextSetLineJoin(int c, int join) {
+void CGContextSetLineJoin(int c, int join) {
     _CGContextSetLineJoin_ptr(c, join);
     return;
 }
 
-CGContextSetLineCap(int c, int cap) {
+void CGContextSetLineCap(int c, int cap) {
     _CGContextSetLineCap_ptr(c, cap);
     return;
 }
 
-CGContextSetShadowWithColor(int context, int offset, int blur, int color) {
+void CGContextSetShadowWithColor(int context, int offset, int blur, int color) {
     _CGContextSetShadowWithColor_ptr(context, offset, blur, color);
     return;
 }
 
-CGContextSetLineWidth(int c, int width) {
+void CGContextSetLineWidth(int c, int width) {
     _CGContextSetLineWidth_ptr(c, width);
     return;
 }
 
-CGContextSetShouldSmoothFonts(int context, int shouldSmoothFonts) {
+void CGContextSetShouldSmoothFonts(int context, int shouldSmoothFonts) {
     _CGContextSetShouldSmoothFonts_ptr(context, shouldSmoothFonts);
     return;
 }
 
-CGContextSetStrokeColor(int context, int components) {
+void CGContextSetStrokeColor(int context, int components) {
     _CGContextSetStrokeColor_ptr(context, components);
     return;
 }
 
-CGContextSetTextDrawingMode(int c, int mode) {
+void CGContextSetTextDrawingMode(int c, int mode) {
     _CGContextSetTextDrawingMode_ptr(c, mode);
     return;
 }
 
-CGContextSetStrokeColorWithColor(int c, int color) {
+void CGContextSetStrokeColorWithColor(int c, int color) {
     _CGContextSetStrokeColorWithColor_ptr(c, color);
     return;
 }
 
-CGContextStrokePath(int c) {
+void CGContextStrokePath(int c) {
     _CGContextStrokePath_ptr(c);
     return;
 }
 
-CGContextSetTextMatrix(int c, int t) {
+void CGContextSetTextMatrix(int c, int t) {
     _CGContextSetTextMatrix_ptr(c, t);
     return;
 }
 
-CGContextSetTextPosition(int c, int x, int y) {
+void CGContextSetTextPosition(int c, int x, int y) {
     _CGContextSetTextPosition_ptr(c, x, y);
     return;
 }
 
-CGDataProviderCreateWithData(void * info, void * data, int size, int releaseData) {
+int CGDataProviderCreateWithData(void * info, void * data, int size, int releaseData) {
     r0 = _CGDataProviderCreateWithData_ptr(info, data, size, releaseData);
     return r0;
 }
 
-CGDataProviderCreateWithCFData(int data) {
+int CGDataProviderCreateWithCFData(int data) {
     r0 = _CGDataProviderCreateWithCFData_ptr(data);
     return r0;
 }
 
-CGContextTranslateCTM(int c, int tx, int ty) {
+void CGContextTranslateCTM(int c, int tx, int ty) {
     _CGContextTranslateCTM_ptr(c, tx, ty);
     return;
 }
 
-CGFontCopyPostScriptName(int font) {
+int CGFontCopyPostScriptName(int font) {
     r0 = _CGFontCopyPostScriptName_ptr(font);
     return r0;
 }
 
-CGDataProviderRelease(int provider) {
+void CGDataProviderRelease(int provider) {
     _CGDataProviderRelease_ptr(provider);
     return;
 }
 
-CGFontCopyTableForTag(int font, int tag) {
+int CGFontCopyTableForTag(int font, int tag) {
     r0 = _CGFontCopyTableForTag_ptr(font, tag);
     return r0;
 }
 
-CGFontRelease(int font) {
+void CGFontRelease(int font) {
     _CGFontRelease_ptr(font);
     return;
 }
 
-CGFontCreateWithDataProvider(int provider) {
+int CGFontCreateWithDataProvider(int provider) {
     r0 = _CGFontCreateWithDataProvider_ptr(provider);
     return r0;
 }
 
-CGFontCreateWithFontName(int name) {
+int CGFontCreateWithFontName(int name) {
     r0 = _CGFontCreateWithFontName_ptr(name);
     return r0;
 }
 
-CGFontRetain(int font) {
+int CGFontRetain(int font) {
     r0 = _CGFontRetain_ptr(font);
     return r0;
 }
 
-CGGradientCreateWithColors(int space, int colors, int locations) {
+int CGGradientCreateWithColors(int space, int colors, int locations) {
     r0 = _CGGradientCreateWithColors_ptr(space, colors, locations);
     return r0;
 }
 
-CGGradientRelease(int gradient) {
+void CGGradientRelease(int gradient) {
     _CGGradientRelease_ptr(gradient);
     return;
 }
 
-CGImageCreateCopy(int image) {
+int CGImageCreateCopy(int image) {
     r0 = _CGImageCreateCopy_ptr(image);
     return r0;
 }
 
-CGImageCreate(int width, int height, int bitsPerComponent, int bitsPerPixel, int bytesPerRow, int space, int bitmapInfo, int provider, int decode, int shouldInterpolate, int intent) {
+int CGImageCreate(int width, int height, int bitsPerComponent, int bitsPerPixel, int bytesPerRow, int space, int bitmapInfo, int provider, int decode, int shouldInterpolate, int intent) {
     r0 = _CGImageCreate_ptr(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, space, bitmapInfo, provider, decode, shouldInterpolate, intent);
     return r0;
 }
 
-CGImageCreateWithImageInRect(int image, int rect) {
+int CGImageCreateWithImageInRect(int image, int rect) {
     r0 = _CGImageCreateWithImageInRect_ptr(image, rect);
     return r0;
 }
 
-CGImageCreateWithJPEGDataProvider(int source, int decode, int shouldInterpolate, int intent) {
+int CGImageCreateWithJPEGDataProvider(int source, int decode, int shouldInterpolate, int intent) {
     r0 = _CGImageCreateWithJPEGDataProvider_ptr(source, decode, shouldInterpolate, intent);
     return r0;
 }
 
-CGImageCreateWithPNGDataProvider(int source, int decode, int shouldInterpolate, int intent) {
+int CGImageCreateWithPNGDataProvider(int source, int decode, int shouldInterpolate, int intent) {
     r0 = _CGImageCreateWithPNGDataProvider_ptr(source, decode, shouldInterpolate, intent);
     return r0;
 }
 
-CGImageGetAlphaInfo(int image) {
+int CGImageGetAlphaInfo(int image) {
     r0 = _CGImageGetAlphaInfo_ptr(image);
     return r0;
 }
 
-CGImageGetBitmapInfo(int image) {
+int CGImageGetBitmapInfo(int image) {
     r0 = _CGImageGetBitmapInfo_ptr(image);
     return r0;
 }
 
-CGImageGetBitsPerComponent(int image) {
+int CGImageGetBitsPerComponent(int image) {
     r0 = _CGImageGetBitsPerComponent_ptr(image);
     return r0;
 }
 
-CGImageGetBytesPerRow(int image) {
+int CGImageGetBytesPerRow(int image) {
     r0 = _CGImageGetBytesPerRow_ptr(image);
     return r0;
 }
 
-CGImageGetColorSpace(int image) {
+int CGImageGetColorSpace(int image) {
     r0 = _CGImageGetColorSpace_ptr(image);
     return r0;
 }
 
-CGImageGetHeight(int image) {
+int CGImageGetHeight(int image) {
     r0 = _CGImageGetHeight_ptr(image);
     return r0;
 }
 
-CGImageGetWidth(int image) {
+int CGImageGetWidth(int image) {
     r0 = _CGImageGetWidth_ptr(image);
     return r0;
 }
 
-CGImageRelease(int image) {
+void CGImageRelease(int image) {
     _CGImageRelease_ptr(image);
     return;
 }
 
-CGImageSourceCopyProperties(int isrc, int options) {
+int CGImageSourceCopyProperties(int isrc, int options) {
     r0 = _CGImageSourceCopyProperties_ptr(isrc, options);
     return r0;
 }
 
-CGImageSourceCopyPropertiesAtIndex(int isrc, int index, int options) {
+int CGImageSourceCopyPropertiesAtIndex(int isrc, int index, int options) {
     r0 = _CGImageSourceCopyPropertiesAtIndex_ptr(isrc, index, options);
     return r0;
 }
 
-CGImageSourceCreateImageAtIndex(int isrc, int index, int options) {
+int CGImageSourceCreateImageAtIndex(int isrc, int index, int options) {
     r0 = _CGImageSourceCreateImageAtIndex_ptr(isrc, index, options);
     return r0;
 }
 
-CGImageSourceCreateWithData(int data, int options) {
+int CGImageSourceCreateWithData(int data, int options) {
     r0 = _CGImageSourceCreateWithData_ptr(data, options);
     return r0;
 }
 
-CGImageSourceGetCount(int isrc) {
+int CGImageSourceGetCount(int isrc) {
     r0 = _CGImageSourceGetCount_ptr(isrc);
     return r0;
 }
 
-CGImageSourceGetType(int isrc) {
+int CGImageSourceGetType(int isrc) {
     r0 = _CGImageSourceGetType_ptr(isrc);
     return r0;
 }
 
-CGPathAddCurveToPoint(int path, void * m, int cp1x, int cp1y, int cp2x, int cp2y, int x, int y) {
+void CGPathAddCurveToPoint(int path, void * m, int cp1x, int cp1y, int cp2x, int cp2y, int x, int y) {
     _CGPathAddCurveToPoint_ptr(path, m, cp1x, cp1y, cp2x, cp2y, x, y);
     return;
 }
 
-CGPathAddEllipseInRect(int path, void * m, int rect) {
+void CGPathAddEllipseInRect(int path, void * m, int rect) {
     _CGPathAddEllipseInRect_ptr(path, m, rect);
     return;
 }
 
-CGPathAddLineToPoint(int path, void * m, int x, int y) {
+void CGPathAddLineToPoint(int path, void * m, int x, int y) {
     _CGPathAddLineToPoint_ptr(path, m, x, y);
     return;
 }
 
-CGPathAddPath(int path1, void * m, int path2) {
+void CGPathAddPath(int path1, void * m, int path2) {
     _CGPathAddPath_ptr(path1, m, path2);
     return;
 }
 
-CGPathAddRect(int path, void * m, int rect) {
+void CGPathAddRect(int path, void * m, int rect) {
     _CGPathAddRect_ptr(path, m, rect);
     return;
 }
 
-CGPathCloseSubpath(int path) {
+void CGPathCloseSubpath(int path) {
     _CGPathCloseSubpath_ptr(path);
     return;
 }
 
-CGPathCreateMutable() {
+int CGPathCreateMutable() {
     r0 = _CGPathCreateMutable_ptr();
     return r0;
 }
 
-CGPathCreateWithRect(int rect, void * transform) {
+int CGPathCreateWithRect(int rect, void * transform) {
     r0 = _CGPathCreateWithRect_ptr(rect, transform);
     return r0;
 }
 
-CGPathGetBoundingBox(int path) {
+int CGPathGetBoundingBox(int path) {
     r0 = _CGPathGetBoundingBox_ptr(path);
     return r0;
 }
 
-CGPathMoveToPoint(int path, void * m, int x, int y) {
+void CGPathMoveToPoint(int path, void * m, int x, int y) {
     _CGPathMoveToPoint_ptr(path, m, x, y);
     return;
 }
 
-CGPathRelease(int path) {
+void CGPathRelease(int path) {
     _CGPathRelease_ptr(path);
     return;
 }
 
-CGPointFromString() {
+void CGPointFromString() {
     _CGPointFromString_ptr();
     return;
 }
 
-CGRectApplyAffineTransform(int rect, int t) {
+int CGRectApplyAffineTransform(int rect, int t) {
     r0 = _CGRectApplyAffineTransform_ptr(rect, t);
     return r0;
 }
 
-CGRectContainsPoint(int rect, int point) {
+int CGRectContainsPoint(int rect, int point) {
     r0 = _CGRectContainsPoint_ptr(rect, point);
     return r0;
 }
 
-CGRectContainsRect(int rect1, int rect2) {
+int CGRectContainsRect(int rect1, int rect2) {
     r0 = _CGRectContainsRect_ptr(rect1, rect2);
     return r0;
 }
 
-CGRectDivide(int rect, void * slice, void * remainder, int amount, int edge) {
+void CGRectDivide(int rect, void * slice, void * remainder, int amount, int edge) {
     _CGRectDivide_ptr(rect, slice, remainder, amount, edge);
     return;
 }
 
-CGRectEqualToRect(int rect1, int rect2) {
+int CGRectEqualToRect(int rect1, int rect2) {
     r0 = _CGRectEqualToRect_ptr(rect1, rect2);
     return r0;
 }
 
-CGRectFromString() {
+void CGRectFromString() {
     _CGRectFromString_ptr();
     return;
 }
 
-CGRectGetHeight(int rect) {
+int CGRectGetHeight(int rect) {
     r0 = _CGRectGetHeight_ptr(rect);
     return r0;
 }
 
-CGRectGetMaxX(int rect) {
+int CGRectGetMaxX(int rect) {
     r0 = _CGRectGetMaxX_ptr(rect);
     return r0;
 }
 
-CGRectGetMaxY(int rect) {
+int CGRectGetMaxY(int rect) {
     r0 = _CGRectGetMaxY_ptr(rect);
     return r0;
 }
 
-CGRectGetMidX(int rect) {
+int CGRectGetMidX(int rect) {
     r0 = _CGRectGetMidX_ptr(rect);
     return r0;
 }
 
-CGRectGetMidY(int rect) {
+int CGRectGetMidY(int rect) {
     r0 = _CGRectGetMidY_ptr(rect);
     return r0;
 }
 
-CGRectGetMinX(int rect) {
+int CGRectGetMinX(int rect) {
     r0 = _CGRectGetMinX_ptr(rect);
     return r0;
 }
 
-CGRectGetMinY(int rect) {
+int CGRectGetMinY(int rect) {
     r0 = _CGRectGetMinY_ptr(rect);
     return r0;
 }
 
-CGRectGetWidth(int rect) {
+int CGRectGetWidth(int rect) {
     r0 = _CGRectGetWidth_ptr(rect);
     return r0;
 }
 
-CGRectInset(int rect, int dx, int dy) {
+int CGRectInset(int rect, int dx, int dy) {
     r0 = _CGRectInset_ptr(rect, dx, dy);
     return r0;
 }
 
-CGRectIntegral(int rect) {
+int CGRectIntegral(int rect) {
     r0 = _CGRectIntegral_ptr(rect);
     return r0;
 }
 
-CGRectIntersection(int r1, int r2) {
+int CGRectIntersection(int r1, int r2) {
     r0 = _CGRectIntersection_ptr(r1, r2);
     return r0;
 }
 
-CGRectIntersectsRect(int rect1, int rect2) {
+int CGRectIntersectsRect(int rect1, int rect2) {
     r0 = _CGRectIntersectsRect_ptr(rect1, rect2);
     return r0;
 }
 
-CGRectIsEmpty(int rect) {
+int CGRectIsEmpty(int rect) {
     r0 = _CGRectIsEmpty_ptr(rect);
     return r0;
 }
 
-CGRectIsNull(int rect) {
+int CGRectIsNull(int rect) {
     r0 = _CGRectIsNull_ptr(rect);
     return r0;
 }
 
-CGRectOffset(int rect, int dx, int dy) {
+int CGRectOffset(int rect, int dx, int dy) {
     r0 = _CGRectOffset_ptr(rect, dx, dy);
     return r0;
 }
 
-CGRectStandardize(int rect) {
+int CGRectStandardize(int rect) {
     r0 = _CGRectStandardize_ptr(rect);
     return r0;
 }
 
-CGRectUnion(int r1, int r2) {
+int CGRectUnion(int r1, int r2) {
     r0 = _CGRectUnion_ptr(r1, r2);
     return r0;
 }
 
-CGSizeFromString() {
+void CGSizeFromString() {
     _CGSizeFromString_ptr();
     return;
 }
 
-CLLocationCoordinate2DIsValid(int coord) {
+int CLLocationCoordinate2DIsValid(int coord) {
     r0 = _CLLocationCoordinate2DIsValid_ptr(coord);
     return r0;
 }
 
-CMFormatDescriptionEqual(int desc1, int desc2) {
+int CMFormatDescriptionEqual(int desc1, int desc2) {
     r0 = _CMFormatDescriptionEqual_ptr(desc1, desc2);
     return r0;
 }
 
-CMTimeAdd(int addend1, int addend2) {
+int CMTimeAdd(int addend1, int addend2) {
     r0 = _CMTimeAdd_ptr(addend1, addend2);
     return r0;
 }
 
-CMFormatDescriptionGetMediaType(int desc) {
+int CMFormatDescriptionGetMediaType(int desc) {
     r0 = _CMFormatDescriptionGetMediaType_ptr(desc);
     return r0;
 }
 
-CMSampleBufferGetFormatDescription(int sbuf) {
+int CMSampleBufferGetFormatDescription(int sbuf) {
     r0 = _CMSampleBufferGetFormatDescription_ptr(sbuf);
     return r0;
 }
 
-CMTimeGetSeconds(int time) {
+int CMTimeGetSeconds(int time) {
     r0 = _CMTimeGetSeconds_ptr(time);
     return r0;
 }
 
-CMTimeCompare(int time1, int time2) {
+int CMTimeCompare(int time1, int time2) {
     r0 = _CMTimeCompare_ptr(time1, time2);
     return r0;
 }
 
-CMTimeMake(int value, int timescale) {
+int CMTimeMake(int value, int timescale) {
     r0 = _CMTimeMake_ptr(value, timescale);
     return r0;
 }
 
-CMTimeMakeWithSeconds(int seconds, int preferredTimescale) {
+int CMTimeMakeWithSeconds(int seconds, int preferredTimescale) {
     r0 = _CMTimeMakeWithSeconds_ptr(seconds, preferredTimescale);
     return r0;
 }
 
-CMTimeMaximum(int time1, int time2) {
+int CMTimeMaximum(int time1, int time2) {
     r0 = _CMTimeMaximum_ptr(time1, time2);
     return r0;
 }
 
-CMTimeMultiplyByFloat64(int time, int multiplier) {
+int CMTimeMultiplyByFloat64(int time, int multiplier) {
     r0 = _CMTimeMultiplyByFloat64_ptr(time, multiplier);
     return r0;
 }
 
-CMTimeRangeGetEnd(int range) {
+int CMTimeRangeGetEnd(int range) {
     r0 = _CMTimeRangeGetEnd_ptr(range);
     return r0;
 }
 
-CMTimeSubtract(int minuend, int subtrahend) {
+int CMTimeSubtract(int minuend, int subtrahend) {
     r0 = _CMTimeSubtract_ptr(minuend, subtrahend);
     return r0;
 }
 
-CNCopyCurrentNetworkInfo() {
+void CNCopyCurrentNetworkInfo() {
     _CNCopyCurrentNetworkInfo_ptr();
     return;
 }
 
-CNCopySupportedInterfaces() {
+void CNCopySupportedInterfaces() {
     _CNCopySupportedInterfaces_ptr();
     return;
 }
 
-CTFontCopyAttribute(int font, int attribute) {
+int CTFontCopyAttribute(int font, int attribute) {
     r0 = _CTFontCopyAttribute_ptr(font, attribute);
     return r0;
 }
 
-CTFontCopyName(int font, int nameKey) {
+int CTFontCopyName(int font, int nameKey) {
     r0 = _CTFontCopyName_ptr(font, nameKey);
     return r0;
 }
 
-CTFontCopyGraphicsFont(int font, void * attributes) {
+int CTFontCopyGraphicsFont(int font, void * attributes) {
     r0 = _CTFontCopyGraphicsFont_ptr(font, attributes);
     return r0;
 }
 
-CTFontCopyPostScriptName(int font) {
+int CTFontCopyPostScriptName(int font) {
     r0 = _CTFontCopyPostScriptName_ptr(font);
     return r0;
 }
 
-CTFontCreateCopyWithAttributes(int font, int size, void * matrix, int attributes) {
+int CTFontCreateCopyWithAttributes(int font, int size, void * matrix, int attributes) {
     r0 = _CTFontCreateCopyWithAttributes_ptr(font, size, matrix, attributes);
     return r0;
 }
 
-CTFontCreateForString(int currentFont, int string, int range) {
+int CTFontCreateForString(int currentFont, int string, int range) {
     r0 = _CTFontCreateForString_ptr(currentFont, string, range);
     return r0;
 }
 
-CTFontCreateWithGraphicsFont(int graphicsFont, int size, void * matrix, int attributes) {
+int CTFontCreateWithGraphicsFont(int graphicsFont, int size, void * matrix, int attributes) {
     r0 = _CTFontCreateWithGraphicsFont_ptr(graphicsFont, size, matrix, attributes);
     return r0;
 }
 
-CTFontDescriptorCreateWithAttributes(int attributes) {
+int CTFontDescriptorCreateWithAttributes(int attributes) {
     r0 = _CTFontDescriptorCreateWithAttributes_ptr(attributes);
     return r0;
 }
 
-CTFontCreateWithName(int name, int size, void * matrix) {
+int CTFontCreateWithName(int name, int size, void * matrix) {
     r0 = _CTFontCreateWithName_ptr(name, size, matrix);
     return r0;
 }
 
-CTFontDescriptorCreateWithNameAndSize(int name, int size) {
+int CTFontDescriptorCreateWithNameAndSize(int name, int size) {
     r0 = _CTFontDescriptorCreateWithNameAndSize_ptr(name, size);
     return r0;
 }
 
-CTFontDrawGlyphs(int font, int glyphs, int positions, int count, int context) {
+void CTFontDrawGlyphs(int font, int glyphs, int positions, int count, int context) {
     _CTFontDrawGlyphs_ptr(font, glyphs, positions, count, context);
     return;
 }
 
-CTFontGetAdvancesForGlyphs(int font, int orientation, int glyphs, int advances, int count) {
+double CTFontGetAdvancesForGlyphs(int font, int orientation, int glyphs, int advances, int count) {
     r0 = _CTFontGetAdvancesForGlyphs_ptr(font, orientation, glyphs, advances, count);
     return r0;
 }
 
-CTFontGetAscent(int font) {
+int CTFontGetAscent(int font) {
     r0 = _CTFontGetAscent_ptr(font);
     return r0;
 }
 
-CTFontGetDescent(int font) {
+int CTFontGetDescent(int font) {
     r0 = _CTFontGetDescent_ptr(font);
     return r0;
 }
 
-CTFontGetLeading(int font) {
+int CTFontGetLeading(int font) {
     r0 = _CTFontGetLeading_ptr(font);
     return r0;
 }
 
-CTFontGetOpticalBoundsForGlyphs(int font, int glyphs, int boundingRects, int count, int options) {
+int CTFontGetOpticalBoundsForGlyphs(int font, int glyphs, int boundingRects, int count, int options) {
     r0 = _CTFontGetOpticalBoundsForGlyphs_ptr(font, glyphs, boundingRects, count, options);
     return r0;
 }
 
-CTFontGetSize(int font) {
+int CTFontGetSize(int font) {
     r0 = _CTFontGetSize_ptr(font);
     return r0;
 }
 
-CTFontManagerRegisterGraphicsFont(int font, void * error) {
+int CTFontManagerRegisterGraphicsFont(int font, void * error) {
     r0 = _CTFontManagerRegisterGraphicsFont_ptr(font, error);
     return r0;
 }
 
-CTFrameDraw(int frame, int context) {
+void CTFrameDraw(int frame, int context) {
     _CTFrameDraw_ptr(frame, context);
     return;
 }
 
-CTFramesetterCreateFrame(int framesetter, int stringRange, int path, int frameAttributes) {
+int CTFramesetterCreateFrame(int framesetter, int stringRange, int path, int frameAttributes) {
     r0 = _CTFramesetterCreateFrame_ptr(framesetter, stringRange, path, frameAttributes);
     return r0;
 }
 
-CTFramesetterCreateWithAttributedString(int string) {
+int CTFramesetterCreateWithAttributedString(int string) {
     r0 = _CTFramesetterCreateWithAttributedString_ptr(string);
     return r0;
 }
 
-CTFramesetterSuggestFrameSizeWithConstraints(int framesetter, int stringRange, int frameAttributes, int constraints, void * fitRange) {
+int CTFramesetterSuggestFrameSizeWithConstraints(int framesetter, int stringRange, int frameAttributes, int constraints, void * fitRange) {
     r0 = _CTFramesetterSuggestFrameSizeWithConstraints_ptr(framesetter, stringRange, frameAttributes, constraints, fitRange);
     return r0;
 }
 
-CTGetCoreTextVersion() {
+int CTGetCoreTextVersion() {
     r0 = _CTGetCoreTextVersion_ptr();
     return r0;
 }
 
-CTLineGetGlyphRuns(int line) {
+int CTLineGetGlyphRuns(int line) {
     r0 = _CTLineGetGlyphRuns_ptr(line);
     return r0;
 }
 
-CTLineGetTrailingWhitespaceWidth(int line) {
+double CTLineGetTrailingWhitespaceWidth(int line) {
     r0 = _CTLineGetTrailingWhitespaceWidth_ptr(line);
     return r0;
 }
 
-CTRunGetAttributes(int run) {
+int CTRunGetAttributes(int run) {
     r0 = _CTRunGetAttributes_ptr(run);
     return r0;
 }
 
-CTRunGetGlyphCount(int run) {
+int CTRunGetGlyphCount(int run) {
     r0 = _CTRunGetGlyphCount_ptr(run);
     return r0;
 }
 
-CTRunGetGlyphs(int run, int range, int buffer) {
+void CTRunGetGlyphs(int run, int range, int buffer) {
     _CTRunGetGlyphs_ptr(run, range, buffer);
     return;
 }
 
-* CTRunGetGlyphsPtr(int run) {
+void * CTRunGetGlyphsPtr(int run) {
     r0 = _CTRunGetGlyphsPtr_ptr(run);
     return r0;
 }
 
-CTRunGetPositions(int run, int range, int buffer) {
+void CTRunGetPositions(int run, int range, int buffer) {
     _CTRunGetPositions_ptr(run, range, buffer);
     return;
 }
 
-* CTRunGetPositionsPtr(int run) {
+void * CTRunGetPositionsPtr(int run) {
     r0 = _CTRunGetPositionsPtr_ptr(run);
     return r0;
 }
 
-CTRunGetStatus(int run) {
+int CTRunGetStatus(int run) {
     r0 = _CTRunGetStatus_ptr(run);
     return r0;
 }
 
-CTRunGetStringIndices(int run, int range, int buffer) {
+void CTRunGetStringIndices(int run, int range, int buffer) {
     _CTRunGetStringIndices_ptr(run, range, buffer);
     return;
 }
 
-* CTRunGetStringIndicesPtr(int run) {
+void * CTRunGetStringIndicesPtr(int run) {
     r0 = _CTRunGetStringIndicesPtr_ptr(run);
     return r0;
 }
 
-CTRunGetStringRange(int run) {
+int CTRunGetStringRange(int run) {
     r0 = _CTRunGetStringRange_ptr(run);
     return r0;
 }
 
-CTRunGetTypographicBounds(int run, int range, void * ascent, void * descent, void * leading) {
+double CTRunGetTypographicBounds(int run, int range, void * ascent, void * descent, void * leading) {
     r0 = _CTRunGetTypographicBounds_ptr(run, range, ascent, descent, leading);
     return r0;
 }
 
-CTTypesetterCreateLine(int typesetter, int stringRange) {
+int CTTypesetterCreateLine(int typesetter, int stringRange) {
     r0 = _CTTypesetterCreateLine_ptr(typesetter, stringRange);
     return r0;
 }
 
-CTTypesetterCreateWithAttributedStringAndOptions(int string, int options) {
+int CTTypesetterCreateWithAttributedStringAndOptions(int string, int options) {
     r0 = _CTTypesetterCreateWithAttributedStringAndOptions_ptr(string, options);
     return r0;
 }
 
-CVBufferGetAttachment(int buffer, int key, void * attachmentMode) {
+int CVBufferGetAttachment(int buffer, int key, void * attachmentMode) {
     r0 = _CVBufferGetAttachment_ptr(buffer, key, attachmentMode);
     return r0;
 }
 
-CVBufferRelease(int buffer) {
+void CVBufferRelease(int buffer) {
     _CVBufferRelease_ptr(buffer);
     return;
 }
 
-CVBufferRetain(int buffer) {
+int CVBufferRetain(int buffer) {
     r0 = _CVBufferRetain_ptr(buffer);
     return r0;
 }
 
-CVMetalTextureCacheCreate(int allocator, int cacheAttributes, int metalDevice, int textureAttributes, void * cacheOut) {
+int CVMetalTextureCacheCreate(int allocator, int cacheAttributes, int metalDevice, int textureAttributes, void * cacheOut) {
     r0 = _CVMetalTextureCacheCreate_ptr(allocator, cacheAttributes, metalDevice, textureAttributes, cacheOut);
     return r0;
 }
 
-CVMetalTextureCacheCreateTextureFromImage(int allocator, int textureCache, int sourceImage, int textureAttributes, int pixelFormat, int width, int height, int planeIndex, void * textureOut) {
+int CVMetalTextureCacheCreateTextureFromImage(int allocator, int textureCache, int sourceImage, int textureAttributes, int pixelFormat, int width, int height, int planeIndex, void * textureOut) {
     r0 = _CVMetalTextureCacheCreateTextureFromImage_ptr(allocator, textureCache, sourceImage, textureAttributes, pixelFormat, width, height, planeIndex, textureOut);
     return r0;
 }
 
-CVMetalTextureCacheFlush(int textureCache, int options) {
+void CVMetalTextureCacheFlush(int textureCache, int options) {
     _CVMetalTextureCacheFlush_ptr(textureCache, options);
     return;
 }
 
-CVMetalTextureGetTexture(int image) {
+int CVMetalTextureGetTexture(int image) {
     r0 = _CVMetalTextureGetTexture_ptr(image);
     return r0;
 }
 
-CVOpenGLESTextureCacheCreateTextureFromImage() {
+void CVOpenGLESTextureCacheCreateTextureFromImage() {
     _CVOpenGLESTextureCacheCreateTextureFromImage_ptr();
     return;
 }
 
-CVOpenGLESTextureGetName() {
+void CVOpenGLESTextureGetName() {
     _CVOpenGLESTextureGetName_ptr();
     return;
 }
 
-* CVPixelBufferGetBaseAddress(int pixelBuffer) {
+void * CVPixelBufferGetBaseAddress(int pixelBuffer) {
     r0 = _CVPixelBufferGetBaseAddress_ptr(pixelBuffer);
     return r0;
 }
 
-CVPixelBufferGetBytesPerRow(int pixelBuffer) {
+int CVPixelBufferGetBytesPerRow(int pixelBuffer) {
     r0 = _CVPixelBufferGetBytesPerRow_ptr(pixelBuffer);
     return r0;
 }
 
-CVPixelBufferGetHeight(int pixelBuffer) {
+int CVPixelBufferGetHeight(int pixelBuffer) {
     r0 = _CVPixelBufferGetHeight_ptr(pixelBuffer);
     return r0;
 }
 
-CVPixelBufferGetIOSurface(int pixelBuffer) {
+int CVPixelBufferGetIOSurface(int pixelBuffer) {
     r0 = _CVPixelBufferGetIOSurface_ptr(pixelBuffer);
     return r0;
 }
 
-CVPixelBufferGetWidth(int pixelBuffer) {
+int CVPixelBufferGetWidth(int pixelBuffer) {
     r0 = _CVPixelBufferGetWidth_ptr(pixelBuffer);
     return r0;
 }
 
-CVPixelBufferLockBaseAddress(int pixelBuffer, int lockFlags) {
+int CVPixelBufferLockBaseAddress(int pixelBuffer, int lockFlags) {
     r0 = _CVPixelBufferLockBaseAddress_ptr(pixelBuffer, lockFlags);
     return r0;
 }
 
-CVPixelBufferPoolCreate(int allocator, int poolAttributes, int pixelBufferAttributes, void * poolOut) {
+int CVPixelBufferPoolCreate(int allocator, int poolAttributes, int pixelBufferAttributes, void * poolOut) {
     r0 = _CVPixelBufferPoolCreate_ptr(allocator, poolAttributes, pixelBufferAttributes, poolOut);
     return r0;
 }
 
-CVPixelBufferPoolCreatePixelBuffer(int allocator, int pixelBufferPool, void * pixelBufferOut) {
+int CVPixelBufferPoolCreatePixelBuffer(int allocator, int pixelBufferPool, void * pixelBufferOut) {
     r0 = _CVPixelBufferPoolCreatePixelBuffer_ptr(allocator, pixelBufferPool, pixelBufferOut);
     return r0;
 }
 
-CVPixelBufferPoolFlush(int pool, int options) {
+void CVPixelBufferPoolFlush(int pool, int options) {
     _CVPixelBufferPoolFlush_ptr(pool, options);
     return;
 }
 
-CVPixelBufferPoolRelease(int pixelBufferPool) {
+void CVPixelBufferPoolRelease(int pixelBufferPool) {
     _CVPixelBufferPoolRelease_ptr(pixelBufferPool);
     return;
 }
 
-CVPixelBufferRelease(int texture) {
+void CVPixelBufferRelease(int texture) {
     _CVPixelBufferRelease_ptr(texture);
     return;
 }
 
-CVPixelBufferUnlockBaseAddress(int pixelBuffer, int unlockFlags) {
+int CVPixelBufferUnlockBaseAddress(int pixelBuffer, int unlockFlags) {
     r0 = _CVPixelBufferUnlockBaseAddress_ptr(pixelBuffer, unlockFlags);
     return r0;
 }
 
-DNSServiceNATPortMappingCreate(void * sdRef, int flags, int interfaceIndex, int protocol, int internalPort, int externalPort, int ttl, int callBack, void * context) {
+int DNSServiceNATPortMappingCreate(void * sdRef, int flags, int interfaceIndex, int protocol, int internalPort, int externalPort, int ttl, int callBack, void * context) {
     r0 = _DNSServiceNATPortMappingCreate_ptr(sdRef, flags, interfaceIndex, protocol, internalPort, externalPort, ttl, callBack, context);
     return r0;
 }
 
-DNSServiceProcessResult(int sdRef) {
+int DNSServiceProcessResult(int sdRef) {
     r0 = _DNSServiceProcessResult_ptr(sdRef);
     return r0;
 }
 
-DNSServiceRefDeallocate(int sdRef) {
+void DNSServiceRefDeallocate(int sdRef) {
     _DNSServiceRefDeallocate_ptr(sdRef);
     return;
 }
 
-DNSServiceRefSockFD(int sdRef) {
+int DNSServiceRefSockFD(int sdRef) {
     r0 = _DNSServiceRefSockFD_ptr(sdRef);
     return r0;
 }
 
-ExtAudioFileDispose(int inExtAudioFile) {
+int ExtAudioFileDispose(int inExtAudioFile) {
     r0 = _ExtAudioFileDispose_ptr(inExtAudioFile);
     return r0;
 }
 
-ExtAudioFileGetProperty(int inExtAudioFile, int inPropertyID, void * ioPropertyDataSize, void * outPropertyData) {
+int ExtAudioFileGetProperty(int inExtAudioFile, int inPropertyID, void * ioPropertyDataSize, void * outPropertyData) {
     r0 = _ExtAudioFileGetProperty_ptr(inExtAudioFile, inPropertyID, ioPropertyDataSize, outPropertyData);
     return r0;
 }
 
-ExtAudioFileOpenURL(int inURL, void * outExtAudioFile) {
+int ExtAudioFileOpenURL(int inURL, void * outExtAudioFile) {
     r0 = _ExtAudioFileOpenURL_ptr(inURL, outExtAudioFile);
     return r0;
 }
 
-ExtAudioFileRead(int inExtAudioFile, void * ioNumberFrames, void * ioData) {
+int ExtAudioFileRead(int inExtAudioFile, void * ioNumberFrames, void * ioData) {
     r0 = _ExtAudioFileRead_ptr(inExtAudioFile, ioNumberFrames, ioData);
     return r0;
 }
 
-ExtAudioFileSetProperty(int inExtAudioFile, int inPropertyID, int inPropertyDataSize, void * inPropertyData) {
+int ExtAudioFileSetProperty(int inExtAudioFile, int inPropertyID, int inPropertyDataSize, void * inPropertyData) {
     r0 = _ExtAudioFileSetProperty_ptr(inExtAudioFile, inPropertyID, inPropertyDataSize, inPropertyData);
     return r0;
 }
 
-MTLCreateSystemDefaultDevice() {
+int MTLCreateSystemDefaultDevice() {
     r0 = _MTLCreateSystemDefaultDevice_ptr();
     return r0;
 }
 
-NSAllocateObject(int aClass, int extraBytes, void * zone) {
+int NSAllocateObject(int aClass, int extraBytes, void * zone) {
     r0 = _NSAllocateObject_ptr(aClass, extraBytes, zone);
     return r0;
 }
 
-NSClassFromString(int aClassName) {
+int NSClassFromString(int aClassName) {
     r0 = _NSClassFromString_ptr(aClassName);
     return r0;
 }
 
-* NSGetSizeAndAlignment(void * typePtr, void * sizep, void * alignp) {
+void * NSGetSizeAndAlignment(void * typePtr, void * sizep, void * alignp) {
     r0 = _NSGetSizeAndAlignment_ptr(typePtr, sizep, alignp);
     return r0;
 }
 
-* NSGetUncaughtExceptionHandler() {
+void * NSGetUncaughtExceptionHandler() {
     r0 = _NSGetUncaughtExceptionHandler_ptr();
     return r0;
 }
 
-NSHomeDirectory() {
+int NSHomeDirectory() {
     r0 = _NSHomeDirectory_ptr();
     return r0;
 }
 
-NSLog(int format) {
+void NSLog(int format) {
     _NSLog_ptr(format);
     return;
 }
 
-NSLogv(int format, int args) {
+void NSLogv(int format, int args) {
     _NSLogv_ptr(format, args);
     return;
 }
 
-NSSearchPathForDirectoriesInDomains(int directory, int domainMask, int expandTilde) {
+int NSSearchPathForDirectoriesInDomains(int directory, int domainMask, int expandTilde) {
     r0 = _NSSearchPathForDirectoriesInDomains_ptr(directory, domainMask, expandTilde);
     return r0;
 }
 
-NSSelectorFromString(int aSelectorName) {
+int NSSelectorFromString(int aSelectorName) {
     r0 = _NSSelectorFromString_ptr(aSelectorName);
     return r0;
 }
 
-NSSetUncaughtExceptionHandler(void * ) {
+void NSSetUncaughtExceptionHandler(void * ) {
     _NSSetUncaughtExceptionHandler_ptr(arg_0);
     return;
 }
 
-NSStringFromCGRect() {
+void NSStringFromCGRect() {
     _NSStringFromCGRect_ptr();
     return;
 }
 
-NSStringFromCGSize() {
+void NSStringFromCGSize() {
     _NSStringFromCGSize_ptr();
     return;
 }
 
-NSStringFromClass(int aClass) {
+int NSStringFromClass(int aClass) {
     r0 = _NSStringFromClass_ptr(aClass);
     return r0;
 }
 
-NSStringFromProtocol(int proto) {
+int NSStringFromProtocol(int proto) {
     r0 = _NSStringFromProtocol_ptr(proto);
     return r0;
 }
 
-NSStringFromSelector(int aSelector) {
+int NSStringFromSelector(int aSelector) {
     r0 = _NSStringFromSelector_ptr(aSelector);
     return r0;
 }
 
-NSTemporaryDirectory() {
+int NSTemporaryDirectory() {
     r0 = _NSTemporaryDirectory_ptr();
     return r0;
 }
 
-* NXGetArchInfoFromCpuType(int cputype, int cpusubtype) {
+void * NXGetArchInfoFromCpuType(int cputype, int cpusubtype) {
     r0 = _NXGetArchInfoFromCpuType_ptr(cputype, cpusubtype);
     return r0;
 }
 
-* NXGetLocalArchInfo() {
+void * NXGetLocalArchInfo() {
     r0 = _NXGetLocalArchInfo_ptr();
     return r0;
 }
 
-OSAtomicAdd32Barrier(int theAmount, void * theValue) {
+int OSAtomicAdd32Barrier(int theAmount, void * theValue) {
     r0 = _OSAtomicAdd32Barrier_ptr(theAmount, theValue);
     return r0;
 }
 
-OSAtomicAdd64(int theAmount, void * theValue) {
+int OSAtomicAdd64(int theAmount, void * theValue) {
     r0 = _OSAtomicAdd64_ptr(theAmount, theValue);
     return r0;
 }
 
-OSAtomicCompareAndSwap64Barrier(int oldValue, int newValue, void * theValue) {
+int OSAtomicCompareAndSwap64Barrier(int oldValue, int newValue, void * theValue) {
     r0 = _OSAtomicCompareAndSwap64Barrier_ptr(oldValue, newValue, theValue);
     return r0;
 }
 
-OSAtomicCompareAndSwapPtrBarrier(void * oldValue, void * newValue, void * theValue) {
+int OSAtomicCompareAndSwapPtrBarrier(void * oldValue, void * newValue, void * theValue) {
     r0 = _OSAtomicCompareAndSwapPtrBarrier_ptr(oldValue, newValue, theValue);
     return r0;
 }
 
-OSAtomicDecrement32(void * theValue) {
+int OSAtomicDecrement32(void * theValue) {
     r0 = _OSAtomicDecrement32_ptr(theValue);
     return r0;
 }
 
-OSAtomicIncrement32(void * theValue) {
+int OSAtomicIncrement32(void * theValue) {
     r0 = _OSAtomicIncrement32_ptr(theValue);
     return r0;
 }
 
-OSMemoryBarrier() {
+void OSMemoryBarrier() {
     _OSMemoryBarrier_ptr();
     return;
 }
 
-OSSpinLockLock(void * lock) {
+void OSSpinLockLock(void * lock) {
     _OSSpinLockLock_ptr(lock);
     return;
 }
 
-OSSpinLockUnlock(void * lock) {
+void OSSpinLockUnlock(void * lock) {
     _OSSpinLockUnlock_ptr(lock);
     return;
 }
 
-SCNetworkReachabilityCreateWithAddress(int allocator, void * address) {
+int SCNetworkReachabilityCreateWithAddress(int allocator, void * address) {
     r0 = _SCNetworkReachabilityCreateWithAddress_ptr(allocator, address);
     return r0;
 }
 
-SCNetworkReachabilityCreateWithName(int allocator, void * nodename) {
+int SCNetworkReachabilityCreateWithName(int allocator, void * nodename) {
     r0 = _SCNetworkReachabilityCreateWithName_ptr(allocator, nodename);
     return r0;
 }
 
-SCNetworkReachabilityGetFlags(int target, void * flags) {
+int SCNetworkReachabilityGetFlags(int target, void * flags) {
     r0 = _SCNetworkReachabilityGetFlags_ptr(target, flags);
     return r0;
 }
 
-SCNetworkReachabilityScheduleWithRunLoop(int target, int runLoop, int runLoopMode) {
+int SCNetworkReachabilityScheduleWithRunLoop(int target, int runLoop, int runLoopMode) {
     r0 = _SCNetworkReachabilityScheduleWithRunLoop_ptr(target, runLoop, runLoopMode);
     return r0;
 }
 
-SCNetworkReachabilitySetCallback(int target, int callout, void * context) {
+int SCNetworkReachabilitySetCallback(int target, int callout, void * context) {
     r0 = _SCNetworkReachabilitySetCallback_ptr(target, callout, context);
     return r0;
 }
 
-SCNetworkReachabilitySetDispatchQueue(int target, int queue) {
+int SCNetworkReachabilitySetDispatchQueue(int target, int queue) {
     r0 = _SCNetworkReachabilitySetDispatchQueue_ptr(target, queue);
     return r0;
 }
 
-SCNetworkReachabilityUnscheduleFromRunLoop(int target, int runLoop, int runLoopMode) {
+int SCNetworkReachabilityUnscheduleFromRunLoop(int target, int runLoop, int runLoopMode) {
     r0 = _SCNetworkReachabilityUnscheduleFromRunLoop_ptr(target, runLoop, runLoopMode);
     return r0;
 }
 
-SecCertificateCopyData(int certificate) {
+int SecCertificateCopyData(int certificate) {
     r0 = _SecCertificateCopyData_ptr(certificate);
     return r0;
 }
 
-SecCertificateCreateWithData(int allocator, int data) {
+int SecCertificateCreateWithData(int allocator, int data) {
     r0 = _SecCertificateCreateWithData_ptr(allocator, data);
     return r0;
 }
 
-SecItemAdd(int attributes, void * result) {
+int SecItemAdd(int attributes, void * result) {
     r0 = _SecItemAdd_ptr(attributes, result);
     return r0;
 }
 
-SecItemCopyMatching(int query, void * result) {
+int SecItemCopyMatching(int query, void * result) {
     r0 = _SecItemCopyMatching_ptr(query, result);
     return r0;
 }
 
-SecItemDelete(int query) {
+int SecItemDelete(int query) {
     r0 = _SecItemDelete_ptr(query);
     return r0;
 }
 
-SecItemUpdate(int query, int attributesToUpdate) {
+int SecItemUpdate(int query, int attributesToUpdate) {
     r0 = _SecItemUpdate_ptr(query, attributesToUpdate);
     return r0;
 }
 
-SecPolicyCreateBasicX509() {
+int SecPolicyCreateBasicX509() {
     r0 = _SecPolicyCreateBasicX509_ptr();
     return r0;
 }
 
-SecPolicyCreateSSL(int server, int hostname) {
+int SecPolicyCreateSSL(int server, int hostname) {
     r0 = _SecPolicyCreateSSL_ptr(server, hostname);
     return r0;
 }
 
-SecRandomCopyBytes(int rnd, int count, void * bytes) {
+int SecRandomCopyBytes(int rnd, int count, void * bytes) {
     r0 = _SecRandomCopyBytes_ptr(rnd, count, bytes);
     return r0;
 }
 
-SecTrustCopyPublicKey(int trust) {
+int SecTrustCopyPublicKey(int trust) {
     r0 = _SecTrustCopyPublicKey_ptr(trust);
     return r0;
 }
 
-SecTrustCreateWithCertificates(int certificates, int policies, void * trust) {
+int SecTrustCreateWithCertificates(int certificates, int policies, void * trust) {
     r0 = _SecTrustCreateWithCertificates_ptr(certificates, policies, trust);
     return r0;
 }
 
-SecTrustEvaluate(int trust, void * result) {
+int SecTrustEvaluate(int trust, void * result) {
     r0 = _SecTrustEvaluate_ptr(trust, result);
     return r0;
 }
 
-SecTrustGetCertificateAtIndex(int trust, int ix) {
+int SecTrustGetCertificateAtIndex(int trust, int ix) {
     r0 = _SecTrustGetCertificateAtIndex_ptr(trust, ix);
     return r0;
 }
 
-SecTrustGetCertificateCount(int trust) {
+int SecTrustGetCertificateCount(int trust) {
     r0 = _SecTrustGetCertificateCount_ptr(trust);
     return r0;
 }
 
-SecTrustSetAnchorCertificates(int trust, int anchorCertificates) {
+int SecTrustSetAnchorCertificates(int trust, int anchorCertificates) {
     r0 = _SecTrustSetAnchorCertificates_ptr(trust, anchorCertificates);
     return r0;
 }
 
-SecTrustSetAnchorCertificatesOnly(int trust, int anchorCertificatesOnly) {
+int SecTrustSetAnchorCertificatesOnly(int trust, int anchorCertificatesOnly) {
     r0 = _SecTrustSetAnchorCertificatesOnly_ptr(trust, anchorCertificatesOnly);
     return r0;
 }
 
-SecTrustSetPolicies(int trust, int policies) {
+int SecTrustSetPolicies(int trust, int policies) {
     r0 = _SecTrustSetPolicies_ptr(trust, policies);
     return r0;
 }
 
-UIAccessibilityIsGuidedAccessEnabled() {
+void UIAccessibilityIsGuidedAccessEnabled() {
     _UIAccessibilityIsGuidedAccessEnabled_ptr();
     return;
 }
 
-UIApplicationMain() {
+void UIApplicationMain() {
     _UIApplicationMain_ptr();
     return;
 }
 
-UIGraphicsBeginImageContext() {
+void UIGraphicsBeginImageContext() {
     _UIGraphicsBeginImageContext_ptr();
     return;
 }
 
-UIGraphicsBeginImageContextWithOptions() {
+void UIGraphicsBeginImageContextWithOptions() {
     _UIGraphicsBeginImageContextWithOptions_ptr();
     return;
 }
 
-UIGraphicsEndImageContext() {
+void UIGraphicsEndImageContext() {
     _UIGraphicsEndImageContext_ptr();
     return;
 }
 
-UIGraphicsGetCurrentContext() {
+void UIGraphicsGetCurrentContext() {
     _UIGraphicsGetCurrentContext_ptr();
     return;
 }
 
-UIGraphicsGetImageFromCurrentImageContext() {
+void UIGraphicsGetImageFromCurrentImageContext() {
     _UIGraphicsGetImageFromCurrentImageContext_ptr();
     return;
 }
 
-UIImageJPEGRepresentation() {
+void UIImageJPEGRepresentation() {
     _UIImageJPEGRepresentation_ptr();
     return;
 }
 
-UIImagePNGRepresentation() {
+void UIImagePNGRepresentation() {
     _UIImagePNGRepresentation_ptr();
     return;
 }
 
-UIImageWriteToSavedPhotosAlbum() {
+void UIImageWriteToSavedPhotosAlbum() {
     _UIImageWriteToSavedPhotosAlbum_ptr();
     return;
 }
 
-UTTypeConformsTo(int inUTI, int inConformsToUTI) {
+int UTTypeConformsTo(int inUTI, int inConformsToUTI) {
     r0 = _UTTypeConformsTo_ptr(inUTI, inConformsToUTI);
     return r0;
 }
 
-UTTypeCopyPreferredTagWithClass(int inUTI, int inTagClass) {
+int UTTypeCopyPreferredTagWithClass(int inUTI, int inTagClass) {
     r0 = _UTTypeCopyPreferredTagWithClass_ptr(inUTI, inTagClass);
     return r0;
 }
 
-UTTypeCreatePreferredIdentifierForTag(int inTagClass, int inTag, int inConformingToUTI) {
+int UTTypeCreatePreferredIdentifierForTag(int inTagClass, int inTag, int inConformingToUTI) {
     r0 = _UTTypeCreatePreferredIdentifierForTag_ptr(inTagClass, inTag, inConformingToUTI);
     return r0;
 }
 
-* _Block_copy(void * block) {
+void * _Block_copy(void * block) {
     r0 = __Block_copy_ptr(block);
     return r0;
 }
 
-_Block_object_assign(void * , void * , int ) {
+void _Block_object_assign(void * , void * , int ) {
     __Block_object_assign_ptr(arg_0, arg_1, arg_2);
     return;
 }
 
-_Block_object_dispose(void * , int ) {
+void _Block_object_dispose(void * , int ) {
     __Block_object_dispose_ptr(arg_0, arg_1);
     return;
 }
 
-_Block_release(void * block) {
+void _Block_release(void * block) {
     __Block_release_ptr(block);
     return;
 }
 
-_NSDictionaryOfVariableBindings(int commaSeparatedKeysString, int firstValue) {
+int _NSDictionaryOfVariableBindings(int commaSeparatedKeysString, int firstValue) {
     r0 = __NSDictionaryOfVariableBindings_ptr(commaSeparatedKeysString, firstValue);
     return r0;
 }
 
-_Unwind_Resume(void * exception_object) {
+void _Unwind_Resume(void * exception_object) {
     __Unwind_Resume_ptr(exception_object);
     return;
 }
 
-_ZN13mcwebsocketpp10connectionINS_6config11core_clientEE17handle_read_frameERKNSt3__110error_codeEm(int arg0, int arg1) {
+void _ZN13mcwebsocketpp10connectionINS_6config11core_clientEE17handle_read_frameERKNSt3__110error_codeEm(int arg0, int arg1) {
     pointer to mcwebsocketpp::connection<mcwebsocketpp::config::core_client>::handle_read_frame(arg0, arg1);
     return;
 }
 
-_ZNKSt3__110error_code7messageEv() {
+void _ZNKSt3__110error_code7messageEv() {
     pointer to std::__1::error_code::message();
     return;
 }
 
-_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindEcm() {
+void _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindEcm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::rfind();
     return;
 }
 
-_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findEcm() {
+void _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findEcm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::find();
     return;
 }
 
-_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc() {
+void _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::compare();
     return;
 }
 
-_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKcm() {
+void _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKcm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::compare();
     return;
 }
 
-_ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv() {
+void _ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv() {
     pointer to std::__1::__vector_base_common<true>::__throw_length_error();
     return;
 }
 
-_ZNKSt3__120__vector_base_commonILb1EE20__throw_out_of_rangeEv() {
+void _ZNKSt3__120__vector_base_commonILb1EE20__throw_out_of_rangeEv() {
     pointer to std::__1::__vector_base_common<true>::__throw_out_of_range();
     return;
 }
 
-_ZNKSt3__121__basic_string_commonILb1EE20__throw_length_errorEv() {
+void _ZNKSt3__121__basic_string_commonILb1EE20__throw_length_errorEv() {
     pointer to std::__1::__basic_string_common<true>::__throw_length_error();
     return;
 }
 
-_ZNKSt3__16locale9has_facetERNS0_2idE() {
+void _ZNKSt3__16locale9has_facetERNS0_2idE() {
     pointer to std::__1::locale::has_facet();
     return;
 }
 
-_ZNKSt3__16locale9use_facetERNS0_2idE() {
+void _ZNKSt3__16locale9use_facetERNS0_2idE() {
     pointer to std::__1::locale::use_facet();
     return;
 }
 
-_ZNKSt3__18ios_base6getlocEv() {
+void _ZNKSt3__18ios_base6getlocEv() {
     pointer to std::__1::ios_base::getloc();
     return;
 }
 
-_ZNKSt3__18time_getIcNS_19istreambuf_iteratorIcNS_11char_traitsIcEEEEE3getES4_S4_RNS_8ios_baseERjP2tmPKcSC_() {
+void _ZNKSt3__18time_getIcNS_19istreambuf_iteratorIcNS_11char_traitsIcEEEEE3getES4_S4_RNS_8ios_baseERjP2tmPKcSC_() {
     pointer to std::__1::time_get<char, std::__1::istreambuf_iterator<char, std::__1::char_traits<char> > >::get();
     return;
 }
 
-_ZNKSt3__18time_putIcNS_19ostreambuf_iteratorIcNS_11char_traitsIcEEEEE3putES4_RNS_8ios_baseEcPK2tmPKcSC_() {
+void _ZNKSt3__18time_putIcNS_19ostreambuf_iteratorIcNS_11char_traitsIcEEEEE3putES4_RNS_8ios_baseEcPK2tmPKcSC_() {
     pointer to std::__1::time_put<char, std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > >::put();
     return;
 }
 
-_ZNSt11logic_errorC2EPKc() {
+void _ZNSt11logic_errorC2EPKc() {
     pointer to std::logic_error::logic_error();
     return;
 }
 
-_ZNSt13runtime_errorC2EPKc() {
+void _ZNSt13runtime_errorC2EPKc() {
     pointer to std::runtime_error::runtime_error();
     return;
 }
 
-_ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE() {
+void _ZNSt13runtime_errorC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE() {
     pointer to std::runtime_error::runtime_error();
     return;
 }
 
-_ZNSt3__111__call_onceERVmPvPFvS2_E() {
+void _ZNSt3__111__call_onceERVmPvPFvS2_E() {
     pointer to std::__1::__call_once();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5eraseEmm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5eraseEmm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::erase();
     return;
 }
 
-_ZNSt3__112__next_primeEm() {
+void _ZNSt3__112__next_primeEm() {
     pointer to std::__1::__next_prime();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::append();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendERKS5_mm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendERKS5_mm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::append();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKcm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::append();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEmc() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEmc() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::append();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKc() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKc() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::assign();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::assign();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKc() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKc() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::insert();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKcm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6insertEmPKcm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::insert();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeEmc() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeEmc() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::resize();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7replaceEmmPKcm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7replaceEmmPKcm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::replace();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__grow_byEmmmmmm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9__grow_byEmmmmmm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__grow_by();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7reserveEm() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7reserveEm() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::reserve();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE9push_backEc() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::push_back();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_mmRKS4_() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_mmRKS4_() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::operator=();
     return;
 }
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE3getEPclc() {
+void _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE3getEPclc() {
     pointer to std::__1::basic_istream<char, std::__1::char_traits<char> >::get();
     return;
 }
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE5seekgExNS_8ios_base7seekdirE() {
+void _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE5seekgExNS_8ios_base7seekdirE() {
     pointer to std::__1::basic_istream<char, std::__1::char_traits<char> >::seekg();
     return;
 }
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE5tellgEv() {
+void _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE5tellgEv() {
     pointer to std::__1::basic_istream<char, std::__1::char_traits<char> >::tellg();
     return;
 }
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE6sentryC1ERS3_b() {
+void _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE6sentryC1ERS3_b() {
     pointer to std::__1::basic_istream<char, std::__1::char_traits<char> >::sentry::sentry();
     return;
 }
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev() {
+void _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEED2Ev() {
     pointer to std::__1::basic_istream<char, std::__1::char_traits<char> >::~basic_istream();
     return;
 }
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEErsERi() {
+void _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEErsERi() {
     pointer to std::__1::basic_istream<char, std::__1::char_traits<char> >::operator>>();
     return;
 }
 
-_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEErsERm() {
+void _ZNSt3__113basic_istreamIcNS_11char_traitsIcEEErsERm() {
     pointer to std::__1::basic_istream<char, std::__1::char_traits<char> >::operator>>();
     return;
 }
 
-_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_() {
+void _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_() {
     pointer to std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::sentry();
     return;
 }
 
-_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev() {
+void _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev() {
     pointer to std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::~sentry();
     return;
 }
 
-_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev() {
+void _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEED2Ev() {
     pointer to std::__1::basic_ostream<char, std::__1::char_traits<char> >::~basic_ostream();
     return;
 }
 
-_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi() {
+void _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi() {
     pointer to std::__1::basic_ostream<char, std::__1::char_traits<char> >::operator<<();
     return;
 }
 
-_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEm() {
+void _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEm() {
     pointer to std::__1::basic_ostream<char, std::__1::char_traits<char> >::operator<<();
     return;
 }
 
-_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEt() {
+void _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEt() {
     pointer to std::__1::basic_ostream<char, std::__1::char_traits<char> >::operator<<();
     return;
 }
 
-_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEy() {
+void _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEy() {
     pointer to std::__1::basic_ostream<char, std::__1::char_traits<char> >::operator<<();
     return;
 }
 
-_ZNSt3__113basic_ostreamIwNS_11char_traitsIwEEE5writeEPKwl() {
+void _ZNSt3__113basic_ostreamIwNS_11char_traitsIwEEE5writeEPKwl() {
     pointer to std::__1::basic_ostream<wchar_t, std::__1::char_traits<wchar_t> >::write();
     return;
 }
 
-_ZNSt3__113random_deviceC1ERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE() {
+void _ZNSt3__113random_deviceC1ERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE() {
     pointer to std::__1::random_device::random_device();
     return;
 }
 
-_ZNSt3__113random_deviceD1Ev() {
+void _ZNSt3__113random_deviceD1Ev() {
     pointer to std::__1::random_device::~random_device();
     return;
 }
 
-_ZNSt3__113random_deviceclEv() {
+void _ZNSt3__113random_deviceclEv() {
     pointer to std::__1::random_device::operator();
     return;
 }
 
-_ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev() {
+void _ZNSt3__114basic_iostreamIcNS_11char_traitsIcEEED2Ev() {
     pointer to std::__1::basic_iostream<char, std::__1::char_traits<char> >::~basic_iostream();
     return;
 }
 
-_ZNSt3__114error_categoryD2Ev() {
+void _ZNSt3__114error_categoryD2Ev() {
     pointer to std::__1::error_category::~error_category();
     return;
 }
 
-_ZNSt3__115__thread_structC1Ev() {
+void _ZNSt3__115__thread_structC1Ev() {
     pointer to std::__1::__thread_struct::__thread_struct();
     return;
 }
 
-_ZNSt3__115__thread_structD1Ev() {
+void _ZNSt3__115__thread_structD1Ev() {
     pointer to std::__1::__thread_struct::~__thread_struct();
     return;
 }
 
-_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev() {
+void _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEEC2Ev() {
     pointer to std::__1::basic_streambuf<char, std::__1::char_traits<char> >::basic_streambuf();
     return;
 }
 
-_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev() {
+void _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev() {
     pointer to std::__1::basic_streambuf<char, std::__1::char_traits<char> >::~basic_streambuf();
     return;
 }
 
-_ZNSt3__115recursive_mutex4lockEv() {
+void _ZNSt3__115recursive_mutex4lockEv() {
     pointer to std::__1::recursive_mutex::lock();
     return;
 }
 
-_ZNSt3__115recursive_mutex6unlockEv() {
+void _ZNSt3__115recursive_mutex6unlockEv() {
     pointer to std::__1::recursive_mutex::unlock();
     return;
 }
 
-_ZNSt3__115recursive_mutexC1Ev() {
+void _ZNSt3__115recursive_mutexC1Ev() {
     pointer to std::__1::recursive_mutex::recursive_mutex();
     return;
 }
 
-_ZNSt3__115recursive_mutexD1Ev() {
+void _ZNSt3__115recursive_mutexD1Ev() {
     pointer to std::__1::recursive_mutex::~recursive_mutex();
     return;
 }
 
-_ZNSt3__115system_categoryEv() {
+void _ZNSt3__115system_categoryEv() {
     pointer to std::__1::system_category();
     return;
 }
 
-_ZNSt3__118condition_variable10notify_allEv() {
+void _ZNSt3__118condition_variable10notify_allEv() {
     pointer to std::__1::condition_variable::notify_all();
     return;
 }
 
-_ZNSt3__118condition_variable10notify_oneEv() {
+void _ZNSt3__118condition_variable10notify_oneEv() {
     pointer to std::__1::condition_variable::notify_one();
     return;
 }
 
-_ZNSt3__118condition_variable15__do_timed_waitERNS_11unique_lockINS_5mutexEEENS_6chrono10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1000000000EEEEEEE() {
+void _ZNSt3__118condition_variable15__do_timed_waitERNS_11unique_lockINS_5mutexEEENS_6chrono10time_pointINS5_12system_clockENS5_8durationIxNS_5ratioILl1ELl1000000000EEEEEEE() {
     pointer to std::__1::condition_variable::__do_timed_wait();
     return;
 }
 
-_ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE() {
+void _ZNSt3__118condition_variable4waitERNS_11unique_lockINS_5mutexEEE() {
     pointer to std::__1::condition_variable::wait();
     return;
 }
 
-_ZNSt3__119__shared_weak_count14__release_weakEv() {
+void _ZNSt3__119__shared_weak_count14__release_weakEv() {
     pointer to std::__1::__shared_weak_count::__release_weak();
     return;
 }
 
-_ZNSt3__118condition_variableD1Ev() {
+void _ZNSt3__118condition_variableD1Ev() {
     pointer to std::__1::condition_variable::~condition_variable();
     return;
 }
 
-_ZNSt3__119__shared_weak_count4lockEv() {
+void _ZNSt3__119__shared_weak_count4lockEv() {
     pointer to std::__1::__shared_weak_count::lock();
     return;
 }
 
-_ZNSt3__120__throw_system_errorEiPKc() {
+void _ZNSt3__120__throw_system_errorEiPKc() {
     pointer to std::__1::__throw_system_error();
     return;
 }
 
-_ZNSt3__119__thread_local_dataEv() {
+void _ZNSt3__119__thread_local_dataEv() {
     pointer to std::__1::__thread_local_data();
     return;
 }
 
-_ZNSt3__119__shared_weak_countD2Ev() {
+void _ZNSt3__119__shared_weak_countD2Ev() {
     pointer to std::__1::__shared_weak_count::~__shared_weak_count();
     return;
 }
 
-_ZNSt3__15mutex6unlockEv() {
+void _ZNSt3__15mutex6unlockEv() {
     pointer to std::__1::mutex::unlock();
     return;
 }
 
-_ZNSt3__14stoiERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi() {
+void _ZNSt3__14stoiERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi() {
     pointer to std::__1::stoi();
     return;
 }
 
-_ZNSt3__15mutex4lockEv() {
+void _ZNSt3__15mutex4lockEv() {
     mutex4lockEv_pt::_ZNSt3();
     return;
 }
 
-_ZNSt3__15mutexD1Ev() {
+void _ZNSt3__15mutexD1Ev() {
     pointer to std::__1::mutex::~mutex();
     return;
 }
 
-_ZNSt3__15stollERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi() {
+void _ZNSt3__15stollERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPmi() {
     pointer to std::__1::stoll();
     return;
 }
 
-_ZNSt3__16chrono12steady_clock3nowEv() {
+void _ZNSt3__16chrono12steady_clock3nowEv() {
     pointer to std::__1::chrono::steady_clock::now();
     return;
 }
 
-_ZNSt3__16chrono12system_clock3nowEv() {
+void _ZNSt3__16chrono12system_clock3nowEv() {
     pointer to std::__1::chrono::system_clock::now();
     return;
 }
 
-_ZNSt3__16localeC1ERKS0_() {
+void _ZNSt3__16localeC1ERKS0_() {
     pointer to std::__1::locale::locale();
     return;
 }
 
-_ZNSt3__16localeC1Ev() {
+void _ZNSt3__16localeC1Ev() {
     pointer to std::__1::locale::locale();
     return;
 }
 
-_ZNSt3__16localeD1Ev() {
+void _ZNSt3__16localeD1Ev() {
     pointer to std::__1::locale::~locale();
     return;
 }
 
-_ZNSt3__16thread4joinEv() {
+void _ZNSt3__16thread4joinEv() {
     thread4joinEv_pt::_ZNSt3();
     return;
 }
 
-_ZNSt3__16thread6detachEv() {
+void _ZNSt3__16thread6detachEv() {
     pointer to std::__1::thread::detach();
     return;
 }
 
-_ZNSt3__16threadD1Ev() {
+void _ZNSt3__16threadD1Ev() {
     (*0x100e62000)();
     return;
 }
 
-_ZNSt3__17codecvtIDsc11__mbstate_tED2Ev() {
+void _ZNSt3__17codecvtIDsc11__mbstate_tED2Ev() {
     pointer to std::__1::codecvt<char16_t, char, __mbstate_t>::~codecvt();
     return;
 }
 
-_ZNSt3__18ios_base4initEPv() {
+void _ZNSt3__18ios_base4initEPv() {
     pointer to std::__1::ios_base::init();
     return;
 }
 
-_ZNSt3__18ios_base5clearEj() {
+void _ZNSt3__18ios_base5clearEj() {
     pointer to std::__1::ios_base::clear();
     return;
 }
 
-_ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev() {
+void _ZNSt3__19basic_iosIcNS_11char_traitsIcEEED2Ev() {
     pointer to std::__1::basic_ios<char, std::__1::char_traits<char> >::~basic_ios();
     return;
 }
 
-_ZNSt3__19to_stringEj() {
+void _ZNSt3__19to_stringEj() {
     pointer to std::__1::to_string();
     return;
 }
 
-_ZNSt3__19to_stringEx() {
+void _ZNSt3__19to_stringEx() {
     pointer to std::__1::to_string();
     return;
 }
 
-_ZNSt3__1plIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EEPKS6_RKS9_() {
+void _ZNSt3__1plIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EEPKS6_RKS9_() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > std::__1::operator+<char, std::__1::char_traits<char>, std::__1::allocator<char> >();
     return;
 }
 
-_ZNSt8bad_castC1Ev() {
+void _ZNSt8bad_castC1Ev() {
     pointer to std::bad_cast::bad_cast();
     return;
 }
 
-_ZNSt9exceptionD2Ev() {
+void _ZNSt9exceptionD2Ev() {
     pointer to std::exception::~exception();
     return;
 }
 
-_ZSt13get_terminatev() {
+void _ZSt13get_terminatev() {
     pointer to std::get_terminate();
     return;
 }
 
-_ZSt13set_terminatePFvvE() {
+void _ZSt13set_terminatePFvvE() {
     pointer to std::set_terminate();
     return;
 }
 
-_ZSt18uncaught_exceptionv() {
+void _ZSt18uncaught_exceptionv() {
     pointer to std::uncaught_exception();
     return;
 }
 
-_ZSt9terminatev() {
+void _ZSt9terminatev() {
     pointer to std::terminate();
     return;
 }
 
-_ZdaPv(void * this) {
+void _ZdaPv(void * this) {
     pointer to operator delete[](this);
     return;
 }
 
-_ZdlPv(void * this) {
+void _ZdlPv(void * this) {
     pointer to operator delete(this);
     return;
 }
 
-_Znam() {
+void _Znam() {
     pointer to operator new[]();
     return;
 }
 
-_Znwm() {
+void _Znwm() {
     pointer to operator new();
     return;
 }
 
-_ZnwmRKSt9nothrow_t() {
+void _ZnwmRKSt9nothrow_t() {
     pointer to operator new();
     return;
 }
 
-__assert_rtn(void * , void * , int , void * ) {
+void __assert_rtn(void * , void * , int , void * ) {
     ___assert_rtn_ptr(arg_0, arg_1, arg_2, arg_3);
     return;
 }
 
-__cxa_allocate_exception() {
+void __cxa_allocate_exception() {
     ___cxa_allocate_exception_ptr();
     return;
 }
 
-__cxa_atexit() {
+void __cxa_atexit() {
     ___cxa_atexit_ptr();
     return;
 }
 
-__cxa_bad_cast() {
+void __cxa_bad_cast() {
     ___cxa_bad_cast_ptr();
     return;
 }
 
-__cxa_current_exception_type() {
+void __cxa_current_exception_type() {
     ___cxa_current_exception_type_ptr();
     return;
 }
 
-__cxa_begin_catch() {
+void __cxa_begin_catch() {
     ___cxa_begin_catch_ptr();
     return;
 }
 
-__cxa_demangle() {
+void __cxa_demangle() {
     ___cxa_demangle_ptr();
     return;
 }
 
-__cxa_guard_acquire() {
+void __cxa_guard_acquire() {
     ___cxa_guard_acquire_ptr();
     return;
 }
 
-__cxa_guard_release() {
+void __cxa_guard_release() {
     ___cxa_guard_release_ptr();
     return;
 }
 
-__cxa_rethrow() {
+void __cxa_rethrow() {
     ___cxa_rethrow_ptr();
     return;
 }
 
-__cxa_throw() {
+void __cxa_throw() {
     ___cxa_throw_ptr();
     return;
 }
 
-__dynamic_cast() {
+void __dynamic_cast() {
     ___dynamic_cast_ptr();
     return;
 }
 
-* __error() {
+void * __error() {
     r0 = ___error_ptr();
     return r0;
 }
 
-__invert_f4(int ) {
+int __invert_f4(int ) {
     r0 = ___invert_f4_ptr(arg_0);
     return r0;
 }
 
-__maskrune(int , unsigned long ) {
+int __maskrune(int , unsigned long ) {
     r0 = ___maskrune_ptr(arg_0, arg_1);
     return r0;
 }
 
-__memcpy_chk() {
+void __memcpy_chk() {
     ___memcpy_chk_ptr();
     return;
 }
 
-__memset_chk() {
+void __memset_chk() {
     ___memset_chk_ptr();
     return;
 }
 
-__sincos_stret(double ) {
+void __sincos_stret(double ) {
     ___sincos_stret_ptr(arg_0);
     return;
 }
 
-__sincosf_stret(float ) {
+void __sincosf_stret(float ) {
     ___sincosf_stret_ptr(arg_0);
     return;
 }
 
-__snprintf_chk(void * , int , int , int , void * ) {
+int __snprintf_chk(void * , int , int , int , void * ) {
     r0 = ___snprintf_chk_ptr(arg_0, arg_1, arg_2, arg_3, arg_4);
     return r0;
 }
 
-__sprintf_chk(void * , int , int , void * ) {
+int __sprintf_chk(void * , int , int , void * ) {
     r0 = ___sprintf_chk_ptr(arg_0, arg_1, arg_2, arg_3);
     return r0;
 }
 
-__stack_chk_fail() {
+void __stack_chk_fail() {
     ___stack_chk_fail_ptr();
     return;
 }
 
-__strcpy_chk() {
+void __strcpy_chk() {
     ___strcpy_chk_ptr();
     return;
 }
 
-__strncpy_chk() {
+void __strncpy_chk() {
     ___strncpy_chk_ptr();
     return;
 }
 
-* __xmlLastError() {
+void * __xmlLastError() {
     r0 = ___xmlLastError_ptr();
     return r0;
 }
 
-__tolower(int ) {
+int __tolower(int ) {
     r0 = ___tolower_ptr(arg_0);
     return r0;
 }
 
-* _dyld_get_image_header(int image_index) {
+void * _dyld_get_image_header(int image_index) {
     r0 = __dyld_get_image_header_ptr(image_index);
     return r0;
 }
 
-* _dyld_get_image_name(int image_index) {
+void * _dyld_get_image_name(int image_index) {
     r0 = __dyld_get_image_name_ptr(image_index);
     return r0;
 }
 
-_dyld_get_image_vmaddr_slide(int image_index) {
+int _dyld_get_image_vmaddr_slide(int image_index) {
     r0 = __dyld_get_image_vmaddr_slide_ptr(image_index);
     return r0;
 }
 
-_dyld_image_count() {
+int _dyld_image_count() {
     r0 = __dyld_image_count_ptr();
     return r0;
 }
 
-_dyld_register_func_for_add_image(void * func) {
+void _dyld_register_func_for_add_image(void * func) {
     __dyld_register_func_for_add_image_ptr(func);
     return;
 }
 
-_dyld_register_func_for_remove_image(void * func) {
+void _dyld_register_func_for_remove_image(void * func) {
     __dyld_register_func_for_remove_image_ptr(func);
     return;
 }
 
-abort() {
+void abort() {
     _abort_ptr();
     return;
 }
 
-accept(int socket, void * address, void * address_len) {
+int accept(int socket, void * address, void * address_len) {
     r0 = _accept_ptr(socket, address, address_len);
     return r0;
 }
 
-acosf(float x) {
+float acosf(float x) {
     r0 = _acosf_ptr(x);
     return r0;
 }
 
-alBufferData(int bid, int format, void * data, int size, int freq) {
+void alBufferData(int bid, int format, void * data, int size, int freq) {
     _alBufferData_ptr(bid, format, data, size, freq);
     return;
 }
 
-alDeleteBuffers(int n, void * buffers) {
+void alDeleteBuffers(int n, void * buffers) {
     _alDeleteBuffers_ptr(n, buffers);
     return;
 }
 
-alDeleteSources(int n, void * sources) {
+void alDeleteSources(int n, void * sources) {
     _alDeleteSources_ptr(n, sources);
     return;
 }
 
-alGenBuffers(int n, void * buffers) {
+void alGenBuffers(int n, void * buffers) {
     _alGenBuffers_ptr(n, buffers);
     return;
 }
 
-alGenSources(int n, void * sources) {
+void alGenSources(int n, void * sources) {
     _alGenSources_ptr(n, sources);
     return;
 }
 
-alGetError() {
+int alGetError() {
     r0 = _alGetError_ptr();
     return r0;
 }
 
-alGetListenerf(int param, void * value) {
+void alGetListenerf(int param, void * value) {
     _alGetListenerf_ptr(param, value);
     return;
 }
 
-alGetSourcef(int sid, int param, void * value) {
+void alGetSourcef(int sid, int param, void * value) {
     _alGetSourcef_ptr(sid, param, value);
     return;
 }
 
-alGetSourcefv(int sid, int param, void * values) {
+void alGetSourcefv(int sid, int param, void * values) {
     _alGetSourcefv_ptr(sid, param, values);
     return;
 }
 
-alListenerf(int param, int value) {
+void alListenerf(int param, int value) {
     _alListenerf_ptr(param, value);
     return;
 }
 
-alGetSourcei(int sid, int param, void * value) {
+void alGetSourcei(int sid, int param, void * value) {
     _alGetSourcei_ptr(sid, param, value);
     return;
 }
 
-alSourcePause(int sid) {
+void alSourcePause(int sid) {
     _alSourcePause_ptr(sid);
     return;
 }
 
-alSourcePlay(int sid) {
+void alSourcePlay(int sid) {
     _alSourcePlay_ptr(sid);
     return;
 }
 
-alSourceRewind(int sid) {
+void alSourceRewind(int sid) {
     _alSourceRewind_ptr(sid);
     return;
 }
 
-alSourceStop(int sid) {
+void alSourceStop(int sid) {
     _alSourceStop_ptr(sid);
     return;
 }
 
-alSourcef(int sid, int param, int value) {
+void alSourcef(int sid, int param, int value) {
     _alSourcef_ptr(sid, param, value);
     return;
 }
 
-alSourcefv(int sid, int param, void * values) {
+void alSourcefv(int sid, int param, void * values) {
     _alSourcefv_ptr(sid, param, values);
     return;
 }
 
-alSourcei(int sid, int param, int value) {
+void alSourcei(int sid, int param, int value) {
     _alSourcei_ptr(sid, param, value);
     return;
 }
 
-alcCloseDevice(void * device) {
+int alcCloseDevice(void * device) {
     r0 = _alcCloseDevice_ptr(device);
     return r0;
 }
 
-* alcCreateContext(void * device, void * attrlist) {
+void * alcCreateContext(void * device, void * attrlist) {
     r0 = _alcCreateContext_ptr(device, attrlist);
     return r0;
 }
 
-alcDestroyContext(void * context) {
+void alcDestroyContext(void * context) {
     _alcDestroyContext_ptr(context);
     return;
 }
 
-* alcGetContextsDevice(void * context) {
+void * alcGetContextsDevice(void * context) {
     r0 = _alcGetContextsDevice_ptr(context);
     return r0;
 }
 
-* alcGetCurrentContext() {
+void * alcGetCurrentContext() {
     r0 = _alcGetCurrentContext_ptr();
     return r0;
 }
 
-* alcGetProcAddress(void * device, void * funcname) {
+void * alcGetProcAddress(void * device, void * funcname) {
     r0 = _alcGetProcAddress_ptr(device, funcname);
     return r0;
 }
 
-alcMakeContextCurrent(void * context) {
+int alcMakeContextCurrent(void * context) {
     r0 = _alcMakeContextCurrent_ptr(context);
     return r0;
 }
 
-* alcOpenDevice(void * devicename) {
+void * alcOpenDevice(void * devicename) {
     r0 = _alcOpenDevice_ptr(devicename);
     return r0;
 }
 
-arc4random() {
+int arc4random() {
     r0 = _arc4random_ptr();
     return r0;
 }
 
-arc4random_buf(void * buf, int nbytes) {
+void arc4random_buf(void * buf, int nbytes) {
     _arc4random_buf_ptr(buf, nbytes);
     return;
 }
 
-asinf(float ) {
+float asinf(float ) {
     r0 = _asinf_ptr(arg_0);
     return r0;
 }
 
-arc4random_uniform(int upper_bound) {
+int arc4random_uniform(int upper_bound) {
     r0 = _arc4random_uniform_ptr(upper_bound);
     return r0;
 }
 
-asl_add_log_file(int asl, int descriptor) {
+int asl_add_log_file(int asl, int descriptor) {
     r0 = _asl_add_log_file_ptr(asl, descriptor);
     return r0;
 }
 
-asl_log(int asl, int msg, int level, void * format) {
+int asl_log(int asl, int msg, int level, void * format) {
     r0 = _asl_log_ptr(asl, msg, level, format);
     return r0;
 }
 
-asl_free(int msg) {
+void asl_free(int msg) {
     _asl_free_ptr(msg);
     return;
 }
 
-* asl_get(int msg, void * key) {
+void * asl_get(int msg, void * key) {
     r0 = _asl_get_ptr(msg, key);
     return r0;
 }
 
-asl_new(int type) {
+int asl_new(int type) {
     r0 = _asl_new_ptr(type);
     return r0;
 }
 
-asl_open(void * ident, void * facility, int opts) {
+int asl_open(void * ident, void * facility, int opts) {
     r0 = _asl_open_ptr(ident, facility, opts);
     return r0;
 }
 
-asl_send(int asl, int msg) {
+int asl_send(int asl, int msg) {
     r0 = _asl_send_ptr(asl, msg);
     return r0;
 }
 
-asl_search(int asl, int msg) {
+int asl_search(int asl, int msg) {
     r0 = _asl_search_ptr(asl, msg);
     return r0;
 }
 
-asl_set(int msg, void * key, void * value) {
+int asl_set(int msg, void * key, void * value) {
     r0 = _asl_set_ptr(msg, key, value);
     return r0;
 }
 
-asl_set_filter(int asl, int filter) {
+int asl_set_filter(int asl, int filter) {
     r0 = _asl_set_filter_ptr(asl, filter);
     return r0;
 }
 
-asl_set_query(int msg, void * key, void * value, int op) {
+int asl_set_query(int msg, void * key, void * value, int op) {
     r0 = _asl_set_query_ptr(msg, key, value, op);
     return r0;
 }
 
-aslresponse_free(int r) {
+void aslresponse_free(int r) {
     _aslresponse_free_ptr(r);
     return;
 }
 
-aslresponse_next(int r) {
+int aslresponse_next(int r) {
     r0 = _aslresponse_next_ptr(r);
     return r0;
 }
 
-asprintf(void * ret, void * format) {
+int asprintf(void * ret, void * format) {
     r0 = _asprintf_ptr(ret, format);
     return r0;
 }
 
-atan(double ) {
+double atan(double ) {
     r0 = _atan_ptr(arg_0);
     return r0;
 }
 
-atan2(double , double ) {
+double atan2(double , double ) {
     r0 = _atan2_ptr(arg_0, arg_1);
     return r0;
 }
 
-atan2f(float , float ) {
+float atan2f(float , float ) {
     r0 = _atan2f_ptr(arg_0, arg_1);
     return r0;
 }
 
-atoi(void * str) {
+int atoi(void * str) {
     r0 = _atoi_ptr(str);
     return r0;
 }
 
-long atoll(void * str) {
+long long atoll(void * str) {
     r0 = _atoll_ptr(str);
     return r0;
 }
 
-backtrace(void * array, int size) {
+int backtrace(void * array, int size) {
     r0 = _backtrace_ptr(array, size);
     return r0;
 }
 
-bind(int socket, void * address, int address_len) {
+int bind(int socket, void * address, int address_len) {
     r0 = _bind_ptr(socket, address, address_len);
     return r0;
 }
 
-* bsearch(void * key, void * base, int nel, int width, void * )) {
+void * bsearch(void * key, void * base, int nel, int width, void * )) {
     r0 = _bsearch_ptr(key, base, nel, width, ));
     return r0;
 }
 
-* calloc(int count, int size) {
+void * calloc(int count, int size) {
     r0 = _calloc_ptr(count, size);
     return r0;
 }
 
-bzero(void * s, int n) {
+void bzero(void * s, int n) {
     _bzero_ptr(s, n);
     return;
 }
 
-class_addIvar(int cls, void * name, int size, int alignment, void * types) {
+int class_addIvar(int cls, void * name, int size, int alignment, void * types) {
     r0 = _class_addIvar_ptr(cls, name, size, alignment, types);
     return r0;
 }
 
-class_addMethod(int cls, int name, int imp, void * types) {
+int class_addMethod(int cls, int name, int imp, void * types) {
     r0 = _class_addMethod_ptr(cls, name, imp, types);
     return r0;
 }
 
-class_addProperty(int cls, void * name, void * attributes, unsigned int attributeCount) {
+int class_addProperty(int cls, void * name, void * attributes, unsigned int attributeCount) {
     r0 = _class_addProperty_ptr(cls, name, attributes, attributeCount);
     return r0;
 }
 
-* class_copyIvarList(int cls, void * outCount) {
+void * class_copyIvarList(int cls, void * outCount) {
     r0 = _class_copyIvarList_ptr(cls, outCount);
     return r0;
 }
 
-* class_copyMethodList(int cls, void * outCount) {
+void * class_copyMethodList(int cls, void * outCount) {
     r0 = _class_copyMethodList_ptr(cls, outCount);
     return r0;
 }
 
-class_getClassMethod(int cls, int name) {
+int class_getClassMethod(int cls, int name) {
     r0 = _class_getClassMethod_ptr(cls, name);
     return r0;
 }
 
-* class_copyPropertyList(int cls, void * outCount) {
+void * class_copyPropertyList(int cls, void * outCount) {
     r0 = _class_copyPropertyList_ptr(cls, outCount);
     return r0;
 }
 
-class_getInstanceMethod(int cls, int name) {
+int class_getInstanceMethod(int cls, int name) {
     r0 = _class_getInstanceMethod_ptr(cls, name);
     return r0;
 }
 
-class_getInstanceSize(int cls) {
+int class_getInstanceSize(int cls) {
     r0 = _class_getInstanceSize_ptr(cls);
     return r0;
 }
 
-class_getInstanceVariable(int cls, void * name) {
+int class_getInstanceVariable(int cls, void * name) {
     r0 = _class_getInstanceVariable_ptr(cls, name);
     return r0;
 }
 
-* class_getName(void * cls) {
+void * class_getName(void * cls) {
     r0 = _class_getName_ptr(cls);
     return r0;
 }
 
-class_getMethodImplementation(int cls, int name) {
+int class_getMethodImplementation(int cls, int name) {
     r0 = _class_getMethodImplementation_ptr(cls, name);
     return r0;
 }
 
-class_getProperty(int cls, void * name) {
+int class_getProperty(int cls, void * name) {
     r0 = _class_getProperty_ptr(cls, name);
     return r0;
 }
 
-class_getSuperclass(int cls) {
+int class_getSuperclass(int cls) {
     r0 = _class_getSuperclass_ptr(cls);
     return r0;
 }
 
-* class_replaceMethod(void * cls, void * name, void * imp, void * types) {
+void * class_replaceMethod(void * cls, void * name, void * imp, void * types) {
     r0 = _class_replaceMethod_ptr(cls, name, imp, types);
     return r0;
 }
 
-class_isMetaClass(int cls) {
+int class_isMetaClass(int cls) {
     r0 = _class_isMetaClass_ptr(cls);
     return r0;
 }
 
-close(int fildes) {
+int close(int fildes) {
     r0 = _close_ptr(fildes);
     return r0;
 }
 
-closedir(void * dirp) {
+int closedir(void * dirp) {
     r0 = _closedir_ptr(dirp);
     return r0;
 }
 
-compressBound(int sourceLen) {
+int compressBound(int sourceLen) {
     r0 = _compressBound_ptr(sourceLen);
     return r0;
 }
 
-connect(int socket, void * address, int address_len) {
+int connect(int socket, void * address, int address_len) {
     r0 = _connect_ptr(socket, address, address_len);
     return r0;
 }
 
-cos(double ) {
+double cos(double ) {
     r0 = _cos_ptr(arg_0);
     return r0;
 }
 
-cosf(float ) {
+float cosf(float ) {
     r0 = _cosf_ptr(arg_0);
     return r0;
 }
 
-crc32(int crc, void * buf, int len) {
+int crc32(int crc, void * buf, int len) {
     r0 = _crc32_ptr(crc, buf, len);
     return r0;
 }
 
-deflateEnd(int strm) {
+int deflateEnd(int strm) {
     r0 = _deflateEnd_ptr(strm);
     return r0;
 }
 
-deflate(int strm, int flush) {
+int deflate(int strm, int flush) {
     r0 = _deflate_ptr(strm, flush);
     return r0;
 }
 
-deflateInit2_(int strm, int level, int method, int windowBits, int memLevel, int strategy, void * version, int stream_size) {
+int deflateInit2_(int strm, int level, int method, int windowBits, int memLevel, int strategy, void * version, int stream_size) {
     r0 = _deflateInit2__ptr(strm, level, method, windowBits, memLevel, strategy, version, stream_size);
     return r0;
 }
 
-digittoint(int c) {
+int digittoint(int c) {
     r0 = _digittoint_ptr(c);
     return r0;
 }
 
-dispatch_async(int queue, int block) {
+void dispatch_async(int queue, int block) {
     _dispatch_async_ptr(queue, block);
     return;
 }
 
-dispatch_after(int when, int queue, int block) {
+void dispatch_after(int when, int queue, int block) {
     _dispatch_after_ptr(when, queue, block);
     return;
 }
 
-dispatch_barrier_async(int queue, int block) {
+void dispatch_barrier_async(int queue, int block) {
     _dispatch_barrier_async_ptr(queue, block);
     return;
 }
 
-dispatch_barrier_async_f(int queue, void * context, int work) {
+void dispatch_barrier_async_f(int queue, void * context, int work) {
     _dispatch_barrier_async_f_ptr(queue, context, work);
     return;
 }
 
-dispatch_barrier_sync(int queue, int block) {
+void dispatch_barrier_sync(int queue, int block) {
     _dispatch_barrier_sync_ptr(queue, block);
     return;
 }
 
-dispatch_data_apply(int data, int applier) {
+int dispatch_data_apply(int data, int applier) {
     r0 = _dispatch_data_apply_ptr(data, applier);
     return r0;
 }
 
-dispatch_data_create(void * buffer, int size, int queue, int destructor) {
+int dispatch_data_create(void * buffer, int size, int queue, int destructor) {
     r0 = _dispatch_data_create_ptr(buffer, size, queue, destructor);
     return r0;
 }
 
-dispatch_data_get_size(int data) {
+int dispatch_data_get_size(int data) {
     r0 = _dispatch_data_get_size_ptr(data);
     return r0;
 }
 
-dispatch_get_current_queue() {
+int dispatch_get_current_queue() {
     r0 = _dispatch_get_current_queue_ptr();
     return r0;
 }
 
-dispatch_get_global_queue(int priority, unsigned long flags) {
+int dispatch_get_global_queue(int priority, unsigned long flags) {
     r0 = _dispatch_get_global_queue_ptr(priority, flags);
     return r0;
 }
 
-* dispatch_get_specific(void * key) {
+void * dispatch_get_specific(void * key) {
     r0 = _dispatch_get_specific_ptr(key);
     return r0;
 }
 
-dispatch_group_async(int group, int queue, int block) {
+void dispatch_group_async(int group, int queue, int block) {
     _dispatch_group_async_ptr(group, queue, block);
     return;
 }
 
-dispatch_group_create() {
+int dispatch_group_create() {
     r0 = _dispatch_group_create_ptr();
     return r0;
 }
 
-dispatch_group_enter(int group) {
+void dispatch_group_enter(int group) {
     _dispatch_group_enter_ptr(group);
     return;
 }
 
-dispatch_group_leave(int group) {
+void dispatch_group_leave(int group) {
     _dispatch_group_leave_ptr(group);
     return;
 }
 
-dispatch_group_notify(int group, int queue, int block) {
+void dispatch_group_notify(int group, int queue, int block) {
     _dispatch_group_notify_ptr(group, queue, block);
     return;
 }
 
-dispatch_group_wait(int group, int timeout) {
+long dispatch_group_wait(int group, int timeout) {
     r0 = _dispatch_group_wait_ptr(group, timeout);
     return r0;
 }
 
-dispatch_once(void * predicate, int block) {
+void dispatch_once(void * predicate, int block) {
     _dispatch_once_ptr(predicate, block);
     return;
 }
 
-dispatch_once_f(void * predicate, void * context, int function) {
+void dispatch_once_f(void * predicate, void * context, int function) {
     _dispatch_once_f_ptr(predicate, context, function);
     return;
 }
 
-dispatch_queue_attr_make_with_qos_class(int attr, int qos_class, int relative_priority) {
+int dispatch_queue_attr_make_with_qos_class(int attr, int qos_class, int relative_priority) {
     r0 = _dispatch_queue_attr_make_with_qos_class_ptr(attr, qos_class, relative_priority);
     return r0;
 }
 
-dispatch_queue_create(void * label, int attr) {
+int dispatch_queue_create(void * label, int attr) {
     r0 = _dispatch_queue_create_ptr(label, attr);
     return r0;
 }
 
-* dispatch_queue_get_label(int queue) {
+void * dispatch_queue_get_label(int queue) {
     r0 = _dispatch_queue_get_label_ptr(queue);
     return r0;
 }
 
-dispatch_queue_set_specific(int queue, void * key, void * context, int destructor) {
+void dispatch_queue_set_specific(int queue, void * key, void * context, int destructor) {
     _dispatch_queue_set_specific_ptr(queue, key, context, destructor);
     return;
 }
 
-dispatch_read(int fd, int length, int queue, void * handler) {
+void dispatch_read(int fd, int length, int queue, void * handler) {
     _dispatch_read_ptr(fd, length, queue, handler);
     return;
 }
 
-dispatch_release(int object) {
+void dispatch_release(int object) {
     _dispatch_release_ptr(object);
     return;
 }
 
-dispatch_resume(int object) {
+void dispatch_resume(int object) {
     _dispatch_resume_ptr(object);
     return;
 }
 
-dispatch_semaphore_create(long count) {
+int dispatch_semaphore_create(long count) {
     r0 = _dispatch_semaphore_create_ptr(count);
     return r0;
 }
 
-dispatch_semaphore_signal(int semaphore) {
+long dispatch_semaphore_signal(int semaphore) {
     r0 = _dispatch_semaphore_signal_ptr(semaphore);
     return r0;
 }
 
-dispatch_semaphore_wait(int semaphore, int timeout) {
+long dispatch_semaphore_wait(int semaphore, int timeout) {
     r0 = _dispatch_semaphore_wait_ptr(semaphore, timeout);
     return r0;
 }
 
-dispatch_set_target_queue(int object, int target) {
+void dispatch_set_target_queue(int object, int target) {
     _dispatch_set_target_queue_ptr(object, target);
     return;
 }
 
-dispatch_source_cancel(int source) {
+void dispatch_source_cancel(int source) {
     _dispatch_source_cancel_ptr(source);
     return;
 }
 
-dispatch_source_create(int type, int handle, unsigned long mask, int queue) {
+int dispatch_source_create(int type, int handle, unsigned long mask, int queue) {
     r0 = _dispatch_source_create_ptr(type, handle, mask, queue);
     return r0;
 }
 
-long dispatch_source_get_data(int source) {
+unsigned long dispatch_source_get_data(int source) {
     r0 = _dispatch_source_get_data_ptr(source);
     return r0;
 }
 
-dispatch_source_set_cancel_handler(int source, int block) {
+void dispatch_source_set_cancel_handler(int source, int block) {
     _dispatch_source_set_cancel_handler_ptr(source, block);
     return;
 }
 
-dispatch_source_set_event_handler(int source, int block) {
+void dispatch_source_set_event_handler(int source, int block) {
     _dispatch_source_set_event_handler_ptr(source, block);
     return;
 }
 
-dispatch_source_set_timer(int source, int start, int interval, int leeway) {
+void dispatch_source_set_timer(int source, int start, int interval, int leeway) {
     _dispatch_source_set_timer_ptr(source, start, interval, leeway);
     return;
 }
 
-dispatch_source_testcancel(int source) {
+long dispatch_source_testcancel(int source) {
     r0 = _dispatch_source_testcancel_ptr(source);
     return r0;
 }
 
-dispatch_suspend(int object) {
+void dispatch_suspend(int object) {
     _dispatch_suspend_ptr(object);
     return;
 }
 
-dispatch_sync(int queue, int block) {
+void dispatch_sync(int queue, int block) {
     _dispatch_sync_ptr(queue, block);
     return;
 }
 
-dispatch_time(int base, int offset) {
+int dispatch_time(int base, int offset) {
     r0 = _dispatch_time_ptr(base, offset);
     return r0;
 }
 
-dispatch_walltime(void * base, int offset) {
+int dispatch_walltime(void * base, int offset) {
     r0 = _dispatch_walltime_ptr(base, offset);
     return r0;
 }
 
-dispatch_write(int fd, int data, int queue, void * handler) {
+void dispatch_write(int fd, int data, int queue, void * handler) {
     _dispatch_write_ptr(fd, data, queue, handler);
     return;
 }
 
-dladdr(void * addr, void * info) {
+int dladdr(void * addr, void * info) {
     r0 = _dladdr_ptr(addr, info);
     return r0;
 }
 
-dlclose(void * handle) {
+int dlclose(void * handle) {
     r0 = _dlclose_ptr(handle);
     return r0;
 }
 
-* dlopen(void * path, int mode) {
+void * dlopen(void * path, int mode) {
     r0 = _dlopen_ptr(path, mode);
     return r0;
 }
 
-* dlsym(void * handle, void * symbol) {
+void * dlsym(void * handle, void * symbol) {
     r0 = _dlsym_ptr(handle, symbol);
     return r0;
 }
 
-drand48() {
+double drand48() {
     r0 = _drand48_ptr();
     return r0;
 }
 
-exit(int status) {
+void exit(int status) {
     _exit_ptr(status);
     return;
 }
 
-exp(double ) {
+double exp(double ) {
     r0 = _exp_ptr(arg_0);
     return r0;
 }
 
-exp2(double ) {
+double exp2(double ) {
     r0 = _exp2_ptr(arg_0);
     return r0;
 }
 
-exp2f(float ) {
+float exp2f(float ) {
     r0 = _exp2f_ptr(arg_0);
     return r0;
 }
 
-expf(float ) {
+float expf(float ) {
     r0 = _expf_ptr(arg_0);
     return r0;
 }
 
-fclose(void * stream) {
+int fclose(void * stream) {
     r0 = _fclose_ptr(stream);
     return r0;
 }
 
-fcntl(int fildes, int cmd) {
+int fcntl(int fildes, int cmd) {
     r0 = _fcntl_ptr(fildes, cmd);
     return r0;
 }
 
-feof(void * stream) {
+int feof(void * stream) {
     r0 = _feof_ptr(stream);
     return r0;
 }
 
-ferror(void * stream) {
+int ferror(void * stream) {
     r0 = _ferror_ptr(stream);
     return r0;
 }
 
-fflush(void * stream) {
+int fflush(void * stream) {
     r0 = _fflush_ptr(stream);
     return r0;
 }
 
-fgetc(void * stream) {
+int fgetc(void * stream) {
     r0 = _fgetc_ptr(stream);
     return r0;
 }
 
-fmod(double , double ) {
+double fmod(double , double ) {
     r0 = _fmod_ptr(arg_0, arg_1);
     return r0;
 }
 
-fmodf(float , float ) {
+float fmodf(float , float ) {
     r0 = _fmodf_ptr(arg_0, arg_1);
     return r0;
 }
 
-* fopen(void * filename, void * mode) {
+void * fopen(void * filename, void * mode) {
     r0 = _fopen_ptr(filename, mode);
     return r0;
 }
 
-fprintf(void * stream, void * format) {
+int fprintf(void * stream, void * format) {
     r0 = _fprintf_ptr(stream, format);
     return r0;
 }
 
-fputc(int c, void * stream) {
+int fputc(int c, void * stream) {
     r0 = _fputc_ptr(c, stream);
     return r0;
 }
 
-fread(void * ptr, int size, int nitems, void * stream) {
+int fread(void * ptr, int size, int nitems, void * stream) {
     r0 = _fread_ptr(ptr, size, nitems, stream);
     return r0;
 }
 
-free(void * ptr) {
+void free(void * ptr) {
     _free_ptr(ptr);
     return;
 }
 
-freeaddrinfo(void * ai) {
+void freeaddrinfo(void * ai) {
     _freeaddrinfo_ptr(ai);
     return;
 }
 
-freeifaddrs(void * ifp) {
+void freeifaddrs(void * ifp) {
     _freeifaddrs_ptr(ifp);
     return;
 }
 
-fseek(void * stream, long offset, int whence) {
+int fseek(void * stream, long offset, int whence) {
     r0 = _fseek_ptr(stream, offset, whence);
     return r0;
 }
 
-fseeko(void * stream, int offset, int whence) {
+int fseeko(void * stream, int offset, int whence) {
     r0 = _fseeko_ptr(stream, offset, whence);
     return r0;
 }
 
-fstat(int fildes, void * buf) {
+int fstat(int fildes, void * buf) {
     r0 = _fstat_ptr(fildes, buf);
     return r0;
 }
 
-ftell(void * stream) {
+long ftell(void * stream) {
     r0 = _ftell_ptr(stream);
     return r0;
 }
 
-ftello(void * stream) {
+int ftello(void * stream) {
     r0 = _ftello_ptr(stream);
     return r0;
 }
 
-fwrite(void * ptr, int size, int nitems, void * stream) {
+int fwrite(void * ptr, int size, int nitems, void * stream) {
     r0 = _fwrite_ptr(ptr, size, nitems, stream);
     return r0;
 }
 
-getaddrinfo(void * hostname, void * servname, void * hints, void * res) {
+int getaddrinfo(void * hostname, void * servname, void * hints, void * res) {
     r0 = _getaddrinfo_ptr(hostname, servname, hints, res);
     return r0;
 }
 
-* getenv(void * name) {
+void * getenv(void * name) {
     r0 = _getenv_ptr(name);
     return r0;
 }
 
-geteuid() {
+int geteuid() {
     r0 = _geteuid_ptr();
     return r0;
 }
 
-* gethostbyname(void * name) {
+void * gethostbyname(void * name) {
     r0 = _gethostbyname_ptr(name);
     return r0;
 }
 
-getifaddrs(void * ifap) {
+int getifaddrs(void * ifap) {
     r0 = _getifaddrs_ptr(ifap);
     return r0;
 }
 
-getnameinfo(void * sa, int salen, void * host, int hostlen, void * serv, int servlen, int flags) {
+int getnameinfo(void * sa, int salen, void * host, int hostlen, void * serv, int servlen, int flags) {
     r0 = _getnameinfo_ptr(sa, salen, host, hostlen, serv, servlen, flags);
     return r0;
 }
 
-getpid() {
+int getpid() {
     r0 = _getpid_ptr();
     return r0;
 }
 
-* getsectbynamefromheader(void * mhp, void * segname, void * sectname) {
+void * getsectbynamefromheader(void * mhp, void * segname, void * sectname) {
     r0 = _getsectbynamefromheader_ptr(mhp, segname, sectname);
     return r0;
 }
 
-* getsectbynamefromheader_64(void * mhp, void * segname, void * sectname) {
+void * getsectbynamefromheader_64(void * mhp, void * segname, void * sectname) {
     r0 = _getsectbynamefromheader_64_ptr(mhp, segname, sectname);
     return r0;
 }
 
-getsockname(int socket, void * address, void * address_len) {
+int getsockname(int socket, void * address, void * address_len) {
     r0 = _getsockname_ptr(socket, address, address_len);
     return r0;
 }
 
-getuid() {
+int getuid() {
     r0 = _getuid_ptr();
     return r0;
 }
 
-gettimeofday(void * tp, void * tzp) {
+int gettimeofday(void * tp, void * tzp) {
     r0 = _gettimeofday_ptr(tp, tzp);
     return r0;
 }
 
-getxattr(void * path, void * name, void * value, int size, int position, int options) {
+int getxattr(void * path, void * name, void * value, int size, int position, int options) {
     r0 = _getxattr_ptr(path, name, value, size, position, options);
     return r0;
 }
 
-glActiveTexture(int texture) {
+void glActiveTexture(int texture) {
     _glActiveTexture_ptr(texture);
     return;
 }
 
-glBindAttribLocation(int program, int index, void * name) {
+void glBindAttribLocation(int program, int index, void * name) {
     _glBindAttribLocation_ptr(program, index, name);
     return;
 }
 
-glAttachShader(int program, int shader) {
+void glAttachShader(int program, int shader) {
     _glAttachShader_ptr(program, shader);
     return;
 }
 
-glBindBuffer(int target, int buffer) {
+void glBindBuffer(int target, int buffer) {
     _glBindBuffer_ptr(target, buffer);
     return;
 }
 
-glBindFramebuffer(int target, int framebuffer) {
+void glBindFramebuffer(int target, int framebuffer) {
     _glBindFramebuffer_ptr(target, framebuffer);
     return;
 }
 
-glBindRenderbuffer(int target, int renderbuffer) {
+void glBindRenderbuffer(int target, int renderbuffer) {
     _glBindRenderbuffer_ptr(target, renderbuffer);
     return;
 }
 
-glBindTexture(int target, int texture) {
+void glBindTexture(int target, int texture) {
     _glBindTexture_ptr(target, texture);
     return;
 }
 
-glBindVertexArrayOES() {
+void glBindVertexArrayOES() {
     _glBindVertexArrayOES_ptr();
     return;
 }
 
-glBlendEquation(int mode) {
+void glBlendEquation(int mode) {
     _glBlendEquation_ptr(mode);
     return;
 }
 
-glBlendFunc(int sfactor, int dfactor) {
+void glBlendFunc(int sfactor, int dfactor) {
     _glBlendFunc_ptr(sfactor, dfactor);
     return;
 }
 
-glBufferSubData(int target, int offset, int size, void * data) {
+void glBufferSubData(int target, int offset, int size, void * data) {
     _glBufferSubData_ptr(target, offset, size, data);
     return;
 }
 
-glBufferData(int target, int size, void * data, int usage) {
+void glBufferData(int target, int size, void * data, int usage) {
     _glBufferData_ptr(target, size, data, usage);
     return;
 }
 
-glCheckFramebufferStatus(int target) {
+int glCheckFramebufferStatus(int target) {
     r0 = _glCheckFramebufferStatus_ptr(target);
     return r0;
 }
 
-glClearDepthf(int d) {
+void glClearDepthf(int d) {
     _glClearDepthf_ptr(d);
     return;
 }
 
-glClear(int mask) {
+void glClear(int mask) {
     _glClear_ptr(mask);
     return;
 }
 
-glClearColor(int red, int green, int blue, int alpha) {
+void glClearColor(int red, int green, int blue, int alpha) {
     _glClearColor_ptr(red, green, blue, alpha);
     return;
 }
 
-glClearStencil(int s) {
+void glClearStencil(int s) {
     _glClearStencil_ptr(s);
     return;
 }
 
-glCompileShader(int shader) {
+void glCompileShader(int shader) {
     _glCompileShader_ptr(shader);
     return;
 }
 
-glColorMask(int red, int green, int blue, int alpha) {
+void glColorMask(int red, int green, int blue, int alpha) {
     _glColorMask_ptr(red, green, blue, alpha);
     return;
 }
 
-glCreateProgram() {
+int glCreateProgram() {
     r0 = _glCreateProgram_ptr();
     return r0;
 }
 
-glCreateShader(int type) {
+int glCreateShader(int type) {
     r0 = _glCreateShader_ptr(type);
     return r0;
 }
 
-glDeleteBuffers(int n, void * buffers) {
+void glDeleteBuffers(int n, void * buffers) {
     _glDeleteBuffers_ptr(n, buffers);
     return;
 }
 
-glDeleteFramebuffers(int n, void * framebuffers) {
+void glDeleteFramebuffers(int n, void * framebuffers) {
     _glDeleteFramebuffers_ptr(n, framebuffers);
     return;
 }
 
-glCullFace(int mode) {
+void glCullFace(int mode) {
     _glCullFace_ptr(mode);
     return;
 }
 
-glDeleteRenderbuffers(int n, void * renderbuffers) {
+void glDeleteRenderbuffers(int n, void * renderbuffers) {
     _glDeleteRenderbuffers_ptr(n, renderbuffers);
     return;
 }
 
-glDeleteProgram(int program) {
+void glDeleteProgram(int program) {
     _glDeleteProgram_ptr(program);
     return;
 }
 
-glDeleteTextures(int n, void * textures) {
+void glDeleteTextures(int n, void * textures) {
     _glDeleteTextures_ptr(n, textures);
     return;
 }
 
-glDepthFunc(int func) {
+void glDepthFunc(int func) {
     _glDepthFunc_ptr(func);
     return;
 }
 
-glDeleteShader(int shader) {
+void glDeleteShader(int shader) {
     _glDeleteShader_ptr(shader);
     return;
 }
 
-glDeleteVertexArraysOES() {
+void glDeleteVertexArraysOES() {
     _glDeleteVertexArraysOES_ptr();
     return;
 }
 
-glDisableVertexAttribArray(int index) {
+void glDisableVertexAttribArray(int index) {
     _glDisableVertexAttribArray_ptr(index);
     return;
 }
 
-glDisable(int cap) {
+void glDisable(int cap) {
     _glDisable_ptr(cap);
     return;
 }
 
-glDepthMask(int flag) {
+void glDepthMask(int flag) {
     _glDepthMask_ptr(flag);
     return;
 }
 
-glDiscardFramebufferEXT() {
+void glDiscardFramebufferEXT() {
     _glDiscardFramebufferEXT_ptr();
     return;
 }
 
-glDrawElements(int mode, int count, int type, void * indices) {
+void glDrawElements(int mode, int count, int type, void * indices) {
     _glDrawElements_ptr(mode, count, type, indices);
     return;
 }
 
-glEnable(int cap) {
+void glEnable(int cap) {
     _glEnable_ptr(cap);
     return;
 }
 
-glDrawArrays(int mode, int first, int count) {
+void glDrawArrays(int mode, int first, int count) {
     _glDrawArrays_ptr(mode, first, count);
     return;
 }
 
-glEnableVertexAttribArray(int index) {
+void glEnableVertexAttribArray(int index) {
     _glEnableVertexAttribArray_ptr(index);
     return;
 }
 
-glFinish() {
+void glFinish() {
     _glFinish_ptr();
     return;
 }
 
-glFlush() {
+void glFlush() {
     _glFlush_ptr();
     return;
 }
 
-glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
+void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer) {
     _glFramebufferRenderbuffer_ptr(target, attachment, renderbuffertarget, renderbuffer);
     return;
 }
 
-glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
+void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level) {
     _glFramebufferTexture2D_ptr(target, attachment, textarget, texture, level);
     return;
 }
 
-glFrontFace(int mode) {
+void glFrontFace(int mode) {
     _glFrontFace_ptr(mode);
     return;
 }
 
-glGenBuffers(int n, void * buffers) {
+void glGenBuffers(int n, void * buffers) {
     _glGenBuffers_ptr(n, buffers);
     return;
 }
 
-glGenFramebuffers(int n, void * framebuffers) {
+void glGenFramebuffers(int n, void * framebuffers) {
     _glGenFramebuffers_ptr(n, framebuffers);
     return;
 }
 
-glGenRenderbuffers(int n, void * renderbuffers) {
+void glGenRenderbuffers(int n, void * renderbuffers) {
     _glGenRenderbuffers_ptr(n, renderbuffers);
     return;
 }
 
-glGenTextures(int n, void * textures) {
+void glGenTextures(int n, void * textures) {
     _glGenTextures_ptr(n, textures);
     return;
 }
 
-glGenVertexArraysOES() {
+void glGenVertexArraysOES() {
     _glGenVertexArraysOES_ptr();
     return;
 }
 
-glGenerateMipmap(int target) {
+void glGenerateMipmap(int target) {
     _glGenerateMipmap_ptr(target);
     return;
 }
 
-glGetActiveAttrib(int program, int index, int bufSize, void * length, void * size, void * type, void * name) {
+void glGetActiveAttrib(int program, int index, int bufSize, void * length, void * size, void * type, void * name) {
     _glGetActiveAttrib_ptr(program, index, bufSize, length, size, type, name);
     return;
 }
 
-glGetAttribLocation(int program, void * name) {
+int glGetAttribLocation(int program, void * name) {
     r0 = _glGetAttribLocation_ptr(program, name);
     return r0;
 }
 
-glGetBooleanv(int pname, void * params) {
+void glGetBooleanv(int pname, void * params) {
     _glGetBooleanv_ptr(pname, params);
     return;
 }
 
-glGetActiveUniform(int program, int index, int bufSize, void * length, void * size, void * type, void * name) {
+void glGetActiveUniform(int program, int index, int bufSize, void * length, void * size, void * type, void * name) {
     _glGetActiveUniform_ptr(program, index, bufSize, length, size, type, name);
     return;
 }
 
-glGetBufferParameteriv(int target, int pname, void * params) {
+void glGetBufferParameteriv(int target, int pname, void * params) {
     _glGetBufferParameteriv_ptr(target, pname, params);
     return;
 }
 
-glGetIntegerv(int pname, void * params) {
+void glGetIntegerv(int pname, void * params) {
     _glGetIntegerv_ptr(pname, params);
     return;
 }
 
-glGetError() {
+int glGetError() {
     r0 = _glGetError_ptr();
     return r0;
 }
 
-glGetFloatv(int pname, void * params) {
+void glGetFloatv(int pname, void * params) {
     _glGetFloatv_ptr(pname, params);
     return;
 }
 
-glGetProgramInfoLog(int program, int bufSize, void * length, void * infoLog) {
+void glGetProgramInfoLog(int program, int bufSize, void * length, void * infoLog) {
     _glGetProgramInfoLog_ptr(program, bufSize, length, infoLog);
     return;
 }
 
-glGetProgramiv(int program, int pname, void * params) {
+void glGetProgramiv(int program, int pname, void * params) {
     _glGetProgramiv_ptr(program, pname, params);
     return;
 }
 
-glGetRenderbufferParameteriv(int target, int pname, void * params) {
+void glGetRenderbufferParameteriv(int target, int pname, void * params) {
     _glGetRenderbufferParameteriv_ptr(target, pname, params);
     return;
 }
 
-glGetShaderInfoLog(int shader, int bufSize, void * length, void * infoLog) {
+void glGetShaderInfoLog(int shader, int bufSize, void * length, void * infoLog) {
     _glGetShaderInfoLog_ptr(shader, bufSize, length, infoLog);
     return;
 }
 
-glGetShaderSource(int shader, int bufSize, void * length, void * source) {
+void glGetShaderSource(int shader, int bufSize, void * length, void * source) {
     _glGetShaderSource_ptr(shader, bufSize, length, source);
     return;
 }
 
-* glGetString(int name) {
+void * glGetString(int name) {
     r0 = _glGetString_ptr(name);
     return r0;
 }
 
-glGetUniformLocation(int program, void * name) {
+int glGetUniformLocation(int program, void * name) {
     r0 = _glGetUniformLocation_ptr(program, name);
     return r0;
 }
 
-glGetShaderiv(int shader, int pname, void * params) {
+void glGetShaderiv(int shader, int pname, void * params) {
     _glGetShaderiv_ptr(shader, pname, params);
     return;
 }
 
-glIsEnabled(int cap) {
+int glIsEnabled(int cap) {
     r0 = _glIsEnabled_ptr(cap);
     return r0;
 }
 
-glMapBufferOES() {
+void glMapBufferOES() {
     _glMapBufferOES_ptr();
     return;
 }
 
-glLineWidth(int width) {
+void glLineWidth(int width) {
     _glLineWidth_ptr(width);
     return;
 }
 
-glLinkProgram(int program) {
+void glLinkProgram(int program) {
     _glLinkProgram_ptr(program);
     return;
 }
 
-glPixelStorei(int pname, int param) {
+void glPixelStorei(int pname, int param) {
     _glPixelStorei_ptr(pname, param);
     return;
 }
 
-glReadPixels(int x, int y, int width, int height, int format, int type, void * pixels) {
+void glReadPixels(int x, int y, int width, int height, int format, int type, void * pixels) {
     _glReadPixels_ptr(x, y, width, height, format, type, pixels);
     return;
 }
 
-glRenderbufferStorageMultisampleAPPLE() {
+void glRenderbufferStorageMultisampleAPPLE() {
     _glRenderbufferStorageMultisampleAPPLE_ptr();
     return;
 }
 
-glRenderbufferStorage(int target, int internalformat, int width, int height) {
+void glRenderbufferStorage(int target, int internalformat, int width, int height) {
     _glRenderbufferStorage_ptr(target, internalformat, width, height);
     return;
 }
 
-glScissor(int x, int y, int width, int height) {
+void glScissor(int x, int y, int width, int height) {
     _glScissor_ptr(x, y, width, height);
     return;
 }
 
-glResolveMultisampleFramebufferAPPLE() {
+void glResolveMultisampleFramebufferAPPLE() {
     _glResolveMultisampleFramebufferAPPLE_ptr();
     return;
 }
 
-glShaderSource(int shader, int count, void * string, void * length) {
+void glShaderSource(int shader, int count, void * string, void * length) {
     _glShaderSource_ptr(shader, count, string, length);
     return;
 }
 
-glStencilFunc(int func, int ref, int mask) {
+void glStencilFunc(int func, int ref, int mask) {
     _glStencilFunc_ptr(func, ref, mask);
     return;
 }
 
-glStencilMask(int mask) {
+void glStencilMask(int mask) {
     _glStencilMask_ptr(mask);
     return;
 }
 
-glStencilOp(int fail, int zfail, int zpass) {
+void glStencilOp(int fail, int zfail, int zpass) {
     _glStencilOp_ptr(fail, zfail, zpass);
     return;
 }
 
-glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, void * pixels) {
+void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, void * pixels) {
     _glTexImage2D_ptr(target, level, internalformat, width, height, border, format, type, pixels);
     return;
 }
 
-glTexParameteri(int target, int pname, int param) {
+void glTexParameteri(int target, int pname, int param) {
     _glTexParameteri_ptr(target, pname, param);
     return;
 }
 
-glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, void * pixels) {
+void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, void * pixels) {
     _glTexSubImage2D_ptr(target, level, xoffset, yoffset, width, height, format, type, pixels);
     return;
 }
 
-glUniform1f(int location, int v0) {
+void glUniform1f(int location, int v0) {
     _glUniform1f_ptr(location, v0);
     return;
 }
 
-glUniform1i(int location, int v0) {
+void glUniform1i(int location, int v0) {
     _glUniform1i_ptr(location, v0);
     return;
 }
 
-glUniform2f(int location, int v0, int v1) {
+void glUniform2f(int location, int v0, int v1) {
     _glUniform2f_ptr(location, v0, v1);
     return;
 }
 
-glUniform2fv(int location, int count, void * value) {
+void glUniform2fv(int location, int count, void * value) {
     _glUniform2fv_ptr(location, count, value);
     return;
 }
 
-glUniform3f(int location, int v0, int v1, int v2) {
+void glUniform3f(int location, int v0, int v1, int v2) {
     _glUniform3f_ptr(location, v0, v1, v2);
     return;
 }
 
-glUniform3fv(int location, int count, void * value) {
+void glUniform3fv(int location, int count, void * value) {
     _glUniform3fv_ptr(location, count, value);
     return;
 }
 
-glUniform4f(int location, int v0, int v1, int v2, int v3) {
+void glUniform4f(int location, int v0, int v1, int v2, int v3) {
     _glUniform4f_ptr(location, v0, v1, v2, v3);
     return;
 }
 
-glUniformMatrix4fv(int location, int count, int transpose, void * value) {
+void glUniformMatrix4fv(int location, int count, int transpose, void * value) {
     _glUniformMatrix4fv_ptr(location, count, transpose, value);
     return;
 }
 
-glUniform4fv(int location, int count, void * value) {
+void glUniform4fv(int location, int count, void * value) {
     _glUniform4fv_ptr(location, count, value);
     return;
 }
 
-glUnmapBufferOES() {
+void glUnmapBufferOES() {
     _glUnmapBufferOES_ptr();
     return;
 }
 
-glUseProgram(int program) {
+void glUseProgram(int program) {
     _glUseProgram_ptr(program);
     return;
 }
 
-glViewport(int x, int y, int width, int height) {
+void glViewport(int x, int y, int width, int height) {
     _glViewport_ptr(x, y, width, height);
     return;
 }
 
-glVertexAttribPointer(int index, int size, int type, int normalized, int stride, void * pointer) {
+void glVertexAttribPointer(int index, int size, int type, int normalized, int stride, void * pointer) {
     _glVertexAttribPointer_ptr(index, size, type, normalized, stride, pointer);
     return;
 }
 
-* gmtime_r(void * clock, void * result) {
+void * gmtime_r(void * clock, void * result) {
     r0 = _gmtime_r_ptr(clock, result);
     return r0;
 }
 
-gzclose(int file) {
+int gzclose(int file) {
     r0 = _gzclose_ptr(file);
     return r0;
 }
 
-* gzerror(int file, void * errnum) {
+void * gzerror(int file, void * errnum) {
     r0 = _gzerror_ptr(file, errnum);
     return r0;
 }
 
-gzopen(void * , void * ) {
+int gzopen(void * , void * ) {
     r0 = _gzopen_ptr(arg_0, arg_1);
     return r0;
 }
 
-gzwrite(int file, int buf, unsigned int len) {
+int gzwrite(int file, int buf, unsigned int len) {
     r0 = _gzwrite_ptr(file, buf, len);
     return r0;
 }
 
-* hash_create(int size) {
+void * hash_create(int size) {
     r0 = _hash_create_ptr(size);
     return r0;
 }
 
-* hash_search(void * table, void * key, void * datum, void * replace_func) {
+void * hash_search(void * table, void * key, void * datum, void * replace_func) {
     r0 = _hash_search_ptr(table, key, datum, replace_func);
     return r0;
 }
 
-host_page_size(int , void * ) {
+int host_page_size(int , void * ) {
     r0 = _host_page_size_ptr(arg_0, arg_1);
     return r0;
 }
 
-host_statistics(int host_priv, int flavor, int host_info_out, void * host_info_outCnt) {
+int host_statistics(int host_priv, int flavor, int host_info_out, void * host_info_outCnt) {
     r0 = _host_statistics_ptr(host_priv, flavor, host_info_out, host_info_outCnt);
     return r0;
 }
 
-int if_nametoindex(void * ifname) {
+unsigned int if_nametoindex(void * ifname) {
     r0 = _if_nametoindex_ptr(ifname);
     return r0;
 }
 
-ilogb(double ) {
+int ilogb(double ) {
     r0 = _ilogb_ptr(arg_0);
     return r0;
 }
 
-imp_implementationWithBlock(int block) {
+int imp_implementationWithBlock(int block) {
     r0 = _imp_implementationWithBlock_ptr(block);
     return r0;
 }
 
-* inet_ntoa(void in) {
+void * inet_ntoa(void in) {
     r0 = _inet_ntoa_ptr(in);
     return r0;
 }
 
-* inet_ntop(int af, void * src, void * dst, int size) {
+void * inet_ntop(int af, void * src, void * dst, int size) {
     r0 = _inet_ntop_ptr(af, src, dst, size);
     return r0;
 }
 
-inflate(int strm, int flush) {
+int inflate(int strm, int flush) {
     r0 = _inflate_ptr(strm, flush);
     return r0;
 }
 
-inflateEnd(int strm) {
+int inflateEnd(int strm) {
     r0 = _inflateEnd_ptr(strm);
     return r0;
 }
 
-inflateInit2_(int strm, int windowBits, void * version, int stream_size) {
+int inflateInit2_(int strm, int windowBits, void * version, int stream_size) {
     r0 = _inflateInit2__ptr(strm, windowBits, version, stream_size);
     return r0;
 }
 
-inflateInit_(int strm, void * version, int stream_size) {
+int inflateInit_(int strm, void * version, int stream_size) {
     r0 = _inflateInit__ptr(strm, version, stream_size);
     return r0;
 }
 
-isxdigit(int c) {
+int isxdigit(int c) {
     r0 = _isxdigit_ptr(c);
     return r0;
 }
 
-ivar_getOffset(int v) {
+int ivar_getOffset(int v) {
     r0 = _ivar_getOffset_ptr(v);
     return r0;
 }
 
-* ivar_getTypeEncoding(int v) {
+void * ivar_getTypeEncoding(int v) {
     r0 = _ivar_getTypeEncoding_ptr(v);
     return r0;
 }
 
-ldexp(double , int ) {
+double ldexp(double , int ) {
     r0 = _ldexp_ptr(arg_0, arg_1);
     return r0;
 }
 
-listen(int socket, int backlog) {
+int listen(int socket, int backlog) {
     r0 = _listen_ptr(socket, backlog);
     return r0;
 }
 
-long llrint(double ) {
+long long llrint(double ) {
     r0 = _llrint_ptr(arg_0);
     return r0;
 }
 
-long llround(double ) {
+long long llround(double ) {
     r0 = _llround_ptr(arg_0);
     return r0;
 }
 
-* localtime_r(void * clock, void * result) {
+void * localtime_r(void * clock, void * result) {
     r0 = _localtime_r_ptr(clock, result);
     return r0;
 }
 
-log(double ) {
+double log(double ) {
     r0 = _log_ptr(arg_0);
     return r0;
 }
 
-log10(double ) {
+double log10(double ) {
     r0 = _log10_ptr(arg_0);
     return r0;
 }
 
-logf(float ) {
+float logf(float ) {
     r0 = _logf_ptr(arg_0);
     return r0;
 }
 
-lrint(double ) {
+long lrint(double ) {
     r0 = _lrint_ptr(arg_0);
     return r0;
 }
 
-lround(double ) {
+long lround(double ) {
     r0 = _lround_ptr(arg_0);
     return r0;
 }
 
-lroundf(float ) {
+long lroundf(float ) {
     r0 = _lroundf_ptr(arg_0);
     return r0;
 }
 
-lseek(int fildes, int offset, int whence) {
+int lseek(int fildes, int offset, int whence) {
     r0 = _lseek_ptr(fildes, offset, whence);
     return r0;
 }
 
-lstat(void * path, void * buf) {
+int lstat(void * path, void * buf) {
     r0 = _lstat_ptr(path, buf);
     return r0;
 }
 
-* mach_error_string(int error_value) {
+void * mach_error_string(int error_value) {
     r0 = _mach_error_string_ptr(error_value);
     return r0;
 }
 
-mach_absolute_time() {
+int mach_absolute_time() {
     r0 = _mach_absolute_time_ptr();
     return r0;
 }
 
-mach_host_self() {
+int mach_host_self() {
     r0 = _mach_host_self_ptr();
     return r0;
 }
 
-mach_msg(void * msg, int option, int send_size, int rcv_size, int rcv_name, int timeout, int notify) {
+int mach_msg(void * msg, int option, int send_size, int rcv_size, int rcv_name, int timeout, int notify) {
     r0 = _mach_msg_ptr(msg, option, send_size, rcv_size, rcv_name, timeout, notify);
     return r0;
 }
 
-mach_port_allocate(int task, int right, void * name) {
+int mach_port_allocate(int task, int right, void * name) {
     r0 = _mach_port_allocate_ptr(task, right, name);
     return r0;
 }
 
-mach_port_deallocate(int task, int name) {
+int mach_port_deallocate(int task, int name) {
     r0 = _mach_port_deallocate_ptr(task, name);
     return r0;
 }
 
-mach_port_insert_right(int task, int name, int poly, int polyPoly) {
+int mach_port_insert_right(int task, int name, int poly, int polyPoly) {
     r0 = _mach_port_insert_right_ptr(task, name, poly, polyPoly);
     return r0;
 }
 
-mach_thread_self() {
+int mach_thread_self() {
     r0 = _mach_thread_self_ptr();
     return r0;
 }
 
-mach_timebase_info(int info) {
+int mach_timebase_info(int info) {
     r0 = _mach_timebase_info_ptr(info);
     return r0;
 }
 
-* malloc(int size) {
+void * malloc(int size) {
     r0 = _malloc_ptr(size);
     return r0;
 }
 
-* memchr(void * s, int c, int n) {
+void * memchr(void * s, int c, int n) {
     r0 = _memchr_ptr(s, c, n);
     return r0;
 }
 
-memcmp(void * s1, void * s2, int n) {
+int memcmp(void * s1, void * s2, int n) {
     r0 = _memcmp_ptr(s1, s2, n);
     return r0;
 }
 
-* memcpy(void * dst, void * src, int n) {
+void * memcpy(void * dst, void * src, int n) {
     r0 = _memcpy_ptr(dst, src, n);
     return r0;
 }
 
-* memmove(void * dst, void * src, int len) {
+void * memmove(void * dst, void * src, int len) {
     r0 = _memmove_ptr(dst, src, len);
     return r0;
 }
 
-* memset(void * b, int c, int len) {
+void * memset(void * b, int c, int len) {
     r0 = _memset_ptr(b, c, len);
     return r0;
 }
 
-method_exchangeImplementations(int m1, int m2) {
+void method_exchangeImplementations(int m1, int m2) {
     _method_exchangeImplementations_ptr(m1, m2);
     return;
 }
 
-method_getImplementation(int m) {
+int method_getImplementation(int m) {
     r0 = _method_getImplementation_ptr(m);
     return r0;
 }
 
-method_getName(int m) {
+int method_getName(int m) {
     r0 = _method_getName_ptr(m);
     return r0;
 }
 
-* method_getTypeEncoding(int m) {
+void * method_getTypeEncoding(int m) {
     r0 = _method_getTypeEncoding_ptr(m);
     return r0;
 }
 
-method_setImplementation(int m, int imp) {
+int method_setImplementation(int m, int imp) {
     r0 = _method_setImplementation_ptr(m, imp);
     return r0;
 }
 
-mkdir(void * path, int mode) {
+int mkdir(void * path, int mode) {
     r0 = _mkdir_ptr(path, mode);
     return r0;
 }
 
-mktime(void * timeptr) {
+int mktime(void * timeptr) {
     r0 = _mktime_ptr(timeptr);
     return r0;
 }
 
-* mmap(void * addr, int len, int prot, int flags, int fildes, int off) {
+void * mmap(void * addr, int len, int prot, int flags, int fildes, int off) {
     r0 = _mmap_ptr(addr, len, prot, flags, fildes, off);
     return r0;
 }
 
-modf(double , void * ) {
+double modf(double , void * ) {
     r0 = _modf_ptr(arg_0, arg_1);
     return r0;
 }
 
-modff(float , void * ) {
+float modff(float , void * ) {
     r0 = _modff_ptr(arg_0, arg_1);
     return r0;
 }
 
-nextafter(double x, double y) {
+double nextafter(double x, double y) {
     r0 = _nextafter_ptr(x, y);
     return r0;
 }
 
-mprotect(void * addr, int len, int prot) {
+int mprotect(void * addr, int len, int prot) {
     r0 = _mprotect_ptr(addr, len, prot);
     return r0;
 }
 
-munmap(void * addr, int len) {
+int munmap(void * addr, int len) {
     r0 = _munmap_ptr(addr, len);
     return r0;
 }
 
-notify_cancel(int token) {
+int notify_cancel(int token) {
     r0 = _notify_cancel_ptr(token);
     return r0;
 }
 
-notify_register_dispatch(void * name, void * out_token, int queue, int handler) {
+int notify_register_dispatch(void * name, void * out_token, int queue, int handler) {
     r0 = _notify_register_dispatch_ptr(name, out_token, queue, handler);
     return r0;
 }
 
-objc_allocateClassPair(int superclass, void * name, int extraBytes) {
+int objc_allocateClassPair(int superclass, void * name, int extraBytes) {
     r0 = _objc_allocateClassPair_ptr(superclass, name, extraBytes);
     return r0;
 }
 
-objc_alloc() {
+void objc_alloc() {
     _objc_alloc_ptr();
     return;
 }
 
-* objc_autorelease(void * instance) {
+void * objc_autorelease(void * instance) {
     r0 = _objc_autorelease_ptr(instance);
     return r0;
 }
 
-* objc_autoreleasePoolPush() {
+void * objc_autoreleasePoolPush() {
     r0 = _objc_autoreleasePoolPush_ptr();
     return r0;
 }
 
-objc_autoreleasePoolPop(void * pool) {
+void objc_autoreleasePoolPop(void * pool) {
     _objc_autoreleasePoolPop_ptr(pool);
     return;
 }
 
-* objc_autoreleaseReturnValue(void * instance) {
+void * objc_autoreleaseReturnValue(void * instance) {
     r0 = _objc_autoreleaseReturnValue_ptr(instance);
     return r0;
 }
 
-objc_constructInstance(int cls, void * bytes) {
+int objc_constructInstance(int cls, void * bytes) {
     r0 = _objc_constructInstance_ptr(cls, bytes);
     return r0;
 }
 
-* objc_copyClassNamesForImage(void * image, void * outCount) {
+void * objc_copyClassNamesForImage(void * image, void * outCount) {
     r0 = _objc_copyClassNamesForImage_ptr(image, outCount);
     return r0;
 }
 
-objc_copyStruct(void * dest, void * src, unsigned int size, int atomic, int hasStrong) {
+void objc_copyStruct(void * dest, void * src, unsigned int size, int atomic, int hasStrong) {
     _objc_copyStruct_ptr(dest, src, size, atomic, hasStrong);
     return;
 }
 
-* objc_copyImageNames(void * outCount) {
+void * objc_copyImageNames(void * outCount) {
     r0 = _objc_copyImageNames_ptr(outCount);
     return r0;
 }
 
-objc_copyWeak(void * dest, void * src) {
+void objc_copyWeak(void * dest, void * src) {
     _objc_copyWeak_ptr(dest, src);
     return;
 }
 
-objc_destroyWeak(void * instance) {
+void objc_destroyWeak(void * instance) {
     _objc_destroyWeak_ptr(instance);
     return;
 }
 
-objc_disposeClassPair(int cls) {
+void objc_disposeClassPair(int cls) {
     _objc_disposeClassPair_ptr(cls);
     return;
 }
 
-objc_end_catch() {
+void objc_end_catch() {
     _objc_end_catch_ptr();
     return;
 }
 
-objc_enumerationMutation(int obj) {
+void objc_enumerationMutation(int obj) {
     _objc_enumerationMutation_ptr(obj);
     return;
 }
 
-objc_exception_rethrow() {
+void objc_exception_rethrow() {
     _objc_exception_rethrow_ptr();
     return;
 }
 
-objc_exception_throw(int exception) {
+void objc_exception_throw(int exception) {
     _objc_exception_throw_ptr(exception);
     return;
 }
 
-objc_getAssociatedObject(int object, void * key) {
+int objc_getAssociatedObject(int object, void * key) {
     r0 = _objc_getAssociatedObject_ptr(object, key);
     return r0;
 }
 
-* objc_getClass(void * name) {
+void * objc_getClass(void * name) {
     r0 = _objc_getClass_ptr(name);
     return r0;
 }
 
-objc_getClassList(void * buffer, int bufferCount) {
+int objc_getClassList(void * buffer, int bufferCount) {
     r0 = _objc_getClassList_ptr(buffer, bufferCount);
     return r0;
 }
 
-* objc_getMetaClass(void * name) {
+void * objc_getMetaClass(void * name) {
     r0 = _objc_getMetaClass_ptr(name);
     return r0;
 }
 
-* objc_getProperty(void * instance, void * selector, unsigned int offset, int atomic) {
+void * objc_getProperty(void * instance, void * selector, unsigned int offset, int atomic) {
     r0 = _objc_getProperty_ptr(instance, selector, offset, atomic);
     return r0;
 }
 
-* objc_getProtocol(void * name) {
+void * objc_getProtocol(void * name) {
     r0 = _objc_getProtocol_ptr(name);
     return r0;
 }
 
-* objc_initWeak(void * addr, void * value) {
+void * objc_initWeak(void * addr, void * value) {
     r0 = _objc_initWeak_ptr(addr, value);
     return r0;
 }
 
-objc_getRequiredClass(void * name) {
+int objc_getRequiredClass(void * name) {
     r0 = _objc_getRequiredClass_ptr(name);
     return r0;
 }
 
-objc_initializeClassPair() {
+void objc_initializeClassPair() {
     _objc_initializeClassPair_ptr();
     return;
 }
 
-* objc_lookUpClass(void * name) {
+void * objc_lookUpClass(void * name) {
     r0 = _objc_lookUpClass_ptr(name);
     return r0;
 }
 
-* objc_loadWeakRetained(void * instance) {
+void * objc_loadWeakRetained(void * instance) {
     r0 = _objc_loadWeakRetained_ptr(instance);
     return r0;
 }
 
-objc_moveWeak(void * dest, void * src) {
+void objc_moveWeak(void * dest, void * src) {
     _objc_moveWeak_ptr(dest, src);
     return;
 }
 
-* objc_msgSend(void * instance, void * selector) {
+void * objc_msgSend(void * instance, void * selector) {
     r0 = _objc_msgSend_ptr(instance, selector);
     return r0;
 }
 
-* objc_msgSendSuper2(void * super, void * selector) {
+void * objc_msgSendSuper2(void * super, void * selector) {
     r0 = _objc_msgSendSuper2_ptr(super, selector);
     return r0;
 }
 
-objc_registerClassPair(int cls) {
+void objc_registerClassPair(int cls) {
     _objc_registerClassPair_ptr(cls);
     return;
 }
 
-objc_release(void * instance) {
+void objc_release(void * instance) {
     _objc_release_ptr(instance);
     return;
 }
 
-* objc_retain(void * instance) {
+void * objc_retain(void * instance) {
     r0 = _objc_retain_ptr(instance);
     return r0;
 }
 
-* objc_retainAutorelease(void * instance) {
+void * objc_retainAutorelease(void * instance) {
     r0 = _objc_retainAutorelease_ptr(instance);
     return r0;
 }
 
-* objc_retainAutoreleaseReturnValue(void * instance) {
+void * objc_retainAutoreleaseReturnValue(void * instance) {
     r0 = _objc_retainAutoreleaseReturnValue_ptr(instance);
     return r0;
 }
 
-* objc_retainAutoreleasedReturnValue(void * instance) {
+void * objc_retainAutoreleasedReturnValue(void * instance) {
     r0 = _objc_retainAutoreleasedReturnValue_ptr(instance);
     return r0;
 }
 
-* objc_retainBlock(void * instance) {
+void * objc_retainBlock(void * instance) {
     r0 = _objc_retainBlock_ptr(instance);
     return r0;
 }
 
-objc_setAssociatedObject(int object, void * key, int value, int policy) {
+void objc_setAssociatedObject(int object, void * key, int value, int policy) {
     _objc_setAssociatedObject_ptr(object, key, value, policy);
     return;
 }
 
-objc_setProperty_atomic() {
+void objc_setProperty_atomic() {
     _objc_setProperty_atomic_ptr();
     return;
 }
 
-objc_setProperty_atomic_copy() {
+void objc_setProperty_atomic_copy() {
     _objc_setProperty_atomic_copy_ptr();
     return;
 }
 
-objc_setProperty_nonatomic() {
+void objc_setProperty_nonatomic() {
     _objc_setProperty_nonatomic_ptr();
     return;
 }
 
-objc_setProperty_nonatomic_copy() {
+void objc_setProperty_nonatomic_copy() {
     _objc_setProperty_nonatomic_copy_ptr();
     return;
 }
 
-* objc_storeStrong(void * addr, void * value) {
+void * objc_storeStrong(void * addr, void * value) {
     r0 = _objc_storeStrong_ptr(addr, value);
     return r0;
 }
 
-* objc_storeWeak(void * addr, void * value) {
+void * objc_storeWeak(void * addr, void * value) {
     r0 = _objc_storeWeak_ptr(addr, value);
     return r0;
 }
 
-objc_sync_exit(int obj) {
+int objc_sync_exit(int obj) {
     r0 = _objc_sync_exit_ptr(obj);
     return r0;
 }
 
-objc_sync_enter(int obj) {
+int objc_sync_enter(int obj) {
     r0 = _objc_sync_enter_ptr(obj);
     return r0;
 }
 
-objc_unsafeClaimAutoreleasedReturnValue() {
+void objc_unsafeClaimAutoreleasedReturnValue() {
     _objc_unsafeClaimAutoreleasedReturnValue_ptr();
     return;
 }
 
-* object_getClass(void * object) {
+void * object_getClass(void * object) {
     r0 = _object_getClass_ptr(object);
     return r0;
 }
 
-object_getIvar(int obj, int ivar) {
+int object_getIvar(int obj, int ivar) {
     r0 = _object_getIvar_ptr(obj, ivar);
     return r0;
 }
 
-object_setClass(int obj, int cls) {
+int object_setClass(int obj, int cls) {
     r0 = _object_setClass_ptr(obj, cls);
     return r0;
 }
 
-open_dprotected_np(void * , int , int , int ) {
+int open_dprotected_np(void * , int , int , int ) {
     r0 = _open_dprotected_np_ptr(arg_0, arg_1, arg_2, arg_3);
     return r0;
 }
 
-open(void * path, int oflag) {
+int open(void * path, int oflag) {
     r0 = _open_ptr(path, oflag);
     return r0;
 }
 
-* opendir(void * dirname) {
+void * opendir(void * dirname) {
     r0 = _opendir_ptr(dirname);
     return r0;
 }
 
-pow(double , double ) {
+double pow(double , double ) {
     r0 = _pow_ptr(arg_0, arg_1);
     return r0;
 }
 
-powf(float , float ) {
+float powf(float , float ) {
     r0 = _powf_ptr(arg_0, arg_1);
     return r0;
 }
 
-printf(void * format) {
+int printf(void * format) {
     r0 = _printf_ptr(format);
     return r0;
 }
 
-* property_copyAttributeList(int property, void * outCount) {
+void * property_copyAttributeList(int property, void * outCount) {
     r0 = _property_copyAttributeList_ptr(property, outCount);
     return r0;
 }
 
-* property_copyAttributeValue(int property, void * attributeName) {
+void * property_copyAttributeValue(int property, void * attributeName) {
     r0 = _property_copyAttributeValue_ptr(property, attributeName);
     return r0;
 }
 
-* property_getName(int property) {
+void * property_getName(int property) {
     r0 = _property_getName_ptr(property);
     return r0;
 }
 
-pthread_attr_destroy(void * attr) {
+int pthread_attr_destroy(void * attr) {
     r0 = _pthread_attr_destroy_ptr(attr);
     return r0;
 }
 
-protocol_getMethodDescription(int p, int aSel, int isRequiredMethod, int isInstanceMethod) {
+void protocol_getMethodDescription(int p, int aSel, int isRequiredMethod, int isInstanceMethod) {
     _protocol_getMethodDescription_ptr(p, aSel, isRequiredMethod, isInstanceMethod);
     return;
 }
 
-pthread_attr_setdetachstate(void * attr, int detachstate) {
+int pthread_attr_setdetachstate(void * attr, int detachstate) {
     r0 = _pthread_attr_setdetachstate_ptr(attr, detachstate);
     return r0;
 }
 
-pthread_attr_init(void * attr) {
+int pthread_attr_init(void * attr) {
     r0 = _pthread_attr_init_ptr(attr);
     return r0;
 }
 
-pthread_attr_setstack(void * , void * , int ) {
+int pthread_attr_setstack(void * , void * , int ) {
     r0 = _pthread_attr_setstack_ptr(arg_0, arg_1, arg_2);
     return r0;
 }
 
-pthread_create(void * thread, void * attr, void * start_routine, void * arg) {
+int pthread_create(void * thread, void * attr, void * start_routine, void * arg) {
     r0 = _pthread_create_ptr(thread, attr, start_routine, arg);
     return r0;
 }
 
-pthread_equal(int t1, int t2) {
+int pthread_equal(int t1, int t2) {
     r0 = _pthread_equal_ptr(t1, t2);
     return r0;
 }
 
-pthread_getname_np(int , void * , int ) {
+int pthread_getname_np(int , void * , int ) {
     r0 = _pthread_getname_np_ptr(arg_0, arg_1, arg_2);
     return r0;
 }
 
-pthread_mach_thread_np(int ) {
+int pthread_mach_thread_np(int ) {
     r0 = _pthread_mach_thread_np_ptr(arg_0);
     return r0;
 }
 
-pthread_from_mach_thread_np(int ) {
+int pthread_from_mach_thread_np(int ) {
     r0 = _pthread_from_mach_thread_np_ptr(arg_0);
     return r0;
 }
 
-pthread_mutex_unlock(void * mutex) {
+int pthread_mutex_unlock(void * mutex) {
     r0 = _pthread_mutex_unlock_ptr(mutex);
     return r0;
 }
 
-pthread_mutex_destroy(void * mutex) {
+int pthread_mutex_destroy(void * mutex) {
     r0 = _pthread_mutex_destroy_ptr(mutex);
     return r0;
 }
 
-pthread_mutex_lock(void * mutex) {
+int pthread_mutex_lock(void * mutex) {
     r0 = _pthread_mutex_lock_ptr(mutex);
     return r0;
 }
 
-pthread_mutex_init(void * mutex, void * attr) {
+int pthread_mutex_init(void * mutex, void * attr) {
     r0 = _pthread_mutex_init_ptr(mutex, attr);
     return r0;
 }
 
-pthread_self() {
+int pthread_self() {
     r0 = _pthread_self_ptr();
     return r0;
 }
 
-pthread_setname_np(void * ) {
+int pthread_setname_np(void * ) {
     r0 = _pthread_setname_np_ptr(arg_0);
     return r0;
 }
 
-pthread_once(void * once_control, void * init_routine) {
+int pthread_once(void * once_control, void * init_routine) {
     r0 = _pthread_once_ptr(once_control, init_routine);
     return r0;
 }
 
-pthread_setspecific(int key, void * value) {
+int pthread_setspecific(int key, void * value) {
     r0 = _pthread_setspecific_ptr(key, value);
     return r0;
 }
 
-puts(void * s) {
+int puts(void * s) {
     r0 = _puts_ptr(s);
     return r0;
 }
 
-pthread_threadid_np(int , void * ) {
+int pthread_threadid_np(int , void * ) {
     r0 = _pthread_threadid_np_ptr(arg_0, arg_1);
     return r0;
 }
 
-putchar(int c) {
+int putchar(int c) {
     r0 = _putchar_ptr(c);
     return r0;
 }
 
-qsort(void * base, int nel, int width, void * compar) {
+void qsort(void * base, int nel, int width, void * compar) {
     _qsort_ptr(base, nel, width, compar);
     return;
 }
 
-raise(int sig) {
+int raise(int sig) {
     r0 = _raise_ptr(sig);
     return r0;
 }
 
-rand() {
+int rand() {
     r0 = _rand_ptr();
     return r0;
 }
 
-random() {
+long random() {
     r0 = _random_ptr();
     return r0;
 }
 
-read(int fildes, void * buf, int nbyte) {
+int read(int fildes, void * buf, int nbyte) {
     r0 = _read_ptr(fildes, buf, nbyte);
     return r0;
 }
 
-* readdir(void * dirp) {
+void * readdir(void * dirp) {
     r0 = _readdir_ptr(dirp);
     return r0;
 }
 
-* realloc(void * ptr, int size) {
+void * realloc(void * ptr, int size) {
     r0 = _realloc_ptr(ptr, size);
     return r0;
 }
 
-recvfrom(int socket, void * buffer, int length, int flags, void * address, void * address_len) {
+int recvfrom(int socket, void * buffer, int length, int flags, void * address, void * address_len) {
     r0 = _recvfrom_ptr(socket, buffer, length, flags, address, address_len);
     return r0;
 }
 
-regcomp(void * preg, void * pattern, int cflags) {
+int regcomp(void * preg, void * pattern, int cflags) {
     r0 = _regcomp_ptr(preg, pattern, cflags);
     return r0;
 }
 
-regexec(void * preg, void * string, int nmatch, int pmatch, int eflags) {
+int regexec(void * preg, void * string, int nmatch, int pmatch, int eflags) {
     r0 = _regexec_ptr(preg, string, nmatch, pmatch, eflags);
     return r0;
 }
 
-remove(void * path) {
+int remove(void * path) {
     r0 = _remove_ptr(path);
     return r0;
 }
 
-removexattr(void * path, void * name, int options) {
+int removexattr(void * path, void * name, int options) {
     r0 = _removexattr_ptr(path, name, options);
     return r0;
 }
 
-rename(void * old, void * new) {
+int rename(void * old, void * new) {
     r0 = _rename_ptr(old, new);
     return r0;
 }
 
-rewind(void * stream) {
+void rewind(void * stream) {
     _rewind_ptr(stream);
     return;
 }
 
-rmdir(void * path) {
+int rmdir(void * path) {
     r0 = _rmdir_ptr(path);
     return r0;
 }
 
-* sel_getName(int sel) {
+void * sel_getName(int sel) {
     r0 = _sel_getName_ptr(sel);
     return r0;
 }
 
-sel_getUid(void * str) {
+int sel_getUid(void * str) {
     r0 = _sel_getUid_ptr(str);
     return r0;
 }
 
-* sel_registerName(void * str) {
+void * sel_registerName(void * str) {
     r0 = _sel_registerName_ptr(str);
     return r0;
 }
 
-sendto(int socket, void * buffer, int length, int flags, void * dest_addr, int dest_len) {
+int sendto(int socket, void * buffer, int length, int flags, void * dest_addr, int dest_len) {
     r0 = _sendto_ptr(socket, buffer, length, flags, dest_addr, dest_len);
     return r0;
 }
 
-* setlocale(int category, void * locale) {
+void * setlocale(int category, void * locale) {
     r0 = _setlocale_ptr(category, locale);
     return r0;
 }
 
-setsockopt(int socket, int level, int option_name, void * option_value, int option_len) {
+int setsockopt(int socket, int level, int option_name, void * option_value, int option_len) {
     r0 = _setsockopt_ptr(socket, level, option_name, option_value, option_len);
     return r0;
 }
 
-setxattr(void * path, void * name, void * value, int size, int position, int options) {
+int setxattr(void * path, void * name, void * value, int size, int position, int options) {
     r0 = _setxattr_ptr(path, name, value, size, position, options);
     return r0;
 }
 
-sigaction(int sig, void * act, void * oact) {
+int sigaction(int sig, void * act, void * oact) {
     r0 = _sigaction_ptr(sig, act, oact);
     return r0;
 }
 
-sigaltstack(void * ss, void * oss) {
+int sigaltstack(void * ss, void * oss) {
     r0 = _sigaltstack_ptr(ss, oss);
     return r0;
 }
 
-* signal(int sig, void * func) {
+void * signal(int sig, void * func) {
     r0 = _signal_ptr(sig, func);
     return r0;
 }
 
-sigprocmask(int how, void * set, void * oset) {
+int sigprocmask(int how, void * set, void * oset) {
     r0 = _sigprocmask_ptr(how, set, oset);
     return r0;
 }
 
-sin(double ) {
+double sin(double ) {
     r0 = _sin_ptr(arg_0);
     return r0;
 }
 
-sinf(float ) {
+float sinf(float ) {
     r0 = _sinf_ptr(arg_0);
     return r0;
 }
 
-snprintf(void * str, int size, void * format) {
+int snprintf(void * str, int size, void * format) {
     r0 = _snprintf_ptr(str, size, format);
     return r0;
 }
 
-socket(int domain, int type, int protocol) {
+int socket(int domain, int type, int protocol) {
     r0 = _socket_ptr(domain, type, protocol);
     return r0;
 }
 
-sprintf(void * str, void * format) {
+int sprintf(void * str, void * format) {
     r0 = _sprintf_ptr(str, format);
     return r0;
 }
 
-sqlite3_bind_blob(void * , int , void * , int n, void * ) {
+int sqlite3_bind_blob(void * , int , void * , int n, void * ) {
     r0 = _sqlite3_bind_blob_ptr(arg_0, arg_1, arg_2, n, arg_4);
     return r0;
 }
 
-sqlite3_bind_double(void * , int , double ) {
+int sqlite3_bind_double(void * , int , double ) {
     r0 = _sqlite3_bind_double_ptr(arg_0, arg_1, arg_2);
     return r0;
 }
 
-sqlite3_bind_int64(void * , int , int ) {
+int sqlite3_bind_int64(void * , int , int ) {
     r0 = _sqlite3_bind_int64_ptr(arg_0, arg_1, arg_2);
     return r0;
 }
 
-sqlite3_bind_null(void * , int ) {
+int sqlite3_bind_null(void * , int ) {
     r0 = _sqlite3_bind_null_ptr(arg_0, arg_1);
     return r0;
 }
 
-sqlite3_bind_text(void * , int , void * , int n, void * ) {
+int sqlite3_bind_text(void * , int , void * , int n, void * ) {
     r0 = _sqlite3_bind_text_ptr(arg_0, arg_1, arg_2, n, arg_4);
     return r0;
 }
 
-sqlite3_changes(void * ) {
+int sqlite3_changes(void * ) {
     r0 = _sqlite3_changes_ptr(arg_0);
     return r0;
 }
 
-sqlite3_clear_bindings(void * ) {
+int sqlite3_clear_bindings(void * ) {
     r0 = _sqlite3_clear_bindings_ptr(arg_0);
     return r0;
 }
 
-sqlite3_close(void * ) {
+int sqlite3_close(void * ) {
     r0 = _sqlite3_close_ptr(arg_0);
     return r0;
 }
 
-sqlite3_column_bytes(void * , int iCol) {
+int sqlite3_column_bytes(void * , int iCol) {
     r0 = (*0x100e63000)(arg_0, iCol);
     return r0;
 }
 
-* sqlite3_column_blob(void * , int iCol) {
+void * sqlite3_column_blob(void * , int iCol) {
     r0 = _sqlite3_column_blob_ptr(arg_0, iCol);
     return r0;
 }
 
-sqlite3_column_count(void * pStmt) {
+int sqlite3_column_count(void * pStmt) {
     r0 = _sqlite3_column_count_ptr(pStmt);
     return r0;
 }
 
-sqlite3_column_double(void * , int iCol) {
+double sqlite3_column_double(void * , int iCol) {
     r0 = _sqlite3_column_double_ptr(arg_0, iCol);
     return r0;
 }
 
-sqlite3_column_int(void * , int iCol) {
+int sqlite3_column_int(void * , int iCol) {
     r0 = _sqlite3_column_int_ptr(arg_0, iCol);
     return r0;
 }
 
-sqlite3_column_int64(void * , int iCol) {
+int sqlite3_column_int64(void * , int iCol) {
     r0 = _sqlite3_column_int64_ptr(arg_0, iCol);
     return r0;
 }
 
-* sqlite3_column_name(void * , int N) {
+void * sqlite3_column_name(void * , int N) {
     r0 = _sqlite3_column_name_ptr(arg_0, N);
     return r0;
 }
 
-* sqlite3_column_text(void * , int iCol) {
+void * sqlite3_column_text(void * , int iCol) {
     r0 = _sqlite3_column_text_ptr(arg_0, iCol);
     return r0;
 }
 
-sqlite3_column_type(void * , int iCol) {
+int sqlite3_column_type(void * , int iCol) {
     r0 = _sqlite3_column_type_ptr(arg_0, iCol);
     return r0;
 }
 
-sqlite3_errcode(void * db) {
+int sqlite3_errcode(void * db) {
     r0 = _sqlite3_errcode_ptr(db);
     return r0;
 }
 
-* sqlite3_errmsg(void * ) {
+void * sqlite3_errmsg(void * ) {
     r0 = _sqlite3_errmsg_ptr(arg_0);
     return r0;
 }
 
-sqlite3_exec(void * , void * sql, void * callback, void * , void * errmsg) {
+int sqlite3_exec(void * , void * sql, void * callback, void * , void * errmsg) {
     r0 = _sqlite3_exec_ptr(arg_0, sql, callback, arg_3, errmsg);
     return r0;
 }
 
-sqlite3_open(void * filename, void * ppDb) {
+int sqlite3_open(void * filename, void * ppDb) {
     r0 = _sqlite3_open_ptr(filename, ppDb);
     return r0;
 }
 
-sqlite3_finalize(void * pStmt) {
+int sqlite3_finalize(void * pStmt) {
     r0 = _sqlite3_finalize_ptr(pStmt);
     return r0;
 }
 
-sqlite3_open_v2(void * filename, void * ppDb, int flags, void * zVfs) {
+int sqlite3_open_v2(void * filename, void * ppDb, int flags, void * zVfs) {
     r0 = _sqlite3_open_v2_ptr(filename, ppDb, flags, zVfs);
     return r0;
 }
 
-sqlite3_prepare_v2(void * db, void * zSql, int nByte, void * ppStmt, void * pzTail) {
+int sqlite3_prepare_v2(void * db, void * zSql, int nByte, void * ppStmt, void * pzTail) {
     r0 = _sqlite3_prepare_v2_ptr(db, zSql, nByte, ppStmt, pzTail);
     return r0;
 }
 
-sqlite3_step(void * ) {
+int sqlite3_step(void * ) {
     r0 = _sqlite3_step_ptr(arg_0);
     return r0;
 }
 
-sqlite3_reset(void * pStmt) {
+int sqlite3_reset(void * pStmt) {
     r0 = _sqlite3_reset_ptr(pStmt);
     return r0;
 }
 
-srand(unsigned int seed) {
+void srand(unsigned int seed) {
     _srand_ptr(seed);
     return;
 }
 
-srand48(long seedval) {
+void srand48(long seedval) {
     _srand48_ptr(seedval);
     return;
 }
 
-sscanf(void * s, void * format) {
+int sscanf(void * s, void * format) {
     r0 = _sscanf_ptr(s, format);
     return r0;
 }
 
-stat(void * path, void * buf) {
+int stat(void * path, void * buf) {
     r0 = _stat_ptr(path, buf);
     return r0;
 }
 
-statfs(void * path, void * buf) {
+int statfs(void * path, void * buf) {
     r0 = _statfs_ptr(path, buf);
     return r0;
 }
 
-strcasecmp(void * s1, void * s2) {
+int strcasecmp(void * s1, void * s2) {
     r0 = _strcasecmp_ptr(s1, s2);
     return r0;
 }
 
-* strcasestr(void * s1, void * s2) {
+void * strcasestr(void * s1, void * s2) {
     r0 = _strcasestr_ptr(s1, s2);
     return r0;
 }
 
-* strchr(void * s, int c) {
+void * strchr(void * s, int c) {
     r0 = _strchr_ptr(s, c);
     return r0;
 }
 
-strcmp(void * s1, void * s2) {
+int strcmp(void * s1, void * s2) {
     r0 = _strcmp_ptr(s1, s2);
     return r0;
 }
 
-* strcpy(void * dst, void * src) {
+void * strcpy(void * dst, void * src) {
     r0 = _strcpy_ptr(dst, src);
     return r0;
 }
 
-* strdup(void * s1) {
+void * strdup(void * s1) {
     r0 = _strdup_ptr(s1);
     return r0;
 }
 
-strftime(void * s, int maxsize, void * format, void * timeptr) {
+int strftime(void * s, int maxsize, void * format, void * timeptr) {
     r0 = _strftime_ptr(s, maxsize, format, timeptr);
     return r0;
 }
 
-* strerror(int errnum) {
+void * strerror(int errnum) {
     r0 = _strerror_ptr(errnum);
     return r0;
 }
 
-* strncat(void * s1, void * s2, int n) {
+void * strncat(void * s1, void * s2, int n) {
     r0 = _strncat_ptr(s1, s2, n);
     return r0;
 }
 
-strncmp(void * s1, void * s2, int n) {
+int strncmp(void * s1, void * s2, int n) {
     r0 = _strncmp_ptr(s1, s2, n);
     return r0;
 }
 
-* strncpy(void * dst, void * src, int n) {
+void * strncpy(void * dst, void * src, int n) {
     r0 = _strncpy_ptr(dst, src, n);
     return r0;
 }
 
-strtod(void * nptr, void * endptr) {
+double strtod(void * nptr, void * endptr) {
     r0 = _strtod_ptr(nptr, endptr);
     return r0;
 }
 
-* strrchr(void * s, int c) {
+void * strrchr(void * s, int c) {
     r0 = _strrchr_ptr(s, c);
     return r0;
 }
 
-* strstr(void * s1, void * s2) {
+void * strstr(void * s1, void * s2) {
     r0 = _strstr_ptr(s1, s2);
     return r0;
 }
 
-strtol(void * str, void * endptr, int base) {
+long strtol(void * str, void * endptr, int base) {
     r0 = _strtol_ptr(str, endptr, base);
     return r0;
 }
 
-* strtok_r(void * str, void * sep, void * lasts) {
+void * strtok_r(void * str, void * sep, void * lasts) {
     r0 = _strtok_r_ptr(str, sep, lasts);
     return r0;
 }
 
-strtof(void * nptr, void * endptr) {
+float strtof(void * nptr, void * endptr) {
     r0 = _strtof_ptr(nptr, endptr);
     return r0;
 }
 
-long strtoll(void * str, void * endptr, int base) {
+long long strtoll(void * str, void * endptr, int base) {
     r0 = _strtoll_ptr(str, endptr, base);
     return r0;
 }
 
-long strtoul(void * str, void * endptr, int base) {
+unsigned long strtoul(void * str, void * endptr, int base) {
     r0 = _strtoul_ptr(str, endptr, base);
     return r0;
 }
 
-long long strtoull(void * str, void * endptr, int base) {
+unsigned long long strtoull(void * str, void * endptr, int base) {
     r0 = _strtoull_ptr(str, endptr, base);
     return r0;
 }
 
-sysconf(int name) {
+long sysconf(int name) {
     r0 = _sysconf_ptr(name);
     return r0;
 }
 
-sysctl(void * name, int namelen, void * oldp, void * oldlenp, void * newp, int newlen) {
+int sysctl(void * name, int namelen, void * oldp, void * oldlenp, void * newp, int newlen) {
     r0 = _sysctl_ptr(name, namelen, oldp, oldlenp, newp, newlen);
     return r0;
 }
 
-sysctlbyname(void * name, void * oldp, void * oldlenp, void * newp, int newlen) {
+int sysctlbyname(void * name, void * oldp, void * oldlenp, void * newp, int newlen) {
     r0 = _sysctlbyname_ptr(name, oldp, oldlenp, newp, newlen);
     return r0;
 }
 
-syslog(int priority, void * message) {
+void syslog(int priority, void * message) {
     _syslog_ptr(priority, message);
     return;
 }
 
-system(void * command) {
+int system(void * command) {
     r0 = _system_ptr(command);
     return r0;
 }
 
-tanf(float ) {
+float tanf(float ) {
     r0 = _tanf_ptr(arg_0);
     return r0;
 }
 
-task_get_exception_ports(int task, int exception_mask, int masks, void * masksCnt, int old_handlers, int old_behaviors, int old_flavors) {
+int task_get_exception_ports(int task, int exception_mask, int masks, void * masksCnt, int old_handlers, int old_behaviors, int old_flavors) {
     r0 = _task_get_exception_ports_ptr(task, exception_mask, masks, masksCnt, old_handlers, old_behaviors, old_flavors);
     return r0;
 }
 
-task_info(int target_task, int flavor, int task_info_out, void * task_info_outCnt) {
+int task_info(int target_task, int flavor, int task_info_out, void * task_info_outCnt) {
     r0 = _task_info_ptr(target_task, flavor, task_info_out, task_info_outCnt);
     return r0;
 }
 
-task_set_exception_ports(int task, int exception_mask, int new_port, int behavior, int new_flavor) {
+int task_set_exception_ports(int task, int exception_mask, int new_port, int behavior, int new_flavor) {
     r0 = _task_set_exception_ports_ptr(task, exception_mask, new_port, behavior, new_flavor);
     return r0;
 }
 
-task_swap_exception_ports(int task, int exception_mask, int new_port, int behavior, int new_flavor, int masks, void * masksCnt, int old_handlerss, int old_behaviors, int old_flavors) {
+int task_swap_exception_ports(int task, int exception_mask, int new_port, int behavior, int new_flavor, int masks, void * masksCnt, int old_handlerss, int old_behaviors, int old_flavors) {
     r0 = _task_swap_exception_ports_ptr(task, exception_mask, new_port, behavior, new_flavor, masks, masksCnt, old_handlerss, old_behaviors, old_flavors);
     return r0;
 }
 
-thread_get_state(int target_act, int flavor, int old_state, void * old_stateCnt) {
+int thread_get_state(int target_act, int flavor, int old_state, void * old_stateCnt) {
     r0 = _thread_get_state_ptr(target_act, flavor, old_state, old_stateCnt);
     return r0;
 }
 
-task_threads(int target_task, void * act_list, void * act_listCnt) {
+int task_threads(int target_task, void * act_list, void * act_listCnt) {
     r0 = _task_threads_ptr(target_task, act_list, act_listCnt);
     return r0;
 }
 
-thread_info(int target_act, int flavor, int thread_info_out, void * thread_info_outCnt) {
+int thread_info(int target_act, int flavor, int thread_info_out, void * thread_info_outCnt) {
     r0 = _thread_info_ptr(target_act, flavor, thread_info_out, thread_info_outCnt);
     return r0;
 }
 
-thread_resume(int target_act) {
+int thread_resume(int target_act) {
     r0 = _thread_resume_ptr(target_act);
     return r0;
 }
 
-thread_suspend(int target_act) {
+int thread_suspend(int target_act) {
     r0 = _thread_suspend_ptr(target_act);
     return r0;
 }
 
-time(void * tloc) {
+int time(void * tloc) {
     r0 = _time_ptr(tloc);
     return r0;
 }
 
-uname(void * name) {
+int uname(void * name) {
     r0 = _uname_ptr(name);
     return r0;
 }
 
-uncompress(void * dest, void * destLen, void * source, int sourceLen) {
+int uncompress(void * dest, void * destLen, void * source, int sourceLen) {
     r0 = _uncompress_ptr(dest, destLen, source, sourceLen);
     return r0;
 }
 
-unw_init_local(void * , void * ) {
+int unw_init_local(void * , void * ) {
     r0 = _unw_init_local_ptr(arg_0, arg_1);
     return r0;
 }
 
-ungetc(int c, void * stream) {
+int ungetc(int c, void * stream) {
     r0 = _ungetc_ptr(c, stream);
     return r0;
 }
 
-unlink(void * path) {
+int unlink(void * path) {
     r0 = _unlink_ptr(path);
     return r0;
 }
 
-unw_get_reg(void * , int , void * ) {
+int unw_get_reg(void * , int , void * ) {
     r0 = _unw_get_reg_ptr(arg_0, arg_1, arg_2);
     return r0;
 }
 
-unw_step(void * ) {
+int unw_step(void * ) {
     r0 = _unw_step_ptr(arg_0);
     return r0;
 }
 
-vm_deallocate(int target_task, int address, int size) {
+int vm_deallocate(int target_task, int address, int size) {
     r0 = _vm_deallocate_ptr(target_task, address, size);
     return r0;
 }
 
-vm_read_overwrite(int target_task, int address, int size, int data, void * outsize) {
+int vm_read_overwrite(int target_task, int address, int size, int data, void * outsize) {
     r0 = _vm_read_overwrite_ptr(target_task, address, size, data, outsize);
     return r0;
 }
 
-vprintf(void * format, int ap) {
+int vprintf(void * format, int ap) {
     r0 = _vprintf_ptr(format, ap);
     return r0;
 }
 
-vsnprintf(void * str, int size, void * format, int ap) {
+int vsnprintf(void * str, int size, void * format, int ap) {
     r0 = _vsnprintf_ptr(str, size, format, ap);
     return r0;
 }
 
-vsprintf(void * str, void * format, int ap) {
+int vsprintf(void * str, void * format, int ap) {
     r0 = _vsprintf_ptr(str, format, ap);
     return r0;
 }
 
-write(int fildes, void * buf, int nbyte) {
+int write(int fildes, void * buf, int nbyte) {
     r0 = _write_ptr(fildes, buf, nbyte);
     return r0;
 }
 
-writev(int fildes, void * iov, int iovcnt) {
+int writev(int fildes, void * iov, int iovcnt) {
     r0 = _writev_ptr(fildes, iov, iovcnt);
     return r0;
 }
 
-* xmlBufferContent(int buf) {
+void * xmlBufferContent(int buf) {
     r0 = _xmlBufferContent_ptr(buf);
     return r0;
 }
 
-xmlBufferCreate() {
+int xmlBufferCreate() {
     r0 = _xmlBufferCreate_ptr();
     return r0;
 }
 
-xmlBufferFree(int buf) {
+void xmlBufferFree(int buf) {
     _xmlBufferFree_ptr(buf);
     return;
 }
 
-xmlBufferLength(int buf) {
+int xmlBufferLength(int buf) {
     r0 = _xmlBufferLength_ptr(buf);
     return r0;
 }
 
-xmlCopyNode(int node, int recursive) {
+int xmlCopyNode(int node, int recursive) {
     r0 = _xmlCopyNode_ptr(node, recursive);
     return r0;
 }
 
-xmlDocGetRootElement(int doc) {
+int xmlDocGetRootElement(int doc) {
     r0 = _xmlDocGetRootElement_ptr(doc);
     return r0;
 }
 
-xmlFreeDoc(int cur) {
+void xmlFreeDoc(int cur) {
     _xmlFreeDoc_ptr(cur);
     return;
 }
 
-xmlNodeDump(int buf, int doc, int cur, int level, int format) {
+int xmlNodeDump(int buf, int doc, int cur, int level, int format) {
     r0 = _xmlNodeDump_ptr(buf, doc, cur, level, format);
     return r0;
 }
 
-xmlReadMemory(void * buffer, int size, void * URL, void * encoding, int options) {
+int xmlReadMemory(void * buffer, int size, void * URL, void * encoding, int options) {
     r0 = _xmlReadMemory_ptr(buffer, size, URL, encoding, options);
     return r0;
 }
 
-xmlXPathCastToBoolean(int val) {
+int xmlXPathCastToBoolean(int val) {
     r0 = _xmlXPathCastToBoolean_ptr(val);
     return r0;
 }
 
-* xmlXPathCastToString(int val) {
+void * xmlXPathCastToString(int val) {
     r0 = _xmlXPathCastToString_ptr(val);
     return r0;
 }
 
-xmlXPathCompile(void * str) {
+int xmlXPathCompile(void * str) {
     r0 = _xmlXPathCompile_ptr(str);
     return r0;
 }
 
-xmlXPathCastToNumber(int val) {
+double xmlXPathCastToNumber(int val) {
     r0 = _xmlXPathCastToNumber_ptr(val);
     return r0;
 }
 
-xmlXPathCompiledEval(int comp, int ctx) {
+int xmlXPathCompiledEval(int comp, int ctx) {
     r0 = _xmlXPathCompiledEval_ptr(comp, ctx);
     return r0;
 }
 
-xmlXPathNewContext(int doc) {
+int xmlXPathNewContext(int doc) {
     r0 = _xmlXPathNewContext_ptr(doc);
     return r0;
 }
 
-xmlXPathRegisterNs(int ctxt, void * prefix, void * ns_uri) {
+int xmlXPathRegisterNs(int ctxt, void * prefix, void * ns_uri) {
     r0 = _xmlXPathRegisterNs_ptr(ctxt, prefix, ns_uri);
     return r0;
 }
 
-objc_terminate() {
+void objc_terminate() {
     _objc_terminate_ptr();
     return;
 }
 
-objc_begin_catch(void * exc_buf) {
+int objc_begin_catch(void * exc_buf) {
     r0 = _objc_begin_catch_ptr(exc_buf);
     return r0;
 }
 
-__cxa_guard_abort() {
+void __cxa_guard_abort() {
     ___cxa_guard_abort_ptr();
     return;
 }
 
-__cxa_free_exception() {
+void __cxa_free_exception() {
     ___cxa_free_exception_ptr();
     return;
 }
 
-__cxa_end_catch() {
+void __cxa_end_catch() {
     ___cxa_end_catch_ptr();
     return;
 }
 
-_ZdlPvRKSt9nothrow_t() {
+void _ZdlPvRKSt9nothrow_t() {
     pointer to operator delete();
     return;
 }
 
-_ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv() {
+void _ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv() {
     pointer to std::__1::ios_base::__set_badbit_and_consider_rethrow();
     return;
 }
 
-_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev() {
+void _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev() {
     pointer to std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::~basic_string();
     return;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE19handle_pong_timeoutENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKNS4_10error_codeE(int arg0, void * arg1) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE19handle_pong_timeoutENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEERKNS4_10error_codeE(int arg0, void * arg1) {
     r0 = arg0;
     r31 = r31 - 0x80;
     var_10 = r20;
@@ -8378,7 +6413,7 @@ __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE19handle_pong_timeoutEN
     return r0;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE16handle_terminateENS3_16terminate_statusERKNSt3__110error_codeE(int arg0, void * arg1) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE16handle_terminateENS3_16terminate_statusERKNSt3__110error_codeE(int arg0, void * arg1) {
     r31 = r31 - 0xa0;
     var_20 = r22;
     stack[-40] = r21;
@@ -8505,7 +6540,7 @@ loc_1009acce0:
     return r0;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE26handle_write_http_responseERKNSt3__110error_codeE(void * arg0) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE26handle_write_http_responseERKNSt3__110error_codeE(void * arg0) {
     r31 = r31 - 0x1b0;
     var_40 = r26;
     stack[-72] = r25;
@@ -8685,7 +6720,7 @@ loc_1009b73c4:
     return r0;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE17handle_read_frameERKNSt3__110error_codeEm(void * arg0, long arg1) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE17handle_read_frameERKNSt3__110error_codeEm(void * arg0, long arg1) {
     var_50 = r28;
     stack[-88] = r27;
     var_40 = r26;
@@ -9150,7 +7185,7 @@ loc_1009aaaf0:
     if (*(int8_t *)(r19 + 0x4608) == 0x0) goto loc_1009aab74;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE25handle_read_http_responseERKNSt3__110error_codeEm(void * arg0, long arg1) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE25handle_read_http_responseERKNSt3__110error_codeEm(void * arg0, long arg1) {
     r31 = r31 - 0x120;
     var_40 = r26;
     stack[-72] = r25;
@@ -9405,7 +7440,7 @@ loc_1009c1420:
     goto loc_1009c13ec;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE21handle_transport_initERKNSt3__110error_codeE(void * arg0) {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE21handle_transport_initERKNSt3__110error_codeE(void * arg0) {
     r31 = r31 - 0x190;
     var_40 = r26;
     stack[-72] = r25;
@@ -9566,7 +7601,7 @@ __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE21handle_transport_init
     return r0;
 }
 
-__ZN13mcwebsocketpp10connectionINS_6config11core_clientEE11write_frameEv() {
+int __ZN13mcwebsocketpp10connectionINS_6config11core_clientEE11write_frameEv() {
     var_50 = r28;
     stack[-88] = r27;
     var_40 = r26;
@@ -10162,17 +8197,17 @@ loc_1009a49c4:
     return r0;
 }
 
-_ZNSt3__19to_stringEy {
+function _ZNSt3__19to_stringEy {
     r0 = pointer to std::__1::to_string();
     return r0;
 }
 
-glStencilOpSeparate {
+function glStencilOpSeparate {
     r0 = _glStencilOpSeparate_ptr(r0, r1, r2, r3);
     return r0;
 }
 
-object_setIvar {
+function object_setIvar {
     r0 = _object_setIvar_ptr(r0, r1, r2);
     return r0;
 }
