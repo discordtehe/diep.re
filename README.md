@@ -6,4 +6,4 @@ tests, analyses, random stuff, etc about diep
   - iphone app
     - [decompilation](v1.3.0/iphone/decompilation)
       - header files generated using ktool (https://github.com/cxnder/ktool)
-      - objective c code generated using hopper
+      - .m files generated using hopper
