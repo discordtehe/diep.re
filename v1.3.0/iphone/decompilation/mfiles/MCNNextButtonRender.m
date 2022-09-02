@@ -1,0 +1,360 @@
+@implementation MCNNextButtonRender
+
+-(void *)initWithFrame:(struct CGRect)arg2 forScale:(float)arg3 {
+    memcpy(&r2, &arg2, 0x8);
+    var_10 = d9;
+    stack[-24] = d8;
+    r31 = r31 + 0xffffffffffffffe0;
+    saved_fp = r29;
+    stack[-8] = r30;
+    r0 = [self initWithFrame:r2];
+    if (r0 != 0x0) {
+            *(int32_t *)(int64_t *)&r0->scale = s8;
+    }
+    return r0;
+}
+
+-(void *)initWithFrame:(struct CGRect)arg2 {
+    memcpy(&r2, &arg2, 0x8);
+    r31 = r31 - 0x50;
+    var_30 = d11;
+    stack[-56] = d10;
+    var_20 = d9;
+    stack[-40] = d8;
+    var_10 = r20;
+    stack[-24] = r19;
+    saved_fp = r29;
+    stack[-8] = r30;
+    r0 = [[&var_40 super] initWithFrame:r2];
+    r19 = r0;
+    if (r0 != 0x0) {
+            *(int8_t *)(int64_t *)&r19->pressed = 0x0;
+            r8 = sign_extend_64(*(int32_t *)ivar_offset(originalFrame));
+            *(int128_t *)(r19 + r8) = d11;
+            *(int128_t *)(0x8 + r19 + r8) = d10;
+            *(int128_t *)(0x10 + r19 + r8) = d9;
+            *(int128_t *)(0x18 + r19 + r8) = d8;
+            *(int32_t *)(int64_t *)&r19->scale = 0x3f800000;
+            [r19 setOpaque:0x0];
+            [r19 setAccessibilityIdentifier:@"NF_NEXT_BUTTON"];
+    }
+    r0 = r19;
+    return r0;
+}
+
+-(struct CGRect)moveHorizontally:(double)arg2 {
+    [self frame];
+    [self setFrame:arg2];
+    [self setNeedsDisplay];
+    r0 = [self frame];
+    return r0;
+}
+
+-(struct CGRect)resetPosition {
+    [self setFrame:r2];
+    [self setNeedsDisplay];
+    r0 = [self frame];
+    return r0;
+}
+
+-(void)setPressed:(bool)arg2 {
+    *(int8_t *)(int64_t *)&self->pressed = arg2;
+    [self setNeedsDisplay];
+    return;
+}
+
+-(struct CGSize)sizeThatFits:(struct CGSize)arg2 {
+    memcpy(&r2, &arg2, 0x8);
+    r0 = self;
+    return r0;
+}
+
+-(bool)isPressed {
+    r0 = *(int8_t *)(int64_t *)&self->pressed;
+    return r0;
+}
+
+-(void)drawRect:(struct CGRect)arg2 {
+    memcpy(&r2, &arg2, 0x8);
+    r31 = r31 - 0x1a0;
+    var_A0 = d15;
+    stack[-152] = d14;
+    var_90 = d13;
+    stack[-136] = d12;
+    var_80 = d11;
+    stack[-120] = d10;
+    var_70 = d9;
+    stack[-104] = d8;
+    var_60 = r28;
+    stack[-88] = r27;
+    var_50 = r26;
+    stack[-72] = r25;
+    var_40 = r24;
+    stack[-56] = r23;
+    var_30 = r22;
+    stack[-40] = r21;
+    var_20 = r20;
+    stack[-24] = r19;
+    var_10 = r29;
+    stack[-8] = r30;
+    r25 = self;
+    *(&var_10 + 0xffffffffffffff60) = **___stack_chk_guard;
+    [self bounds];
+    v9 = v0;
+    v11 = v1;
+    r20 = sign_extend_64(*(int32_t *)ivar_offset(scale));
+    asm { fcvt       d1, s1 };
+    var_168 = d1;
+    asm { fdiv       d8, d0, d1 };
+    var_188 = d3 + d3;
+    r19 = UIGraphicsGetCurrentContext();
+    r28 = CGColorSpaceCreateDeviceRGB();
+    asm { fcvt       d10, s0 };
+    CGContextSaveGState(r19);
+    CGContextTranslateCTM(r19, r1, r2);
+    CGContextScaleCTM(r19, r1, r2);
+    CGContextSetAlpha(r19, r1);
+    CGContextBeginTransparencyLayer(r19, 0x0);
+    r0 = CGPathCreateMutable();
+    CGPathMoveToPoint(r0, 0x0, r2, r3);
+    var_160 = d8;
+    CGPathAddCurveToPoint(r20, 0x0, r2, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r20, 0x0, r2, r3);
+    CGPathAddCurveToPoint(r20, 0x0, r2, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r20, 0x0, r2, r3);
+    CGPathAddCurveToPoint(r20, 0x0, r2, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r20, 0x0, r2, r3);
+    CGPathAddCurveToPoint(r20, 0x0, r2, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r20, 0x0, r2, r3);
+    CGPathCloseSubpath(r20);
+    r0 = [UIColor colorWithRed:r2 green:r3 blue:r4 alpha:r5];
+    r29 = r29;
+    r0 = [r0 retain];
+    r22 = r0;
+    [r0 setFill];
+    r1 = r20;
+    CGContextAddPath(r19, r1);
+    CGContextFillPath(r19);
+    CGPathRelease(r20);
+    CGContextEndTransparencyLayer(r19);
+    r0 = CGContextSetAlpha(r19, r1);
+    d0 = d10 * 0x4010000000000000;
+    asm { fcvt       s1, d0 };
+    asm { frintp     s2, s1 };
+    asm { frinta     s1, s1 };
+    if (d0 < d8) {
+            asm { fcsel      s0, s2, s1, mi };
+    }
+    asm { fcvt       d0, s0 };
+    asm { fdiv       d0, d0, d10 };
+    var_178 = d0 + d0;
+    asm { fcvt       s0, d0 };
+    fmodf(r0, r1);
+    asm { fcvt       d15, s0 };
+    r0 = CGPathCreateMutable();
+    r27 = r0;
+    r8 = 0x100bd5000;
+    d0 = *(r8 + 0xb68);
+    d0 = (var_160 + d0) * d10 + d15;
+    asm { fcvt       s0, d0 };
+    asm { frinta     s0, s0 };
+    asm { fcvt       d0, s0 };
+    d0 = d0 - d15;
+    asm { fdiv       d0, d0, d10 };
+    var_1A0 = d0;
+    d12 = *(r8 + 0xb70);
+    d1 = d10 * d12 + d15;
+    asm { fcvt       s1, d1 };
+    asm { frinta     s1, s1 };
+    asm { fcvt       d1, s1 };
+    d1 = d1 - d15;
+    asm { fdiv       d1, d1, d10 };
+    var_158 = d1;
+    CGPathMoveToPoint(r0, 0x0, r2, r3);
+    asm { fcvt       s0, d0 };
+    asm { frinta     s0, s0 };
+    asm { fcvt       d0, s0 };
+    asm { fdiv       d9, d0, d10 };
+    asm { fcvt       s0, d0 };
+    asm { frinta     s0, s0 };
+    asm { fcvt       d0, s0 };
+    asm { fdiv       d5, d0, d10 };
+    CGPathAddCurveToPoint(r27, 0x0, r2, r3, r4, r5, r6, r7);
+    asm { fcvt       s0, d0 };
+    asm { frinta     s0, s0 };
+    asm { fcvt       d0, s0 };
+    asm { fdiv       d12, d0, d10 };
+    CGPathAddLineToPoint(r27, 0x0, r2, r3);
+    asm { fcvt       s0, d0 };
+    asm { frinta     s0, s0 };
+    asm { fcvt       d0, s0 };
+    asm { fdiv       d13, d0, d10 };
+    d9 = var_1A0;
+    CGPathAddCurveToPoint(r27, 0x0, r2, r3, r4, r5, r6, r7);
+    asm { fcvt       s0, d0 };
+    asm { frinta     s0, s0 };
+    asm { fcvt       d0, s0 };
+    asm { fdiv       d8, d0, d10 };
+    CGPathAddLineToPoint(r27, 0x0, r2, r3);
+    asm { fcvt       s0, d0 };
+    asm { frinta     s0, s0 };
+    asm { fcvt       d0, s0 };
+    asm { fdiv       d10, d0, d10 };
+    v3 = v14;
+    CGPathAddCurveToPoint(r27, 0x0, r2, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r27, 0x0, r2, r3);
+    v2 = v13;
+    d8 = var_158;
+    CGPathAddCurveToPoint(r27, 0x0, r2, r3, r4, r5, r6, r7);
+    v0 = v9;
+    v1 = v8;
+    CGPathAddLineToPoint(r27, 0x0, r2, r3);
+    CGPathCloseSubpath(r27);
+    r0 = [NSMutableArray arrayWithCapacity:0x2];
+    r29 = r29;
+    r20 = [r0 retain];
+    var_158 = r25;
+    r8 = [r25 isPressed];
+    r0 = *(r23 + 0x700);
+    r24 = @selector(isPressed);
+    r0 = [r0 colorWithRed:0x2 green:r3 blue:r4 alpha:r5];
+    r29 = r29;
+    asm { fdiv       d10, d1, d0 };
+    r21 = [r0 retain];
+    [r22 release];
+    r0 = objc_retainAutorelease(r21);
+    r22 = r0;
+    [r20 addObject:[r0 CGColor]];
+    *(r29 + 0xffffffffffffff50) = 0x0;
+    objc_msgSend(var_158, r24) & 0x1;
+    r21 = [[UIColor colorWithRed:r2 green:r3 blue:r4 alpha:r5] retain];
+    [r22 release];
+    r0 = objc_retainAutorelease(r21);
+    [r20 addObject:[r0 CGColor]];
+    *(r29 + 0xffffffffffffff58) = 0x3ff0000000000000;
+    var_168 = r28;
+    CGGradientCreateWithColors(r28, r20, r29 - 0xb0);
+    CGContextAddPath(r19, r27);
+    CGContextSaveGState(r19);
+    CGAffineTransformMakeRotation(CGContextEOClip(r19));
+    r0 = CGPathCreateMutable();
+    CGPathAddPath(r0, &var_F0, r27);
+    r0 = CGPathGetBoundingBox(r21);
+    r0 = CGRectGetMaxX(r0);
+    CGRectGetMinY(r0);
+    CGAffineTransformInvert(&var_150);
+    CGPathRelease(r21);
+    CGContextDrawLinearGradient(r19, r28, 0x3, r3, r4);
+    CGContextRestoreGState(r19);
+    CGGradientRelease(r28);
+    r28 = [objc_msgSend(@class(UIColor), r23) retain];
+    [r22 release];
+    [r28 setStroke];
+    CGContextSetLineWidth(r19, @selector(setStroke));
+    CGContextSetLineCap(r19, 0x2);
+    CGContextSaveGState(r19);
+    CGContextAddPath(r19, r27);
+    CGContextAddRect(r19, r27);
+    CGContextEOClip(r19);
+    CGContextAddPath(r19, r27);
+    CGContextStrokePath(r19);
+    CGContextRestoreGState(r19);
+    CGPathRelease(r27);
+    r0 = CGPathCreateMutable();
+    r22 = r0;
+    CGPathMoveToPoint(r0, 0x0, 0x3, r3);
+    CGPathAddCurveToPoint(r22, 0x0, 0x3, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r22, 0x0, 0x3, r3);
+    CGPathAddCurveToPoint(r22, 0x0, 0x3, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r22, 0x0, 0x3, r3);
+    CGPathAddCurveToPoint(r22, 0x0, 0x3, r3, r4, r5, r6, r7);
+    CGPathAddLineToPoint(r22, 0x0, 0x3, r3);
+    v2 = v12;
+    CGPathAddCurveToPoint(r22, 0x0, 0x3, r3, r4, r5, r6, r7);
+    v0 = v8;
+    v1 = v9;
+    CGPathAddLineToPoint(r22, 0x0, 0x3, r3);
+    CGPathCloseSubpath(r22);
+    r0 = [NSMutableArray arrayWithCapacity:r2];
+    r29 = r29;
+    r27 = [r0 retain];
+    [r20 release];
+    [var_158 isPressed] & 0x1;
+    r0 = @class(UIColor);
+    v3 = v1;
+    r0 = [r0 colorWithRed:r2 green:r3 blue:r4 alpha:r5];
+    r29 = r29;
+    r20 = [r0 retain];
+    [r28 release];
+    r0 = objc_retainAutorelease(r20);
+    r20 = r0;
+    [r27 addObject:[r0 CGColor]];
+    *(r29 + 0xffffffffffffff50) = 0x0;
+    [var_158 isPressed] & 0x1;
+    r21 = [[UIColor colorWithRed:r2 green:r3 blue:r4 alpha:r5] retain];
+    [r20 release];
+    r0 = objc_retainAutorelease(r21);
+    [r27 addObject:[r0 CGColor]];
+    *(r29 + 0xffffffffffffff58) = 0x3ff0000000000000;
+    CGGradientCreateWithColors(var_168, r27, r29 - 0xb0);
+    CGContextAddPath(r19, r22);
+    CGContextSaveGState(r19);
+    CGAffineTransformMakeRotation(CGContextEOClip(r19));
+    r0 = CGPathCreateMutable();
+    CGPathAddPath(r0, &var_F0, r22);
+    r0 = CGPathGetBoundingBox(r21);
+    r0 = CGRectGetMaxX(r0);
+    CGRectGetMinY(r0);
+    CGAffineTransformInvert(&var_150);
+    CGPathRelease(r21);
+    CGContextDrawLinearGradient(r19, r23, 0x3, r3, r4);
+    CGContextRestoreGState(r19);
+    CGGradientRelease(r23);
+    CGPathRelease(r22);
+    CGContextSaveGState(r19);
+    CGContextTranslateCTM(r19, r23, 0x3);
+    CGContextRotateCTM(r19, r23);
+    CGContextScaleCTM(r19, r23, 0x3);
+    CGContextTranslateCTM(r19, r23, 0x3);
+    r0 = CGPathCreateMutable();
+    CGPathMoveToPoint(r0, 0x0, 0x3, r3);
+    CGPathAddLineToPoint(r23, 0x0, 0x3, r3);
+    CGPathAddLineToPoint(r23, 0x0, 0x3, r3);
+    CGPathAddLineToPoint(r23, 0x0, 0x3, r3);
+    CGPathCloseSubpath(r23);
+    r22 = [[UIColor colorWithRed:r2 green:r3 blue:r4 alpha:r5] retain];
+    [r20 release];
+    [r22 setFill];
+    CGContextAddPath(r19, r23);
+    CGContextFillPath(r19);
+    CGPathRelease(r23);
+    CGContextRestoreGState(r19);
+    CGContextSaveGState(r19);
+    CGContextTranslateCTM(r19, r23, 0x3);
+    CGContextRotateCTM(r19, r23);
+    CGContextScaleCTM(r19, r23, 0x3);
+    CGContextTranslateCTM(r19, r23, 0x3);
+    r0 = CGPathCreateMutable();
+    CGPathMoveToPoint(r0, 0x0, 0x3, r3);
+    CGPathAddLineToPoint(r20, 0x0, 0x3, r3);
+    CGPathAddLineToPoint(r20, 0x0, 0x3, r3);
+    CGPathAddLineToPoint(r20, 0x0, 0x3, r3);
+    CGPathCloseSubpath(r20);
+    r21 = [[UIColor colorWithRed:r2 green:r3 blue:r4 alpha:r5] retain];
+    [r22 release];
+    [r21 setFill];
+    CGContextAddPath(r19, r20);
+    CGContextFillPath(r19);
+    CGPathRelease(r20);
+    CGContextRestoreGState(r19);
+    CGContextRestoreGState(r19);
+    CGColorSpaceRelease(var_168);
+    [r27 release];
+    [r21 release];
+    if (**___stack_chk_guard != *(r29 + 0xffffffffffffff60)) {
+            __stack_chk_fail();
+    }
+    return;
+}
+
+@end

@@ -1,0 +1,148 @@
+@implementation CCLiquid
+
++(void *)actionWithDuration:(double)arg2 size:(struct CGSize)arg3 waves:(unsigned long long)arg4 amplitude:(float)arg5 {
+    memcpy(&r3, &arg3, 0x8);
+    r0 = [self alloc];
+    r0 = [r0 initWithDuration:arg2 size:r3 waves:r4 amplitude:r5];
+    r0 = [r0 autorelease];
+    return r0;
+}
+
+-(void *)initWithDuration:(double)arg2 size:(struct CGSize)arg3 waves:(unsigned long long)arg4 amplitude:(float)arg5 {
+    memcpy(&r3, &arg3, 0x8);
+    r31 = r31 - 0x40;
+    var_20 = d9;
+    stack[-40] = d8;
+    var_10 = r20;
+    stack[-24] = r19;
+    saved_fp = r29;
+    stack[-8] = r30;
+    r19 = arg2;
+    r0 = [[&var_30 super] initWithDuration:r2 size:r3];
+    if (r0 != 0x0) {
+            r0->_waves = r19;
+            *(int32_t *)(int64_t *)&r0->_amplitude = s8;
+            *(int32_t *)(int64_t *)&r0->_amplitudeRate = 0x3f800000;
+    }
+    return r0;
+}
+
+-(void)update:(double)arg2 {
+    r2 = arg2;
+    r0 = self;
+    r31 = r31 - 0xc0;
+    var_A0 = d15;
+    stack[-152] = d14;
+    var_90 = d13;
+    stack[-136] = d12;
+    var_80 = d11;
+    stack[-120] = d10;
+    var_70 = d9;
+    stack[-104] = d8;
+    var_60 = r28;
+    stack[-88] = r27;
+    var_50 = r26;
+    stack[-72] = r25;
+    var_40 = r24;
+    stack[-56] = r23;
+    var_30 = r22;
+    stack[-40] = r21;
+    var_20 = r20;
+    stack[-24] = r19;
+    var_10 = r29;
+    stack[-8] = r30;
+    r22 = sign_extend_64(*(int32_t *)ivar_offset(_gridSize));
+    d1 = *(r0 + r22);
+    if (d1 > 0x3ff0000000000000) {
+            r19 = r0;
+            d13 = d0 * *0x100b9b018;
+            r23 = r0 + 0x8;
+            d0 = *(r23 + r22);
+            r24 = 0x1;
+            v8 = v9;
+            s12 = *(int32_t *)0x100b9b68c;
+            do {
+                    if (d0 > 0x3ff0000000000000) {
+                            r25 = 0x2;
+                            var_B0 = d8;
+                            do {
+                                    r28 = 0x10116c000;
+                                    r27 = 0x10116c000;
+                                    r0 = [r19 originalVertex:r2];
+                                    d0 = r19->_waves;
+                                    asm { ucvtf      d0, d0 };
+                                    d0 = d13 * d0;
+                                    v8 = v13;
+                                    d13 = d0 + d0;
+                                    s0 = s10 * s12;
+                                    asm { fcvt       d0, s0 };
+                                    asm { fcvt       s0, d0 };
+                                    r0 = sinf(r0);
+                                    s10 = s10 + *(int32_t *)(r19 + sign_extend_64(*(int32_t *)(r28 + 0x1d4))) * *(int32_t *)(r19 + sign_extend_64(*(int32_t *)(r27 + 0x1d0))) * s0;
+                                    asm { fcvt       d0, s0 };
+                                    v13 = v8;
+                                    asm { fcvt       s0, d0 };
+                                    sinf(r0);
+                                    d8 = var_B0;
+                                    objc_msgSend(r19, r21);
+                                    asm { scvtf      d9, w25 };
+                                    d0 = *(r23 + r22);
+                                    r25 = r25 + 0x1;
+                            } while (d0 > d9);
+                            d1 = *(r19 + r22);
+                    }
+                    r24 = r24 + 0x1;
+                    asm { scvtf      d8, w24 };
+            } while (d1 > d8);
+    }
+    return;
+}
+
+-(void *)copyWithZone:(struct _NSZone *)arg2 {
+    r0 = [self class];
+    r0 = [r0 allocWithZone:arg2];
+    r0 = [r0 initWithDuration:self->_waves size:r3 waves:r4 amplitude:r5];
+    return r0;
+}
+
+-(float)amplitude {
+    r0 = self;
+    return r0;
+}
+
+-(void)setAmplitude:(float)arg2 {
+    *(int32_t *)(int64_t *)&self->_amplitude = s0;
+    return;
+}
+
+-(void)setAmplitudeRate:(float)arg2 {
+    *(int32_t *)(int64_t *)&self->_amplitudeRate = s0;
+    return;
+}
+
+-(float)amplitudeRate {
+    r0 = self;
+    return r0;
+}
+
++(void *)actionWithWaves:(int)arg2 amplitude:(float)arg3 grid:(struct CGSize)arg4 duration:(double)arg5 {
+    memcpy(&r4, &arg4, 0x8);
+    r3 = arg3;
+    r2 = arg2;
+    r0 = self;
+    asm { sxtw       x2, w2 };
+    r0 = [r0 actionWithDuration:r2 size:r3 waves:r4 amplitude:r5];
+    return r0;
+}
+
+-(void *)initWithWaves:(int)arg2 amplitude:(float)arg3 grid:(struct CGSize)arg4 duration:(double)arg5 {
+    memcpy(&r4, &arg4, 0x8);
+    r3 = arg3;
+    r2 = arg2;
+    r0 = self;
+    asm { sxtw       x2, w2 };
+    r0 = [r0 initWithDuration:r2 size:r3 waves:r4 amplitude:r5];
+    return r0;
+}
+
+@end

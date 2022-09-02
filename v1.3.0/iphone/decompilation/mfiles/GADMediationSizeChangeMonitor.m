@@ -1,0 +1,76 @@
+@implementation GADMediationSizeChangeMonitor
+
++(void)addMonitorToAd:(void *)arg2 containerView:(void *)arg3 croppingView:(void *)arg4 delegate:(void *)arg5 {
+    var_30 = r24;
+    stack[-56] = r23;
+    r31 = r31 + 0xffffffffffffffc0;
+    var_20 = r22;
+    stack[-40] = r21;
+    var_10 = r20;
+    stack[-24] = r19;
+    saved_fp = r29;
+    stack[-8] = r30;
+    r19 = [arg2 retain];
+    r20 = [arg3 retain];
+    r21 = [arg4 retain];
+    r0 = [arg5 retain];
+    r22 = r0;
+    if ([r0 respondsToSelector:@selector(changeAdSizeTo:)] != 0x0) {
+            r23 = [[GADMediationSizeChangeMonitor alloc] initWithContainerView:r20 croppingView:r21 delegate:r22];
+            [r19 addMonitor:r23];
+            [r23 release];
+    }
+    [r22 release];
+    [r21 release];
+    [r20 release];
+    [r19 release];
+    return;
+}
+
+-(void *)initWithContainerView:(void *)arg2 croppingView:(void *)arg3 delegate:(void *)arg4 {
+    r31 = r31 - 0x90;
+    var_40 = r26;
+    stack[-72] = r25;
+    var_30 = r24;
+    stack[-56] = r23;
+    var_20 = r22;
+    stack[-40] = r21;
+    var_10 = r20;
+    stack[-24] = r19;
+    saved_fp = r29;
+    stack[-8] = r30;
+    r19 = [arg2 retain];
+    r20 = [arg3 retain];
+    r21 = [arg4 retain];
+    r0 = [[&var_50 super] init];
+    r22 = r0;
+    if (r22 != 0x0) {
+            objc_storeWeak((int64_t *)&r22->_croppingView, r20);
+            objc_storeWeak((int64_t *)&r22->_delegate, r21);
+            r0 = [GADObserverCollection alloc];
+            r0 = objc_msgSend(r0, r23);
+            r24 = sign_extend_64(*(int32_t *)ivar_offset(_observers));
+            r8 = *(r22 + r24);
+            *(r22 + r24) = r0;
+            [r8 release];
+            objc_initWeak(&stack[-104], r22);
+            objc_copyWeak(&var_80 + 0x20, &stack[-104]);
+            [r24 addObserverForName:*0x100e9c200 object:r19 queue:0x0 usingBlock:&var_80];
+            objc_destroyWeak(&var_80 + 0x20);
+            objc_destroyWeak(&stack[-104]);
+    }
+    [r21 release];
+    [r20 release];
+    [r19 release];
+    r0 = r22;
+    return r0;
+}
+
+-(void).cxx_destruct {
+    objc_storeStrong((int64_t *)&self->_observers, 0x0);
+    objc_destroyWeak((int64_t *)&self->_delegate);
+    objc_destroyWeak((int64_t *)&self->_croppingView);
+    return;
+}
+
+@end
