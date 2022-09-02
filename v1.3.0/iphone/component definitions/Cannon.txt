@@ -1,0 +1,5 @@
+component Cannon {
+	net uint32_t m_iFlags @notify;
+	net float m_fReloadTime = 15;
+	net float m_fBulletAngle = 0.0;
+}

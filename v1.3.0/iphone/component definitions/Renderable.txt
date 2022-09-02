@@ -1,0 +1,8 @@
+component Renderable {
+	net uint32_t m_iFlags @notify;
+	net uint32_t m_iFillColor @filter; // TODO: specialize
+	net uint32_t m_iStrokeColor; // TODO: specialize
+	net float m_fStrokeWidth @interp @floatPrecision(64);
+	net float m_fOpacity @interp = 1.0; // TODO: specialize
+	net uint32_t m_iRenderOrder;
+}

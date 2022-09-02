@@ -1,0 +1,17 @@
+component MapInfo {
+	net uint32_t m_iFlags;
+	net float m_fMapMinX;
+	net float m_fMapMinY;
+	net float m_fMapMaxX;
+	net float m_fMapMaxY;
+
+	net uint32_t m_iScoreboardLength;
+	net string   m_ScoreboardNames[SCOREBOARD_SIZE];
+	net float    m_fScoreboardScores[SCOREBOARD_SIZE] @floatPrecision(1);
+	net uint32_t m_ScoreboardColor[SCOREBOARD_SIZE];
+	net string   m_ScoreboardPostScores[SCOREBOARD_SIZE];
+	net int32_t  m_ScoreboardClass[SCOREBOARD_SIZE];
+
+	net float m_fLeaderX;
+	net float m_fLeaderY;
+}

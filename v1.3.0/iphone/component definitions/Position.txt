@@ -1,0 +1,6 @@
+component Position {
+	net float m_fX @hot @interp @smoothing() @floatPrecision(1);
+	net float m_fY @hot @interp @smoothing() @floatPrecision(1);
+	net float m_fRotation @hot @interp @interpMethod(angle) @floatPrecision(64);
+	net uint32_t m_iFlags;
+}

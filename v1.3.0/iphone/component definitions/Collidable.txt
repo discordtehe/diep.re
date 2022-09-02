@@ -1,0 +1,6 @@
+component Collidable {
+	net uint32_t m_iFlags;
+	net uint32_t m_nBBType;
+	net float m_Data1 @interp;
+	net float m_Data2 @interp;
+}

@@ -1,0 +1,5 @@
+component Destroyable {
+	net uint32_t m_iFlags;
+	net float m_fHealth @interp = 1.0;
+	net float m_fMaxHealth @interp = 1.0;
+}

@@ -1,0 +1,3 @@
+component Tank {
+	net float m_fScore @interp;
+}

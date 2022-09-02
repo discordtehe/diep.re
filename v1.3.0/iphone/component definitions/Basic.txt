@@ -1,0 +1,4 @@
+component Basic {
+	net EHandle m_hParent;
+	net EHandle m_hOwner;
+}

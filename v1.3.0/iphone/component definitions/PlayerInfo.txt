@@ -1,0 +1,24 @@
+component PlayerInfo {
+	net ClientID m_ClientID;
+	net uint32_t m_iFlags;
+	net EHandle m_hTank;
+	net float m_fZoom = 0.35;
+	net int32_t m_iLevel = 1;
+	net int32_t m_iClass;
+	net float m_fCurXP @notify;
+	net float m_fRequiredXP @notify;
+	net int32_t m_iClassAdvancementsAvailable;
+	net int32_t m_iPointsAvailable;
+	net string m_StatsNames[NUM_STATS];
+	net int32_t m_StatsLevels[NUM_STATS];
+	net int32_t m_StatsMaxLevels[NUM_STATS];
+	net float m_fCameraX;
+	net float m_fCameraY;
+	net float m_fScore @interp;
+	net int32_t m_iSpawnLevel = 1;
+	net string m_KillerName;
+	net int32_t m_iSpawnedAt;
+	net int32_t m_iDiedAt = -1;
+	net string m_OverridenClassName;
+	net float m_fSpeed = BASE_MOVE_SPEED;
+}
