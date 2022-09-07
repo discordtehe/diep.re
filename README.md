@@ -1,4 +1,4 @@
-# diep-investigations
+# diep.re
 tests, analyses, random stuff, etc about diep
 
 ## contents
