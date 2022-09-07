@@ -1,3 +1,7 @@
+# Info
+- header files generated using ktool (https://github.com/cxnder/ktool)
+- .m files generated using hopper
+
 # Libraries imported
 ```
 /usr/lib/libz.1.dylib
